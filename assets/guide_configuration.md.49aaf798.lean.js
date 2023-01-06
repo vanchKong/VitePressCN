@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,a as e}from"./app.e25b5def.js";const A=JSON.parse('{"title":"配置","description":"","frontmatter":{},"headers":[],"relativePath":"guide/configuration.md","lastUpdated":1672998325000}'),p={name:"guide/configuration.md"},o=e("",8),l=[o];function t(c,r,i,d,D,y){return a(),n("div",null,l)}const _=s(p,[["render",t]]);export{A as __pageData,_ as default};
