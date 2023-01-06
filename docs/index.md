@@ -2,7 +2,7 @@
 layout: home
 
 title: VitePress
-titleTemplate: Vite & Vue Powered Static Site Generator
+titleTemplate: Vite & Vue 驱动的静态站点生成器
 
 hero:
   name: VitePress
