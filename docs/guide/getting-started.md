@@ -1,11 +1,11 @@
 # 起步
 
-本节将帮助您从头开始构建一个基本的VitePress文档站点。如果您已经有一个现有的项目，并且希望将文档保存在项目中，请从步骤2开始。
+本节将帮助你从头开始构建一个基本的 VitePress 文档站点。如果你已有一个现有项目并希望在项目中保留文档，请从第 2 步开始。
 
-你也可以在[StackBlitz](https://vitepress.new/)上在线尝试VitePress。它直接在浏览器中运行基于vitepress的站点，因此它几乎与本地设置相同，但不需要在您的机器上安装任何东西。
+你也可以在 [StackBlitz](https://vitepress.new/) 上在线试用 VitePress。它直接在浏览器中运行基于 VitePress 的站点，因此它与本地设置几乎相同，不需要在你的计算机上安装任何东西。
 
 ::: warning 警告
-VitePress目前处于`alpha`状态。它已经适合开箱即用的文档使用，但是配置和主题API仍然可能在小版本之间发生变化。
+VitePress目前处于`alpha`状态。它已经适合开箱即用的文档使用，但是配置和主题API仍然可能在minor版本之间发生变化。
 :::
 
 ## 步骤. 1: 创建新项目
@@ -16,7 +16,7 @@ VitePress目前处于`alpha`状态。它已经适合开箱即用的文档使用�
 $ mkdir vitepress-starter && cd vitepress-starter
 ```
 
-然后，使用首选的包管理器进行初始化。
+然后，使用你喜欢的包管理器进行初始化。
 
 ```sh
 $ yarn init
@@ -30,8 +30,8 @@ $ yarn init
 $ yarn add --dev vitepress vue
 ```
 
-::: details 有缺少同伴依赖的警告?
-`@docsearch/js` 的对等依赖关系存在某些问题。如果您看到一些命令由于它们而失败，您可以尝试此解决方法
+::: details 有缺少peer deps的警告?
+`@docsearch/js` 的peer dependencies关系存在某些问题。如果你看到一些命令由于它们而失败，你可以尝试此解决方法
 
 如果你使用pnpm，将以下代码添加到 `package.json`:
 
@@ -75,7 +75,7 @@ $ mkdir docs && echo '# Hello VitePress' > docs/index.md
 $ yarn docs:dev
 ```
 
-VitePress将在以下位置启动热重载开发服务器 `http://localhost:5173`.
+VitePress将在 `http://localhost:5173` 启动热重载开发服务器.
 
 ## 步骤. 4: 添加更多页面
 
@@ -89,18 +89,18 @@ VitePress将在以下位置启动热重载开发服务器 `http://localhost:5173
 └─ package.json
 ```
 
-然后，尝试访问`http://localhost:5173/getting-started.html`，您应该会看到`getting-started.md`的内容。
+然后，尝试访问`http://localhost:5173/getting-started.html`，你应该会看到`getting-started.md`的内容。
 
-这就是VitePress的基本工作原理。目录结构与URL路径相对应。您添加文件，然后尝试访问它。
+这就是VitePress的基本工作方式。目录结构与URL路径相对应。你添加文件，然后尝试访问它。
 
 ## 接下来做什么?
 
-现在，您应该有一个基本但功能强大的VitePress文档站点。但目前，用户无法在网站上导航，因为它缺少例如我们在这个网站上的侧边栏菜单。
+现在，你应该有一个基本但功能强大的VitePress文档站点。但目前，用户无法在网站上导航，因为它缺少例如我们在这个网站上的侧边栏菜单。
 
 要启用这些导航，我们必须向站点添加一些配置。前往[配置指南](./configuration)，了解如何配置VitePress。
 
-如果您想了解更多关于在页面中可以做什么的信息，例如，编写markdown内容或使用Vue Component，请查看文档的“编写”部分。[Markdown guide](./markdown)将是一个很好的起点。
+如果你想了解更多关于在页面中可以做什么的信息，例如，编写markdown内容或使用Vue Component，请查看文档的“编写”部分。[Markdown guide](./markdown)将是一个很好的起点。
 
-If you want to know how to customize how the site looks (Theme), and find out the features VitePress's default theme provides, visit [Theme: Introduction](./theme-introduction).
+如果你想了解如何自定义网站外观（主题），并了解VitePress默认主题提供的功能，请访问[主题-简介](./theme-introduction)。
 
-When your documentation site starts to take shape, be sure to read the [deployment guide](./deploying).
+当你的文档站点开始成形时，请务必阅读[部署指南](./deploying)。

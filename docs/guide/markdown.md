@@ -1,20 +1,20 @@
-# Markdown Extensions
+# Markdown 扩展
 
-VitePress comes with built in Markdown Extensions.
+VitePress 带有内置的 Markdown 扩展。
 
-## Header Anchors
+## 标题锚点
 
-Headers automatically get anchor links applied. Rendering of anchors can be configured using the `markdown.anchor` option.
+标头自动应用锚点链接。可以使用 `markdown.anchor` 选项配置锚点的渲染。
 
-## Links
+## 链接
 
-Both internal and external links gets special treatments.
+内部和外部链接都得到特殊处理。
 
-### Internal Links
+### 内部链接
 
-Internal links are converted to router link for SPA navigation. Also, every `index.md` contained in each sub-directory will automatically be converted to `index.html`, with corresponding URL `/`.
+内部链接转换为 SPA 导航的路由器链接。此外，每个子目录中包含的每个 `index.md` 都会自动转换为 `index.html`，并带有相应的 URL `/`。
 
-For example, given the following directory structure:
+例如，给定以下目录结构：
 
 ```
 .
@@ -29,31 +29,31 @@ For example, given the following directory structure:
    └─ four.md
 ```
 
-And providing you are in `foo/one.md`:
+如果你在 `foo/one.md` 中：
 
 ```md
-[Home](/) <!-- sends the user to the root index.md -->
-[foo](/foo/) <!-- sends the user to index.html of directory foo -->
-[foo heading](./#heading) <!-- anchors user to a heading in the foo index file -->
-[bar - three](../bar/three) <!-- you can omit extension -->
-[bar - three](../bar/three.md) <!-- you can append .md -->
-[bar - four](../bar/four.html) <!-- or you can append .html -->
+[Home](/) <!-- 将用户导航到根 index.md -->
+[foo](/foo/) <!-- 将用户导航到目录 foo 的 index.html -->
+[foo heading](./#heading) <!-- 将用户锚定到 foo 索引文件中的标题 -->
+[bar - three](../bar/three) <!-- 你可以省略扩展名 -->
+[bar - three](../bar/three.md) <!-- 你可以追加 .md -->
+[bar - four](../bar/four.html) <!-- 或者你可以追加 .html -->
 ```
 
-### Page Suffix
+### 页面后缀
 
-Pages and internal links get generated with the `.html` suffix by default.
+默认情况下，生成的页面和内部链接带有 `.html` 后缀。
 
-### External Links
+### 外部链接
 
-Outbound links automatically get `target="_blank" rel="noreferrer"`:
+出站链接自动应用此属性 `target="_blank" rel="noreferrer"`：
 
 - [vuejs.org](https://vuejs.org)
 - [VitePress on GitHub](https://github.com/vuejs/vitepress)
 
 ## Frontmatter
 
-[YAML frontmatter](https://jekyllrb.com/docs/front-matter/) is supported out of the box:
+[YAML frontmatter](https://jekyllrb.com/docs/front-matter/) 是开箱即用的：
 
 ```yaml
 ---
@@ -569,11 +569,11 @@ You can also use a [VS Code region](https://code.visualstudio.com/docs/editor/co
 
 **Code file**
 
-<<< @/snippets/snippet-with-region.js
+<!-- <<< @/snippets/snippet-with-region.js -->
 
 **Output**
 
-<<< @/snippets/snippet-with-region.js#snippet{1}
+<!-- <<< @/snippets/snippet-with-region.js#snippet{1} -->
 
 You can also specify the language inside the braces (`{}`) like this:
 

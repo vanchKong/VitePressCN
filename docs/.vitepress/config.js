@@ -1,20 +1,21 @@
-
 const pkg = require('vitepress/package.json')
 export default {
-  // 网站标题，左上角以及meta标题
+	base: '/',
+	lang: 'zh-CN',
+	// 网站标题，左上角以及meta标题
 	title: 'VitePress',
-	description: 'Vite & Vue powered static site generator.',
-  head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
-  cleanUrls: 'without-subfolders',
-  // 上一页下一页文本
+	description: 'Vite & Vue 驱动的静态站点生成器',
+	head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
+	cleanUrls: 'without-subfolders',
+	// 上一页下一页文本
 	prev: '上一页',
 	next: '下一页',
-  // 最后更新于 开关
-  lastUpdated: true,
-  // 主题配置
+	// 最后更新于 开关
+	lastUpdated: true,
+	// 主题配置
 	themeConfig: {
-    toc: '本页目录',
-    returnToTop: '返回顶部',
+		toc: '本页目录',
+		returnToTop: '返回顶部',
 		logo: '/vue.svg',
 		// siteTitle: 'My Custom Title',
 		// 顶部导航nav
@@ -22,7 +23,7 @@ export default {
 			{ text: '指引', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
 			{ text: '配置', link: '/config/introduction', activeMatch: '/config/' },
 			{
-        text: pkg.version,
+				text: pkg.version,
 				items: [
 					// { text: 'itemA', link: '/item-1' },
 					{ text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
@@ -45,12 +46,28 @@ export default {
 			// ]
 			'/guide/': [
 				{
+					// 主标题
 					text: '介绍',
+					// 是否可收起
+					collapsible: true,
 					items: [
-						{ text: '什么是VitePress', link: '/guide/what-is-vitepress' },
+						// 副标题以及链接
+						{ text: '什么是VitePress？', link: '/guide/what-is-vitepress' },
 						{ text: '起步', link: '/guide/getting-started' },
-            { text: '配置', link: '/guide/configuration' },
-            { text: 'Markdown', link: '/guide/markdown' },
+						{ text: '配置', link: '/guide/configuration' },
+						{ text: '部署', link: '/guide/deploying' },
+						{ text: '总结', link: '/guide/summary' },
+					],
+				},
+				{
+					text: '编写',
+					collapsible: true,
+					items: [
+						{ text: 'Markdown', link: '/guide/markdown' },
+						{ text: '静态资源处理', link: '/guide/asset-handling' },
+						{ text: 'Frontmatter', link: '/guide/frontmatter' },
+						{ text: 'Using Vue in Markdown', link: '/guide/using-vue' },
+						{ text: 'API Reference', link: '/guide/api' },
 					],
 				},
 			],
@@ -88,9 +105,9 @@ export default {
 		// 	message: 'Released under the MIT License.',
 		// 	copyright: 'Copyright © 2019-present Evan You',
 		// },
-		carbonAds: {
-			code: 'CEBDT27Y',
-			placement: 'vuejsorg',
-		},
+		// carbonAds: {
+		// 	code: 'CEBDT27Y',
+		// 	placement: 'vuejsorg',
+		// },
 	},
 }

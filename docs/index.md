@@ -7,7 +7,7 @@ titleTemplate: Vite & Vue Powered Static Site Generator
 hero:
   name: VitePress
   text: Vite & Vue 驱动的静态站点生成器
-  tagline: 简单, 强大, 高性能。满足您对现代SSG框架的所有想象。
+  tagline: 简单, 强大, 高性能。满足你对现代SSG框架的所有想象。
   actions:
     - theme: brand
       text: 起步

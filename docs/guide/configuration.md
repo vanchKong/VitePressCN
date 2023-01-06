@@ -1,6 +1,6 @@
-# Configuration
+# 配置
 
-Without any configuration, the page is pretty minimal, and the user has no way to navigate around the site. To customize your site, let's first create a `.vitepress` directory inside your docs directory. This is where all VitePress-specific files will be placed. Your project structure is probably like this:
+在没有任何配置的情况下，页面非常小，用户无法在站点中导航。为了自定义你的网站，让我们首先在docs目录中创建一个`.vitepress`目录。这是所有vitepress特定文件将放置的地方。你的项目结构可能是这样的:
 
 ```
 .
@@ -11,7 +11,7 @@ Without any configuration, the page is pretty minimal, and the user has no way t
 └─ package.json
 ```
 
-The essential file for configuring a VitePress site is `.vitepress/config.js`, which should export a JavaScript object:
+配置VitePress站点的必不可少的文件是`.VitePress/config.js`，它应该导出一个JavaScript对象：
 
 ```js
 export default {
@@ -20,8 +20,8 @@ export default {
 }
 ```
 
-In the above example, the site will have the title of `VitePress`, and `Just playing around.` as the description meta tag.
+在上面的示例中，该站点的标题为`VitePress`，和`Just playing around.`作为描述元标签。
 
-Learn everything about VitePress features at [Theme: Introduction](./theme-introduction) to find how to configure specific features within this config file.
+在[主题-简介](./theme-introduction)中了解有关VitePress功能的所有信息，了解如何在此配置文件中配置特定功能。
 
-You may also find all configuration references at [Configs](../config/introduction).
+你还可以在[配置](../config/introduction)中找到所有配置参考。
