@@ -3,8 +3,8 @@
 以下指南基于一些共识：
 
 - 你将文档放在项目的目录`docs`中。
-- 你使用的是默认构建输出位置 ()`.vitepress/dist`。
-- VitePress 作为本地依赖项安装在项目中，并且你已在 `package.json`构建了以下命令
+- 你使用的是默认构建输出位置 (`.vitepress/dist`)。
+- VitePress 作为本地依赖项安装在项目中，并且你已在 `package.json`中设置了以下脚本：
 
   ```json
   {
@@ -17,7 +17,7 @@
 
 ::: tip 提示
 
-如果要在子目录 （） 中提供站点，则必须在 (`https://example.com/subdir/`), then you have to set `'/subdir/'` as the [`base`](../config/app-configs#base) in your `docs/.vitepress/config.js`.
+如果要在子目录 （`https://example.com/subdir/`） 中提供站点，则必须在 (`docs/.vitepress/config.js`)中, 将[`base`](../config/app-configs#base)设置为 `'/subdir/'`。
 
 **例:** 如果你使用的是 Github（或 GitLab）页面并部署到 `user.github.io/repo/`，请将你的 `base` 设置为 `/repo/`.
 
@@ -53,21 +53,21 @@
 
 ## Netlify, Vercel, AWS Amplify, Cloudflare Pages, Render
 
-设置一个新项目并使用仪表板更改这些设置：
+设置一个新项目并使用 dashboard 更改这些设置：
 
 - **构建命令：** `yarn docs:build`
 - **输出目录：** `docs/.vitepress/dist`
 - **Node 版本：** `14` (或者更高，默认情况下，它通常是14或16, 但是在Cloudflare Pages Node版本还处在12，所以你可能要[更改它](https://developers.cloudflare.com/pages/platform/build-configuration/))
 
 ::: warning 警告
-不要为HTML代码启用Auto Minify等选项。它将从输出中删除对Vue有意义的注释。如果移除它们，你可能会看到水合不匹配错误。
+不要为 HTML 代码启用 Auto Minify 等选项。它将从输出中删除对 Vue 有意义的注释。如果移除它们，你可能会收到 hydration mismatch 错误。
 :::
 
 ## GitHub Pages
 
 ### 使用 GitHub Actions
 
-1. 在你的主题配置文件中, `docs/.vitepress/config.js`, 设置 `base`为GitHub仓库的名称。如果你打算把站点部署到 `https://foo.github.io/bar/`，那你就需要把 `base` 设置为 `'/bar/'`。它始终以 `/` 开头结尾。
+1. 在你的主题配置文件中, `docs/.vitepress/config.js`, 设置 `base` 为GitHub仓库的名称。如果你打算把站点部署到 `https://foo.github.io/bar/`，那你就需要把 `base` 设置为 `'/bar/'`。它始终以 `/` 开头结尾。
 
 2. 在项目目录 `.github/workflows` 下创建一个名为 `deploy.yml` 的文件，包含以下内容：
 
@@ -103,15 +103,15 @@
              # cname: example.com # if wanna deploy to custom domain
    ```
 
-   ::: tip
-   Please replace the corresponding branch name. For example, if the branch you want to build is `master`, then you should replace `main` with `master` in the above file.
+   ::: tip 提示
+   请替换相应的分支名称。比如你要建的分支是 `master` ，那么你要把上面文件中的 `main` 换成 `master`。
    :::
 
-3. Now commit your code and push it to the `main` branch.
+3. 现在提交您的代码并将其推送到 `main` 分支。
 
-4. Wait for actions to complete.
+4. 等待 Actions 完成。
 
-5. In your repository's Settings under Pages menu item, select `gh-pages` branch as GitHub Pages source. Now your docs will automatically deploy each time you push.
+5. 在页面菜单项下的仓库设置中，选择 `gh-pages` 分支作为 GitHub 页面源。现在，您的文档将在您每次推送时自动部署。
 
 ## GitLab Pages
 

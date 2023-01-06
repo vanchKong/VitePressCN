@@ -11,7 +11,7 @@
 └─ package.json
 ```
 
-配置VitePress站点的必不可少的文件是`.VitePress/config.js`，它应该导出一个JavaScript对象：
+配置VitePress站点的基本文件是`.VitePress/config.js`，它应该导出一个JavaScript对象：
 
 ```js
 export default {
@@ -20,8 +20,8 @@ export default {
 }
 ```
 
-在上面的示例中，该站点的标题为`VitePress`，和`Just playing around.`作为描述元标签。
+在上面的示例中，该站点的标题为`VitePress`，和`Just playing around.`作为描述元标记。
 
-在[主题-简介](./theme-introduction)中了解有关VitePress功能的所有信息，了解如何在此配置文件中配置特定功能。
+在[主题-介绍](./theme-introduction)中了解有关 VitePress 功能的所有信息，了解如何在此配置文件中配置特定功能。
 
 你还可以在[配置](../config/introduction)中找到所有配置参考。

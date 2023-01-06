@@ -95,12 +95,12 @@ VitePress将在 `http://localhost:5173` 启动热重载开发服务器.
 
 ## 接下来做什么?
 
-现在，你应该有一个基本但功能强大的VitePress文档站点。但目前，用户无法在网站上导航，因为它缺少例如我们在这个网站上的侧边栏菜单。
+现在，你应该有一个基本但功能强大的 VitePress 文档站点。但目前，用户无法在网站上导航，因为它缺少例如我们在这个网站上的侧边栏菜单。
 
-要启用这些导航，我们必须向站点添加一些配置。前往[配置指南](./configuration)，了解如何配置VitePress。
+要启用这些导航，我们必须向站点添加一些配置。前往[配置指南](./configuration)，了解如何配置 VitePress。
 
-如果你想了解更多关于在页面中可以做什么的信息，例如，编写markdown内容或使用Vue Component，请查看文档的“编写”部分。[Markdown guide](./markdown)将是一个很好的起点。
+如果您想了解更多关于您可以在页面中执行的操作，例如，编写 Markdown内容或使用 Vue Component，请查看文档的“编写”部分。[Markdown 指南](./markdown)将是一个很好的起点。
 
-如果你想了解如何自定义网站外观（主题），并了解VitePress默认主题提供的功能，请访问[主题-简介](./theme-introduction)。
+如果你想了解如何自定义网站外观（主题），并了解VitePress默认主题提供的功能，请访问[主题-介绍](./theme-introduction)。
 
 当你的文档站点开始成形时，请务必阅读[部署指南](./deploying)。
