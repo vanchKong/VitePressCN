@@ -10,7 +10,7 @@ export default {
 	ignoreDeadLinks: false,
 	// 最后更新于 开关
 	lastUpdated: true,
-	head: [['link', { rel: 'icon', href: '/logo.svg' }]],
+	head: [['link', { rel: 'icon', href: '/VitePressCN/logo.svg' }]],
 	// 主题配置
 	themeConfig: {
 		outlineTitle: '当前页',
