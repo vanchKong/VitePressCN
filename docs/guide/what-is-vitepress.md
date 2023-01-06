@@ -5,7 +5,7 @@ lastUpdated: false
 # 什么是VitePress？
 VitePress 是 [VuePress](https://vuepress.vuejs.org/) 的小弟，建立在 [Vite](https://vitejs.dev/) 之上。
 ::: warning 警告⚠️
-VitePress 目前处于 `alpha` 状态。它已经适合开箱即用的文档使用，但配置和主题 API 可能仍会在次要版本之间发生变化。
+VitePress 目前处于 `alpha` 状态。它已经适合开箱即用的文档使用，但配置和主题 API 可能仍会在minor版本之间发生变化。
 :::
 
 ## 为什么要做VitePress

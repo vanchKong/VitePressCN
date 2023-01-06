@@ -14,7 +14,10 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: 在 GitHub 上浏览
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/vuejs/vitepressCN
+    - theme: alt
+      text: 浏览原文档
+      link: https://vitepress.vuejs.org
 
 features:
   - title: "Vite: The DX that can't be beat"

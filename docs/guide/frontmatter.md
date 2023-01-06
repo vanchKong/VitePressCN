@@ -1,6 +1,10 @@
-# Frontmatter
+---
+title: Frontmatter
+editLink: true
+---
+# {{ $frontmatter.title }}
 
-Any Markdown file that contains a YAML frontmatter block will be processed by [gray-matter](https://github.com/jonschlinkert/gray-matter). The frontmatter must be at the top of the Markdown file, and must take the form of valid YAML set between triple-dashed lines. Example:
+任何包含 YAML frontmatter 块的 Markdown 文件都将由 [gray-matter](https://github.com/jonschlinkert/gray-matter) 处理。 frontmatter 必须位于 Markdown 文件的顶部，并且必须采用在三重虚线之间设置的有效 YAML 形式。例子：
 
 ```md
 ---
@@ -9,9 +13,9 @@ editLink: true
 ---
 ```
 
-Between the triple-dashed lines, you can set [predefined variables](../config/frontmatter-configs), or even create custom ones of your own. These variables can be used via the special <code>$frontmatter</code> variable.
+在三重虚线之间，您可以设置预定义变量，甚至可以创建您自己的自定义变量。这些变量可以通过特殊的 `$frontmatter` 变量使用。
 
-Here's an example of how you could use it in your Markdown file:
+以下是如何在 Markdown 文件中使用它的示例：
 
 ```md
 ---
@@ -24,9 +28,9 @@ editLink: true
 Guide content
 ```
 
-## Alternative Frontmatter Formats
+## 可供选择的 Frontmatter 格式
 
-VitePress also supports JSON frontmatter syntax, starting and ending in curly braces:
+VitePress 还支持 JSON frontmatter 语法，以花括号开头和结尾：
 
 ```json
 ---

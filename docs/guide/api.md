@@ -1,4 +1,4 @@
-# API Reference
+# API 参考
 
 VitePress offers several built in API to let you access app data. VitePress also comes with few built-in component that can be used globally.
 

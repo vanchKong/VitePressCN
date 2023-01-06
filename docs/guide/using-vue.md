@@ -1,44 +1,44 @@
-# Using Vue in Markdown
+# 在 Markdown 中使用 Vue
 
-In VitePress, each markdown file is compiled into HTML and then processed as a Vue Single-File Component. This means you can use any Vue features inside the markdown, including dynamic templating, using Vue components, or arbitrary in-page Vue component logic by adding a `<script>` tag.
+在 VitePress 中，每个 markdown 文件都被编译成 HTML，然后作为 Vue 单文件组件处理。这意味着您可以在 markdown 中使用任何 Vue 功能，包括动态模板、使用 Vue 组件或通过添加 `<script>` 标签使用任意页面内 Vue 组件逻辑。
 
-It is also important to know that VitePress leverages Vue 3's compiler to automatically detect and optimize the purely static parts of the markdown. Static contents are optimized into single placeholder nodes and eliminated from the page's JavaScript payload. They are also skipped during client-side hydration. In short, you only pay for the dynamic parts on any given page.
+同样重要的是 `VitePress` 利用 `Vue 3` 的编译器来自动检测和优化 markdown 的纯静态部分。静态内容被优化为单个占位节点，并排除页面中的 JavaScript 负载。在客户端 hydration 期间也会跳过它们。简而言之，您只需为页面上的动态部分付出性能。
 
-## Templating
+## 模板化
 
-### Interpolation
+### 插值
 
-Each Markdown file is first compiled into HTML and then passed on as a Vue component to the Vite process pipeline. This means you can use Vue-style interpolation in text:
+每个 Markdown 文件首先被编译成 HTML，然后作为 Vue 组件传递给 Vite 进程。这意味着您可以在文本中使用 Vue-style 的插值：
 
-**Input**
+**输入**
 
 ```md
 {{ 1 + 1 }}
 ```
 
-**Output**
+**输出**
 
 <div class="language-text"><pre><code>{{ 1 + 1 }}</code></pre></div>
 
-### Directives
+### 指令
 
-Directives also work:
+指令同样能够运行：
 
-**Input**
+**输入**
 
 ```html
 <span v-for="i in 3">{{ i }}</span>
 ```
 
-**Output**
+**输出**
 
 <div class="language-text"><pre><code><span v-for="i in 3">{{ i }} </span></code></pre></div>
 
-### Access to Site & Page Data
+### 访问站点和页面数据
 
-You can use the [`useData` helper](./api#usedata) in a `<script>` block and expose the data to the page.
+您可以在 `<script>` 块中使用 [`useData` helper](./api#usedata) 将数据暴露到页面。
 
-**Input**
+**输入**
 
 ```html
 <script setup>
@@ -50,7 +50,7 @@ const { page } = useData()
 <pre>{{ page }}</pre>
 ```
 
-**Output**
+**输出**
 
 ```json
 {
@@ -60,31 +60,31 @@ const { page } = useData()
 }
 ```
 
-## Escaping
+## 忽略
 
-By default, fenced code blocks are automatically wrapped with `v-pre`, unless you have set some language with `-vue` suffix like `js-vue` (in that case you can use Vue-style interpolation inside fences). To display raw mustaches or Vue-specific syntax inside inline code snippets or plain text, you need to wrap a paragraph with the `v-pre` custom container:
+默认情况下，插值代码块 会自动用 `v-pre` 包装，除非你设置了一些带有 `-vue` 后缀的语言，比如 `js-vue`（在这种情况下你可以在 `插值表达式` 内使用 Vue 风格的插值）。要在内联代码片段或纯文本中显示原始插值表达式或特定于 Vue 的语法，您需要使用 v-pre 自定义容器包装一个段落：
 
 **Input**
 
 ```md
 ::: v-pre
-`{{ This will be displayed as-is }}`
+`{{ 这将按原样显示 }}`
 :::
 ```
 
 **Output**
 
 ::: v-pre
-`{{ This will be displayed as-is }}`
+`{{ 这将按原样显示 }}`
 :::
 
-## Using Components
+## 使用组件
 
-When you need to have more flexibility, VitePress allows you to extend your authoring toolbox with your own Vue Components.
+当您需要更大的灵活性时，VitePress 允许您使用自己的 Vue 组件扩展您 coding 的工具箱。
 
-### Importing components in markdown
+### 在 Markdown 中导入组件
 
-If your components are going to be used in only a few places, the recommended way to use them is to importing the components in the file where it is used.
+如果您的组件将只在少数几个地方使用，那么推荐的使用方式是在使用它的文件中导入组件。
 
 ```md
 <script setup>
@@ -102,11 +102,11 @@ This is a .md using a custom component
 ...
 ```
 
-### Registering global components in the theme
+### 在 theme 中注册全局组件
 
-If the components are going to be used across several pages in the docs, they can be registered globally in the theme (or as part of extending the default VitePress theme). Check out the [Theming Guide](./theme-introduction) for more information.
+如果组件将在文档的多个页面中使用，则可以在theme中全局注册它们（或作为一部分扩展 VitePress 默认的 theme）。查看[主题指南](./theme-introduction)了解更多信息。
 
-In `.vitepress/theme/index.js`, the `enhanceApp` function receives the Vue `app` instance so you can [register components](https://vuejs.org/guide/components/registration.html) as you would do in a regular Vue application.
+在 `.vitepress/theme/index.js` 中，`enhanceApp` 函数接收 Vue `app` 实例，因此您可以像在常规 Vue 应用程序中一样[注册组件](https://vuejs.org/guide/components/registration.html)。
 
 ```js
 import DefaultTheme from 'vitepress/theme'

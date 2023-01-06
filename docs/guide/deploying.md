@@ -117,9 +117,9 @@
 
 ### Using GitLab CI
 
-1. Set `outDir` in `docs/.vitepress/config.js` to `../public`.
+1. 将 `docs/.vitepress/config.js` 中的 `outDir` 设置为 `../public`。
 
-2. Create a file called `.gitlab-ci.yml` in the root of your project with the content below. This will build and deploy your site whenever you make changes to your content:
+2. 使用以下内容在项目的根目录中创建一个名为 `.gitlab-ci.yml` 的文件。每当您更改内容时，这将构建和部署您的站点：
 
    ```yaml
    image: node:16
@@ -139,9 +139,9 @@
 
 ## Azure Static Web Apps
 
-1. Follow the [official documentation](https://docs.microsoft.com/en-us/azure/static-web-apps/build-configuration).
+1. 遵循[官方文档](https://docs.microsoft.com/en-us/azure/static-web-apps/build-configuration)。
 
-2. Set these values in your configuration file (and remove the ones you don't require, like `api_location`):
+2. 在配置文件中设置这些值（并删除不需要的值，如 `api_location`）：
 
    - **`app_location`**: `/`
    - **`output_location`**: `docs/.vitepress/dist`
@@ -149,7 +149,7 @@
 
 ## Firebase
 
-1. Create `firebase.json` and `.firebaserc` at the root of your project:
+1. 在项目的根目录下创建 `firebase.json` 和 `.firebaserc`：
 
    `firebase.json`:
 
@@ -172,7 +172,7 @@
    }
    ```
 
-2. After running `yarn docs:build`, run this command to deploy:
+2. 运行 `yarn docs:build` 后，运行此命令进行部署：
 
    ```sh
    firebase deploy
@@ -180,7 +180,7 @@
 
 ## Surge
 
-1. After running `yarn docs:build`, run this command to deploy:
+1. 运行 `yarn docs:build` 后，运行此命令进行部署：
 
    ```sh
    npx surge docs/.vitepress/dist
@@ -188,9 +188,9 @@
 
 ## Heroku
 
-1. Follow documentation and guide given in [`heroku-buildpack-static`](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-static).
+1. 遵循 [`heroku-buildpack-static`](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-static) 中给出的文档和指南。
 
-2. Create a file called `static.json` in the root of your project with the below content:
+2. 使用以下内容在项目的根目录中创建一个名为 `static.json` 的文件：
 
    ```json
    {
@@ -200,4 +200,4 @@
 
 ## Layer0
 
-Refer [Creating and Deploying a VitePress App with Layer0](https://docs.layer0.co/guides/vitepress).
+请参阅[使用 Layer0 创建和部署 VitePress 应用程序](https://docs.layer0.co/guides/vitepress)。
