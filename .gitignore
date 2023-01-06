@@ -7,4 +7,3 @@ docs/.vitepress/cache/deps/vue.js.map
 
 .DS_Store
 node_modules
-yarn.lock
