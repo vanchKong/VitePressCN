@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,a as e}from"./app.1f872c6b.js";const C=JSON.parse('{"title":"Edit Link","description":"","frontmatter":{},"headers":[],"relativePath":"guide/theme-edit-link.md","lastUpdated":null}'),p={name:"guide/theme-edit-link.md"},l=e("",6),t=[l];function o(c,i,r,D,y,d){return a(),n("div",null,t)}const A=s(p,[["render",o]]);export{C as __pageData,A as default};
