@@ -21,7 +21,7 @@
 
 有一个例外：如果您有一个 `public` 目录中的 HTML 页面并从主站点链接到它，默认情况下路由器将产生 404。为了解决这个问题，VitePress 提供了一个 `pathname://` 协议，它允许你链接到同一域中的另一个页面，就好像链接是外部链接一样。对比这两个链接：
 
-- [/pure.html](/VitePressCN/pure.html)
+- [/pure.html](/pure.html)
 - <pathname:///VitePressCN/pure.html>
 
 ## Base URL
