@@ -1,6 +1,6 @@
 const pkg = require('vitepress/package.json')
 export default {
-	base: '/',
+	base: '/VitePressCN/',
 	lang: 'zh-CN',
 	// 网站标题，左上角以及meta标题
 	title: 'VitePress',
