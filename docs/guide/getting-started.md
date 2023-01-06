@@ -99,7 +99,7 @@ VitePress将在 `http://localhost:5173` 启动热重载开发服务器.
 
 要启用这些导航，我们必须向站点添加一些配置。前往[配置指南](./configuration)，了解如何配置 VitePress。
 
-如果您想了解更多关于您可以在页面中执行的操作，例如，编写 Markdown内容或使用 Vue Component，请查看文档的“编写”部分。[Markdown 指南](./markdown)将是一个很好的起点。
+如果你想了解更多关于你可以在页面中执行的操作，例如，编写 Markdown内容或使用 Vue Component，请查看文档的“编写”部分。[Markdown 指南](./markdown)将是一个很好的起点。
 
 如果你想了解如何自定义网站外观（主题），并了解VitePress默认主题提供的功能，请访问[主题-介绍](./theme-introduction)。
 

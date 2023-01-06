@@ -1,3 +1,4 @@
+
 # Prev Next Link
 
 You can customize the text of previous and next links. This is helpful if you want to show different text on previous/next links than what you have on your sidebar.

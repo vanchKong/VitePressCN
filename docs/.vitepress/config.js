@@ -7,17 +7,22 @@ export default {
 	description: 'Vite & Vue 驱动的静态站点生成器',
 	head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
 	cleanUrls: 'without-subfolders',
-	// 上一页下一页文本
-	prev: '上一页',
-	next: '下一页',
+	// 是否忽略死链
+	ignoreDeadLinks: false,
 	// 最后更新于 开关
 	lastUpdated: true,
 	// 主题配置
 	themeConfig: {
-		toc: '本页目录',
+		outlineTitle: '当前页',
 		returnToTop: '返回顶部',
 		logo: '/vue.svg',
+		lastUpdatedText: '最近更新时间',
 		// siteTitle: 'My Custom Title',
+		// 上一页下一页文本
+		docFooter: {
+			prev: '上一页',
+			next: '下一页',
+		},
 		// 顶部导航nav
 		nav: [
 			{ text: '指引', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
@@ -74,18 +79,18 @@ export default {
 					text: 'Theme',
 					collapsible: true,
 					items: [
-						{ text: 'Introduction', link: '/guide/theme-introduction' },
-						{ text: 'Nav', link: '/guide/theme-nav' },
-						{ text: 'Sidebar', link: '/guide/theme-sidebar' },
-						{ text: 'Prev Next Link', link: '/guide/theme-prev-next-link' },
-						{ text: 'Edit Link', link: '/guide/theme-edit-link' },
-						{ text: 'Last Updated', link: '/guide/theme-last-updated' },
-						{ text: 'Layout', link: '/guide/theme-layout' },
-						{ text: 'Home Page', link: '/guide/theme-home-page' },
-						{ text: 'Team Page', link: '/guide/theme-team-page' },
-						{ text: 'Badge', link: '/guide/theme-badge' },
-						{ text: 'Footer', link: '/guide/theme-footer' },
-						{ text: 'Search', link: '/guide/theme-search' },
+						{ text: '介绍', link: '/guide/theme-introduction' },
+						{ text: '顶部导航', link: '/guide/theme-nav' },
+						{ text: '侧边栏', link: '/guide/theme-sidebar' },
+						{ text: '上下页文本', link: '/guide/theme-prev-next-link' },
+						{ text: '编辑链接', link: '/guide/theme-edit-link' },
+						{ text: '最近更新时间', link: '/guide/theme-last-updated' },
+						{ text: '布局', link: '/guide/theme-layout' },
+						{ text: '主页', link: '/guide/theme-home-page' },
+						{ text: '团队', link: '/guide/theme-team-page' },
+						{ text: '徽标', link: '/guide/theme-badge' },
+						{ text: '页脚', link: '/guide/theme-footer' },
+						{ text: '搜索', link: '/guide/theme-search' },
 						{ text: 'Carbon Ads', link: '/guide/theme-carbon-ads' },
 					],
 				},
