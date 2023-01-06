@@ -5,18 +5,17 @@ export default {
 	// 网站标题，左上角以及meta标题
 	title: 'VitePress',
 	description: 'Vite & Vue 驱动的静态站点生成器',
-	head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
 	cleanUrls: 'without-subfolders',
 	// 是否忽略死链
 	ignoreDeadLinks: false,
 	// 最后更新于 开关
 	lastUpdated: true,
-	head: [['link', { rel: 'icon', href: '/vue.svg' }]],
+	head: [['link', { rel: 'icon', href: '/logo.svg' }]],
 	// 主题配置
 	themeConfig: {
 		outlineTitle: '当前页',
 		returnToTop: '返回顶部',
-		logo: '/vue.svg',
+		logo: '/logo.svg',
 		lastUpdatedText: '最近更新时间',
 		// siteTitle: 'My Custom Title',
 		// 上一页下一页文本
