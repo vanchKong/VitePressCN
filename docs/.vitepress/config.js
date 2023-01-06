@@ -85,7 +85,7 @@ export default {
 		},
 		// 社交媒体跳转
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+			{ icon: 'github', link: 'https://github.com/vanchKong/VitePressCN' },
 			// { icon: 'twitter', link: '...' },
 			// 还可以自定义icon
 			// {
@@ -98,7 +98,7 @@ export default {
 		// 每个页面页脚的编辑此页  :path  为当前路由
 		editLink: {
 			text: '在GitHub上编辑此页',
-			pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+			pattern: 'https://github.com/vanchKong/VitePressCN/edit/main/docs/:path',
 		},
 
 		// footer: {
