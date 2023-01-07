@@ -17,7 +17,7 @@ layout: doc
 
 它还提供下面列出的文档特定功能。这些功能仅在此布局中启用。
 
-- [编辑链接](.theme-edit-link)
+- [编辑链接](./theme-edit-link)
 - [上下页文本](./theme-prev-next-link)
 - [提纲](/config/theme-configs#outline) 
 - [Carbon Ads](./theme-carbon-ads)
