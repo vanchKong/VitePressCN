@@ -3,7 +3,7 @@ export default {
 	base: '/VitePressCN/',
 	lang: 'zh-CN',
 	// 网站标题，左上角以及meta标题
-	title: 'VitePress',
+	title: 'VitePressCN',
 	description: 'Vite & Vue 驱动的静态站点生成器',
 	cleanUrls: 'without-subfolders',
 	// 是否忽略死链
