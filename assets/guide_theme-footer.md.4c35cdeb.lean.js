@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,a as l}from"./app.1352c6c7.js";const b=JSON.parse('{"title":"Footer","description":"","frontmatter":{},"headers":[],"relativePath":"guide/theme-footer.md","lastUpdated":1673010044000}'),e={name:"guide/theme-footer.md"},p=l("",7),o=[p];function t(r,c,i,D,y,F){return n(),a("div",null,o)}const u=s(e,[["render",t]]);export{b as __pageData,u as default};
