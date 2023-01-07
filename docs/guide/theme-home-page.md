@@ -1,6 +1,6 @@
-# Home Page
+# 主页 {#home-page}
 
-VitePress default theme provides a homepage layout, which you can also see used on [the homepage of this site](../). You may use it on any of your pages by specifying `layout: home` in the [frontmatter](./frontmatter).
+VitePress 默认主题提供了一个首页布局，你也可以在[此网站首页](../)看到。你可以通过[frontmatter](./frontmatter)指定 `layout: home` 在任何页面上使用它
 
 ```yaml
 ---
@@ -8,11 +8,11 @@ layout: home
 ---
 ```
 
-However, this option alone wouldn't do much. You can add several different pre templated "sections" to the homepage by setting additional other options such as `hero` and `features`.
+但是，仅此选项不会有太大作用。你可以通过设置其他选项（例如 `hero` 和 `features`）向主页添加几个不同的预模板化。
 
 ## Hero Section
 
-The Hero section comes at the top of the homepage. Here's how you can configure the Hero section.
+Hero section 位于主页顶部。以下是配置 Hero 的方法。
 
 ```yaml
 ---
@@ -72,9 +72,9 @@ interface HeroAction {
 }
 ```
 
-### Customizing the name color
+### 自定义 name 的颜色 {#customizing-the-name-color}
 
-VitePress uses the brand color (`--vp-c-brand`) for the `name`. However, you may customize this color by overriding `--vp-home-hero-name-color` variable.
+VitePress 通过 (`--vp-c-brand`) 设置 `name` 的颜色 .但是，你可以通过覆盖 `--vp-home-hero-name-color` 变量来自定义此颜色。
 
 ```css
 :root {
@@ -82,7 +82,7 @@ VitePress uses the brand color (`--vp-c-brand`) for the `name`. However, you may
 }
 ```
 
-Also you may customize it further by combining `--vp-home-hero-name-background` to give the `name` gradient color.
+你也可以通过组合 `--vp-home-hero-name-background` 来进一步自定义 `name` 为渐变色。
 
 ```css
 :root {
@@ -93,9 +93,9 @@ Also you may customize it further by combining `--vp-home-hero-name-background` 
 
 ## Features Section
 
-In Features section, you can list any number of features you would like to show right after the Hero section. To configure it, pass `features` option to the frontmatter.
+在 Features section， 你可以在 Hero section 之后列出任意数量的 Features。可以在 frontmatter 中配置  `features`。
 
-You can provide an icon for each feature, which can be an emoji or any type of image. When the configured icon is an image (svg, png, jpeg...), you must provide the icon with the proper width and height; you can also provide the description, its intrinsic size as well as its variants for dark and light theme when required.
+你可以为每个 feature 提供一个图标，可以是表情符号或任何类型的图像。当配置的图标是图片（svg, png, jpeg...）时，必须提供合适的宽度和高度的图标；你还可以在需要时配置其描述、固有大小以及深色和浅色主题下的不同表现。
 
 ```yaml
 ---

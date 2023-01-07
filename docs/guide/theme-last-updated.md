@@ -22,11 +22,11 @@ lastUpdated: false
 ---
 ```
 
-<script setup>
+<!-- <script setup>
 import { useData } from 'vitepress'
 
 const { page } = useData()
 </script>
 
-<pre>{{ page }}</pre>
+<pre>{{ page }}</pre> -->
 

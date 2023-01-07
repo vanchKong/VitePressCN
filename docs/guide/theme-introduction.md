@@ -19,7 +19,7 @@ VitePress 带有它的默认主题，提供了许多开箱即用的功能。在�
 
 ## 使用自定义 theme {#Using-a-Custom-Theme}
 
-您可以通过添加 `.vitepress/theme/index.js `或 `.vitepress/theme/index.ts` 文件（“主题入口文件”）启用自定义 theme。
+你可以通过添加 `.vitepress/theme/index.js `或 `.vitepress/theme/index.ts` 文件（“主题入口文件”）启用自定义 theme。
 
 ```
 .
@@ -87,7 +87,7 @@ export default {
 </template>
 ```
 
-默认导出是自定义 theme 的唯一要求。在您的自定义 theme 中，它就像普通的 Vite + Vue 3 应用程序一样运行。请注意，theme 还需要与 [SSR 兼容](./using-vue#browser-api-access-restrictions)。
+默认导出是自定义 theme 的唯一要求。在你的自定义 theme 中，它就像普通的 Vite + Vue 3 应用程序一样运行。请注意，theme 还需要与 [SSR 兼容](./using-vue#browser-api-access-restrictions)。
 
 ::: details 要分发 theme，只需导出包入口中的对象即可。要使用外部主题，请从自定义 theme 入口文件中导入并重新导出它：
 To distribute a theme, simply export the object in your package entry. To consume an external theme, import and re-export it from the custom theme entry:
@@ -122,7 +122,7 @@ export default {
 }
 ```
 
-由于我们使用的是 Vite，您还可以利用 Vite 的 [全局引入](https://cn.vitejs.dev/guide/features.html#glob-import) 自动注册组件目录。
+由于我们使用的是 Vite，你还可以利用 Vite 的 [全局引入](https://cn.vitejs.dev/guide/features.html#glob-import) 自动注册组件目录。
 
 ### 自定义 CSS {#customizing-css}
 
@@ -180,7 +180,7 @@ const { Layout } = DefaultTheme
 </template>
 ```
 
-或者您也可以使用渲染函数。
+或者你也可以使用渲染函数。
 
 ```js
 // .vitepress/theme/index.js

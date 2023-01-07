@@ -10,10 +10,13 @@ export default {
 	ignoreDeadLinks: false,
 	// 最后更新于 开关
 	lastUpdated: true,
-	head: [['link', { rel: 'icon', href: '/VitePressCN/logo.svg' }]],
+	head: [
+		['link', { rel: 'icon', href: '/VitePressCN/logo.svg' }],
+		['meta', { name: 'google-site-verification', content: 'Wzz07XeBKMnNRNwUcsw6hEgpGoTkggTxORUtLRm6rns' }],
+	],
 	// markdown配置
 	markdown: {
-		lineNumbers: true
+		lineNumbers: true,
 	},
 	//  theme 配置
 	themeConfig: {
@@ -44,6 +47,7 @@ export default {
 		// 侧边导航
 		sidebar: {
 			// 匹配不同路由，侧边导航有所变化，如果没有多页面需求，可以只写一个数组
+			// link 字段以 / 开头，该根目录为 /docs/ 目录
 			// sidebar: [
 			// 	{
 			// 		text: '介绍',
@@ -60,6 +64,8 @@ export default {
 					text: '介绍',
 					// 是否可收起
 					collapsible: true,
+					// 初始折叠状态 true 为折叠
+					// collapsed: true,
 					items: [
 						// 副标题以及链接
 						{ text: '什么是VitePress？', link: '/guide/what-is-vitepress' },

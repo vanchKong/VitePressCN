@@ -2,34 +2,42 @@
 import { VPTeamMembers } from 'vitepress/theme'
 
 const members = [
+  // {
+  //   avatar: 'https://github.com/yyx990803.png',
+  //   name: 'Evan You',
+  //   title: 'Creator',
+  //   links: [
+  //     { icon: 'github', link: 'https://github.com/yyx990803' },
+  //     { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+  //   ]
+  // },
+  // {
+  //   avatar: 'https://github.com/kiaking.png',
+  //   name: 'Kia King Ishii',
+  //   title: 'Developer',
+  //   links: [
+  //     { icon: 'github', link: 'https://github.com/kiaking' },
+  //     { icon: 'twitter', link: 'https://twitter.com/KiaKing85' }
+  //   ]
+  // }
   {
-    avatar: 'https://github.com/yyx990803.png',
-    name: 'Evan You',
-    title: 'Creator',
+    avatar: 'https://avatars.githubusercontent.com/u/50388827?v=4',
+    name: 'VanchKong',
+    title: 'Translator',
     links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
-    ]
-  },
-  {
-    avatar: 'https://github.com/kiaking.png',
-    name: 'Kia King Ishii',
-    title: 'Developer',
-    links: [
-      { icon: 'github', link: 'https://github.com/kiaking' },
-      { icon: 'twitter', link: 'https://twitter.com/KiaKing85' }
+      { icon: 'github', link: 'https://github.com/vanchKong' },
     ]
   }
 ]
 </script>
 
-# Team Page
+# 团队页面 {#team-page}
 
-If you would like to introduce your team, you may use Team components to construct the Team Page. There are two ways of using these components. One is to embed it in doc page, and another is to create a full Team Page.
+如果您想介绍您的团队，您可以使用 Team components 来构建团队页面。有两种使用这些组件的方法。一种是将其嵌入文档页面，另一种是创建完整的团队页面。
 
-## Show team members in a page
+## 在页面中显示团队成员 {#show-team-members-in-a-page}
 
-You may use `<VPTeamMembers>` component exposed from `vitepress/theme` to display a list of team members on any page.
+您可以在任何页面上使用从 `vitepress/theme` 暴露出的公共组件 `<VPTeamMembers>` 显示团队成员。
 
 ```html
 <script setup>
@@ -49,28 +57,29 @@ const members = [
 ]
 </script>
 
-# Our Team
+# 我们的团队
 
-Say hello to our awesome team.
+向我们出色的团队问好。
 
 <VPTeamMembers size="small" :members="members" />
 ```
 
-The above will display a team member in card looking element. It should display something similar to below.
+以上将在卡片外观元素中显示团队成员。它应该显示类似于下面的内容。
 
 <VPTeamMembers size="small" :members="members" />
 
-`<VPTeamMembers>` component comes in 2 different sizes, `small` and `medium`. While it boils down to your preference, usually `small` size should fit better when used in doc page. Also, you may add more properties to each member such as adding "description" or "sponsor" button. Learn more about it in [`<VPTeamMembers>`](#vpteammembers).
+`<VPTeamMembers>` 组件有 2 种不同的尺寸， `small` 和 `medium`。虽然它取决于为您的偏好，但通常尺寸在文档页面中使用时 `small` 应该更适合。此外，您可以为每个成员添加更多属性，例如添加“描述”或“赞助”按钮。在  [`<VPTeamMembers>`](#vpteammembers)中了解更多信息。
 
-Embedding team members in doc page is good for small size team where having dedicated full team page might be too much, or introducing partial members as a reference to documentation context.
+在文档页面中嵌入团队成员对于小型团队来说非常有用，某种情况下，完整的贡献团队可能太大了，可以引入部分成员作为文档上下文的参考。
 
-If you have large number of members, or simply would like to have more space to show team members, consider [creating a full team page](#create-a-full-team-page).
+如果您有大量成员，或者只是想有更多空间来展示团队成员，请考虑[创建一个完整的团队页面](#create-a-full-team-page)。
 
-## Create a full Team Page
+## 创建一个完整的团队页面 {#create-a-full-team-page}
 
-Instead of adding team members to doc page, you may also create a full Team Page, similar to how you can create a custom [Home Page](./theme-home-page).
+除了将团队成员添加到 doc 页面，您还可以创建一个完整的团队页面，类似于创建自定义[主页](./theme-home-page)的方式。
 
 To create a team page, first, create a new md file. The file name doesn't matter, but here lets call it `team.md`. In this file, set frontmatter option `layout: page`, and then you may compose your page structure using `TeamPage` components.
+要创建团队页面，首先，创建一个新的 md 文件。文件名无所谓，这里我们就叫它 `team.md` 吧。在这个文件中，在frontmatter 设置 `layout: page`，然后你可以使用 `TeamPage` 组件来组成你的页面结构。
 
 ```html
 ---

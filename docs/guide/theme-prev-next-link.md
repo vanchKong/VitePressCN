@@ -1,19 +1,19 @@
 
-# Prev Next Link
+# 上下页文本 {#prev-next-link}
 
-You can customize the text of previous and next links. This is helpful if you want to show different text on previous/next links than what you have on your sidebar.
+你可以自定义上一页和下一页链接的文本。如果 你想在 上一页/下一页 链接上显示与侧边栏上不同的文本(默认显示侧边栏的文本)，这将很有帮助。
 
 ## prev
 
-- Type: `string`
+- 类型： `string`
 
-- Details:
+- 更多：
 
-  Specify the text to show on the link to the previous page.
+  指定要在指向上一页的链接上显示的文本。
 
-  If you don't set this in frontmatter, the text will be inferred from the sidebar config.
+  如果你没有在 frontmatter 中设置它，文本默认显示为侧边栏的文本。
 
-- Example:
+- 例：
 
 ```yaml
 ---
@@ -23,8 +23,8 @@ prev: 'Get Started | Markdown'
 
 ## next
 
-- Type: `string`
+- 类型： `string`
 
-- Details:
+- 更多：
 
-  Same as `prev` but for the next page.
+  与 `prev` 相同，但用于下一页。
