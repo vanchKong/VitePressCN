@@ -1,10 +1,10 @@
-# Nav
+# 顶部导航 {#nav}
 
-The Nav is the navigation bar displayed on top of the page. It contains the site title, global menu links, etc.
+Nav 是显示在页面顶部的导航栏。它包含站点标题、全局菜单链接等。
 
-## Site Title and Logo
+## 网站标题和图标 {#site-title-and-logo}
 
-By default, nav shows the title of the site referencing [`config.title`](../config/app-configs#title) value. If you would like to change what's displayed on nav, you may define custom text in `themeConfig.siteTitle` option.
+默认情况下，nav 显示 `config.title` 作为站点的标题。如果您想更改 `nav` 上显示的内容，您可以在 `themeConfig.siteTitle` 选项中定义自定义文本。
 
 ```js
 export default {
@@ -14,7 +14,7 @@ export default {
 }
 ```
 
-If you have a logo for your site, you can display it by passing in the path to the image. You should place the logo within `public` directly, and define the absolute path to it.
+如果您的站点有图标，则可以通过传递图片路径来显示它。您应该将图标直接放在 `public` 中，并赋值该绝对路径。
 
 ```js
 export default {
@@ -24,7 +24,7 @@ export default {
 }
 ```
 
-When adding a logo, it gets displayed along with the site title. If your logo is all you need and if you would like to hide the site title text, set `false` to the `siteTitle` option.
+添加图标时，它会与站点标题一起显示。如果您只需要图标并且想要隐藏站点标题文本，请将 `siteTitle` 选项设置为 `false`。
 
 ```js
 export default {

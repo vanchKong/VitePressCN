@@ -12,7 +12,7 @@ export default {
 }
 ```
 
-## appearance
+## appearance {#appearance}
 
 - Type: `boolean | 'dark'`
 - Default: `true`
@@ -31,7 +31,7 @@ export default {
 }
 ```
 
-## base
+## base {#base}
 
 - Type: `string`
 - Default: `/`
@@ -46,7 +46,7 @@ export default {
 }
 ```
 
-## description
+## description {#description}
 
 - Type: `string`
 - Default: `A VitePress site`

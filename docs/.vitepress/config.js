@@ -11,13 +11,18 @@ export default {
 	// 最后更新于 开关
 	lastUpdated: true,
 	head: [['link', { rel: 'icon', href: '/VitePressCN/logo.svg' }]],
-	// 主题配置
+	// markdown配置
+	markdown: {
+		lineNumbers: true
+	},
+	//  theme 配置
 	themeConfig: {
 		outlineTitle: '当前页',
 		returnToTop: '返回顶部',
 		logo: '/logo.svg',
 		lastUpdatedText: '最近更新时间',
-		// siteTitle: 'My Custom Title',
+		siteTitle: 'VitePressCN',
+		// siteTitle: false, // 不显示标题
 		// 上一页下一页文本
 		docFooter: {
 			prev: '上一页',
@@ -115,7 +120,7 @@ export default {
 					items: [
 						{ text: '介绍', link: '/config/introduction' },
 						{ text: '程序配置', link: '/config/app-configs' },
-						{ text: '主题配置', link: '/config/theme-configs' },
+						{ text: ' theme 配置', link: '/config/theme-configs' },
 						{ text: '前端配置', link: '/config/frontmatter-configs' },
 					],
 				},

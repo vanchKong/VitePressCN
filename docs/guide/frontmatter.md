@@ -2,7 +2,7 @@
 title: Frontmatter
 editLink: true
 ---
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title }} {#frontmatter}
 
 任何包含 YAML frontmatter 块的 Markdown 文件都将由 [gray-matter](https://github.com/jonschlinkert/gray-matter) 处理。 frontmatter 必须位于 Markdown 文件的顶部，并且必须采用在三重虚线之间设置的有效 YAML 形式。例子：
 
@@ -28,7 +28,7 @@ editLink: true
 Guide content
 ```
 
-## 可供选择的 Frontmatter 格式
+## 可供选择的 Frontmatter 格式 {#alternative-frontmatter-formats}
 
 VitePress 还支持 JSON frontmatter 语法，以花括号开头和结尾：
 

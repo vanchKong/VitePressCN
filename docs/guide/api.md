@@ -1,4 +1,4 @@
-# API 参考
+# API 参考 {#api-reference}
 
 VitePress 提供了几个内置的 API 来让你访问应用程序数据。 VitePress 还附带了一些可以在全局使用的内置组件。
 
@@ -52,7 +52,7 @@ interface Route {
 
 ## `useRouter`
 
-返回 VitePress 路由器实例，以便您可以以编程方式导航到另一个页面。
+返回 VitePress 路由器实例，以便你可以以编程方式导航到另一个页面。
 
 ```ts
 interface Router {
@@ -85,7 +85,7 @@ The `<Content />` component displays the rendered markdown contents. Useful [whe
 
 由于 VitePress 应用程序在生成静态构建时是在 Node.js 中服务器渲染的，因此任何 Vue 使用都必须符合常规代码要求。简而言之，确保仅在 `beforeMount` 或 `mounted` 挂钩中访问浏览器 / DOM APIs。
 
-如果您正在使用或演示对 SSR 不友好的组件（例如，包含自定义指令），您可以将它们包装在 `ClientOnly` 组件中。
+如果你正在使用或演示对 SSR 不友好的组件（例如，包含自定义指令），你可以将它们包装在 `ClientOnly` 组件中。
 
 ```vue-html
 <ClientOnly>

@@ -1,4 +1,4 @@
-# 配置
+# 配置 {#configuration}
 
 在没有任何配置的情况下，页面非常小，用户无法在站点中导航。为了自定义你的网站，让我们首先在docs目录中创建一个`.vitepress`目录。这是所有vitepress特定文件将放置的地方。你的项目结构可能是这样的:
 
@@ -22,6 +22,6 @@ export default {
 
 在上面的示例中，该站点的标题为`VitePress`，和`Just playing around.`作为描述元标记。
 
-在[主题-介绍](./theme-introduction)中了解有关 VitePress 功能的所有信息，了解如何在此配置文件中配置特定功能。
+在[ theme -介绍](./theme-introduction)中了解有关 VitePress 功能的所有信息，了解如何在此配置文件中配置特定功能。
 
 你还可以在[配置](../config/introduction)中找到所有配置参考。

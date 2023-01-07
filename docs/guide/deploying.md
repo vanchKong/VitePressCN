@@ -1,4 +1,4 @@
-# 部署
+# 部署 {#deploying}
 
 以下指南基于一些共识：
 
@@ -23,7 +23,7 @@
 
 :::
 
-## 本地构建与测试
+## 本地构建与测试 {#build-and-test-locally}
 
 - 你可以运行以下命令来构建文档：
 
@@ -51,7 +51,7 @@
 
   现在`docs:preview`方法将在`http://localhost:8080`启动服务器。
 
-## Netlify, Vercel, AWS Amplify, Cloudflare Pages, Render
+## Netlify, Vercel, AWS Amplify, Cloudflare Pages, Render {#netlify-vercel-aws-amplify-cloudflare-pages-render}
 
 设置一个新项目并使用 dashboard 更改这些设置：
 
@@ -63,11 +63,11 @@
 不要为 HTML 代码启用 Auto Minify 等选项。它将从输出中删除对 Vue 有意义的注释。如果移除它们，你可能会收到 hydration mismatch 错误。
 :::
 
-## GitHub Pages
+## GitHub Pages {#github-pages}
 
-### 使用 GitHub Actions
+### 使用 GitHub Actions {#using-github-actions}
 
-1. 在你的主题配置文件中, `docs/.vitepress/config.js`, 设置 `base` 为GitHub仓库的名称。如果你打算把站点部署到 `https://foo.github.io/bar/`，那你就需要把 `base` 设置为 `'/bar/'`。它始终以 `/` 开头结尾。
+1. 在你的 theme 配置文件中, `docs/.vitepress/config.js`, 设置 `base` 为GitHub仓库的名称。如果你打算把站点部署到 `https://foo.github.io/bar/`，那你就需要把 `base` 设置为 `'/bar/'`。它始终以 `/` 开头结尾。
 
 2. 在项目目录 `.github/workflows` 下创建一个名为 `deploy.yml` 的文件，包含以下内容：
 
@@ -113,9 +113,9 @@
 
 5. 在页面菜单项下的仓库设置中，选择 `gh-pages` 分支作为 GitHub 页面源。现在，你的文档将在你每次推送时自动部署。
 
-## GitLab Pages
+## GitLab Pages {#gitlab-pages}
 
-### Using GitLab CI
+### Using GitLab CI {#using-gitlab-ci}
 
 1. 将 `docs/.vitepress/config.js` 中的 `outDir` 设置为 `../public`。
 
@@ -137,7 +137,7 @@
        - main
    ```
 
-## Azure Static Web Apps
+## Azure Static Web Apps {#azure-static-web-apps}
 
 1. 遵循[官方文档](https://docs.microsoft.com/en-us/azure/static-web-apps/build-configuration)。
 
@@ -147,7 +147,7 @@
    - **`output_location`**: `docs/.vitepress/dist`
    - **`app_build_command`**: `yarn docs:build`
 
-## Firebase
+## Firebase {#firebase}
 
 1. 在项目的根目录下创建 `firebase.json` 和 `.firebaserc`：
 
