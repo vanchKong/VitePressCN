@@ -35,11 +35,11 @@ export default {
 }
 ```
 
-You can also pass an object as logo if you want to add `alt` attribute or customize it based on dark/light mode. Refer [`themeConfig.logo`](../config/theme-configs#logo) for details.
+如果您想添加 `alt` 属性或根据暗/亮模式自定义它，您还可以将图标作为对象传递。有关详细信息，请参阅 [`themeConfig.logo`](../config/theme-configs#logo)。
 
-## Navigation Links
+## 导航链接 {#navigation-links}
 
-You may define `themeConfig.nav` option to add links to your nav.
+您可以定义 `themeConfig.nav` 选项以将链接添加到您的导航栏。
 
 ```js
 export default {
@@ -54,6 +54,7 @@ export default {
 ```
 
 The `text` is the actual text displayed in nav, and the `link` is the link that will be navigated to when the text is clicked. For the link, set path to the actual file without `.md` prefix, and always start with `/`.
+`text` 是 nav 中显示的实际文本，而 `link` 是单击文本时将导航到的链接。对于链接，将路径设置为不带 `.md` 后缀的实际文件，并且始终以 `/` 开头。
 
 Nav links can also be dropdown menus. To do this, set `items` key on link option.
 
