@@ -2,7 +2,7 @@
 
 在 VitePress 中，每个 markdown 文件都被编译成 HTML，然后作为 Vue 单文件组件处理。这意味着你可以在 markdown 中使用任何 Vue 功能，包括动态模板、使用 Vue 组件或通过添加 `<script>` 标签使用任意页面内 Vue 组件逻辑。
 
-同样重要的是 `VitePress` 利用 `Vue 3` 的编译器来自动检测和优化 markdown 的纯静态部分。静态内容被优化为单个占位节点，并排除页面中的 JavaScript 负载。在客户端 hydration 期间也会跳过它们。简而言之，你只需为页面上的动态部分付出性能。
+同样重要的是 `VitePress` 利用 `Vue 3` 的编译器来自动检测和优化 markdown 的纯静态部分。静态内容被优化为单个占位节点，并排除页面中的 JavaScript 负载。在客户端 [hydration(HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 期间也会跳过它们。简而言之，你只需为页面上的动态部分付出性能。
 
 ## 模板化 {#templating}
 
@@ -60,7 +60,7 @@ const { page } = useData()
 }
 ```
 
-## 忽略 {#escaping}
+## 转义 {#escaping}
 
 默认情况下，插值代码块 会自动用 `v-pre` 包装，除非你设置了一些带有 `-vue` 后缀的语言，比如 `js-vue`（在这种情况下你可以在 `插值表达式` 内使用 Vue 风格的插值）。要在内联代码片段或纯文本中显示原始插值表达式或特定于 Vue 的语法，你需要使用 v-pre 自定义容器包装一个段落：
 
@@ -129,7 +129,7 @@ export default {
 ```
 
 ::: warning 重要
-确保自定义组件的名称包含连字符或采用 帕斯卡 命名规则。否则，它将被视为内联元素并包裹在 `<p>` 标签内，这将导致 hydration 不匹配，因为 `<p>` 不允许将块元素放置在其中。
+确保自定义组件的名称包含连字符或采用 帕斯卡 命名规则。否则，它将被视为内联元素并包裹在 `<p>` 标签内，这将导致 [hydration(HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 不匹配，因为 `<p>` 不允许将块元素放置在其中。
 :::
 
 ### 在标题中使用组件 <ComponentInHeader /> {#using-components-in-headers}

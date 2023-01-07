@@ -1,8 +1,8 @@
 # API 参考 {#api-reference}
 
-VitePress 提供了几个内置的 API 来让你访问应用程序数据。 VitePress 还附带了一些可以在全局使用的内置组件。
+VitePress 提供了几个内置 API 来获取应用程序数据。 VitePress 还提供了一些可以可全局使用的内置组件。
 
-辅助方法可从 `vitepress` 全局导入，通常用于自定义 theme Vue 组件。但是，它们也可以在 .md 页面内使用，因为 markdown 文件被编译成 Vue 单文件组件。
+可从 `vitepress` 全局引入辅助函数，通常用于自定义主题 Vue 组件。但是，它们也可以在 `.md` 页面内使用，因为 markdown 文件会被编译成 Vue 单文件组件。
 
 以 `use*` 开头的方法表示它是一个[ Vue 3 Composition API](https://vuejs.org/guide/introduction.html#composition-api) 函数，只能在 `setup()` 或 `<script setup>` 内部使用。
 
@@ -71,7 +71,7 @@ interface Router {
 
 The `<Content />` component displays the rendered markdown contents. Useful [when creating your own theme](./theme-introduction).
 
-`<Content />` 组件呈现渲染好的 markdown 内容。在[创建自己的 theme 时](./theme-introduction)很有用。
+`<Content />` 组件显示渲染的 markdown 内容。在[创建自己的主题时](./theme-introduction)很有用。
 
 ```vue
 <template>

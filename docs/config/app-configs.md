@@ -336,7 +336,7 @@ interface TransformContext {
 `transformHtml` is a build hook to transform the content of each page before saving to disk.
 
 ::: warning
-Don't mutate anything inside the `ctx`. Also, modifying the html content may cause hydration problems in runtime.
+Don't mutate anything inside the `ctx`. Also, modifying the html content may cause [hydration( HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) problems in runtime.
 :::
 
 ```ts

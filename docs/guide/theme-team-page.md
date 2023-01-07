@@ -78,7 +78,6 @@ const members = [
 
 除了将团队成员添加到 doc 页面，您还可以创建一个完整的团队页面，类似于创建自定义[主页](./theme-home-page)的方式。
 
-To create a team page, first, create a new md file. The file name doesn't matter, but here lets call it `team.md`. In this file, set frontmatter option `layout: page`, and then you may compose your page structure using `TeamPage` components.
 要创建团队页面，首先，创建一个新的 md 文件。文件名无所谓，这里我们就叫它 `team.md` 吧。在这个文件中，在frontmatter 设置 `layout: page`，然后你可以使用 `TeamPage` 组件来组成你的页面结构。
 
 ```html
@@ -102,7 +101,7 @@ const members = [
       { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
     ]
   },
-  ...
+  // ...
 ]
 </script>
 
@@ -122,17 +121,17 @@ const members = [
 </VPTeamPage>
 ```
 
-When creating a full team page, remember to wrap all components with `<VPTeamPage>` component. This component will ensure all nested team related components get the proper layout structure like spacings.
+创建完整的团队页面时，请记住用 `<VPTeamPage>` 组件包装所有团队相关组件，以获得正确的布局结构，如间距。
 
-`<VPPageTitle>` component adds the page title section. The title being `<h1>` heading. Use `#title` and `#lead` slot to document about your team.
+`<VPPageTitle>` 组件添加页面标题部分。标题是 `<h1>` 标题。使用 `#title` 和 `#lead` 插槽来介绍您的团队。
 
-`<VPMembers>` works as same as when used in a doc page. It will display list of members.
+`<VPMembers>` 和在 doc 页面中使用时一样。它将显示成员列表。
 
-### Add sections to divide team members
+### 添加分段以划分团队成员 {#add-sections-to-divide-team-members}
 
-You may add "sections" to the team page. For example, you may have different types of team members such as Core Team Members and Community Partners. You can divide these members into sections to better explain the roles of each group.
+您可以将“分段”添加到团队页面。例如，您可能有不同类型的团队成员，例如核心团队成员和社区合作伙伴。您可以将这些成员分成几个部分，以更好地解释每组的角色。
 
-To do so, add `<VPTeamPageSection>` component to the `team.md` file we created previously.
+为此，将 `<VPTeamPageSection>` 组件添加到我们之前创建的 `team.md` 文件中。
 
 ```html
 ---
@@ -166,13 +165,13 @@ const partners = [...]
 </VPTeamPage>
 ```
 
-The `<VPTeamPageSection>` component can have `#title` and `#lead` slot similar to `VPTeamPageTitle` component, and also `#members` slot for displaying team members.
+`<VPTeamPageSection>` 组件可以有类似于 `VPTeamPageTitle` 组件的 `#title` 和 `#lead` 插槽，还有用于显示团队成员的 `#members` 插槽。
 
-Remember to put in `<VPTeamMembers>` component within `#members` slot.
+请记住将 `<VPTeamMembers>` 组件放入 `#members` 插槽中。
 
 ## `<VPTeamMembers>`
 
-The `<VPTeamMembers>` component displays a given list of members.
+`<VPTeamMembers>` 组件显示给定的成员列表。
 
 ```html
 <VPTeamMembers
@@ -226,11 +225,14 @@ interface TeamMember {
 
 ## `<VPTeamPage>`
 
+::: details 创建完整团队页面时的根组件。它只接受一个插槽。它将设置所有传入的团队相关组件的样式。
 The root component when creating a full team page. It only accepts a single slot. It will style all passed in team related components.
+:::
+
 
 ## `<VPTeamPageTitle>`
 
-Adds "title" section of the page. Best use at the very beginning under `<VPTeamPage>`. It accepts `#title` and `#lead` slot.
+添加页面的标题。最好在一开始就在 `<VPTeamPage>` 下使用。它接受 `#title` 和 `#lead` 插槽。
 
 ```html
 <VPTeamPage>
@@ -248,7 +250,7 @@ Adds "title" section of the page. Best use at the very beginning under `<VPTeamP
 
 ## `<VPTeamPageSection>`
 
-Creates a "section" with in team page. It accepts `#title`, `#lead`, and `#members` slot. You may add as many sections as you like inside `<VPTeamPage>`.
+在团队页面中创建一个“分段”。它接受 `#title`、`#lead` 和 `#members` 插槽。您可以在 `<VPTeamPage>` 中添加任意数量的分段。
 
 ```html
 <VPTeamPage>
@@ -262,3 +264,4 @@ Creates a "section" with in team page. It accepts `#title`, `#lead`, and `#membe
   </VPTeamPageSection>
 </VPTeamPage>
 ```
+[未出现在侧边栏的完整团队页面](./team)

@@ -60,7 +60,7 @@
 - **Node 版本：** `14` (或者更高，默认情况下，它通常是14或16, 但是在Cloudflare Pages Node版本还处在12，所以你可能要[更改它](https://developers.cloudflare.com/pages/platform/build-configuration/))
 
 ::: warning 警告
-不要为 HTML 代码启用 Auto Minify 等选项。它将从输出中删除对 Vue 有意义的注释。如果移除它们，你可能会收到 hydration mismatch 错误。
+不要为 HTML 代码启用 Auto Minify 等选项。它将从输出中删除对 Vue 有意义的注释。如果移除它们，你可能会收到 [hydration(HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) mismatch 错误。
 :::
 
 ## GitHub Pages {#github-pages}

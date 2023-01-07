@@ -32,7 +32,6 @@ layout: doc
 
 ## Home 布局 {#home-layout}
 
-Option `home` will generate templated "Homepage". In this layout, you can set extra options such as `hero` and `features` to customize the content further. Please visit [Theme: Home Page](./theme-home-page) for more details.
 `home` 将生成模板化的“主页”。在此布局中， 你可以设置额外的选项，例如 `hero` 和 `features` 以进一步自定义内容。请访问[Theme: 主页](./theme-home-page)了解更多详情。
 
 ## 无布局 {#no-layout}

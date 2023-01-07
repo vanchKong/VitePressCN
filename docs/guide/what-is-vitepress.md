@@ -23,7 +23,7 @@ VitePress 目前处于 `alpha` 状态。它已经适合开箱即用的文档使�
 ## 对 VuePress v1 的改进 {#improvements-over-vuepress-v1}
 VuePress v1有一些改进。。。。
 ### 它使用vue3 {#it-uses-vue-3}
-利用 Vue 3 改进的模板静态分析来尽可能地对静态内容进行字符串化。静态内容作为字符串文字而不是 JavaScript 渲染函数代码发送——因此 JS 有效负载的解析成本更低，hydration也变得更快。
+利用 Vue 3 改进的模板静态分析来尽可能地对静态内容进行字符串化。静态内容作为字符串文字而不是 JavaScript 渲染函数代码发送——因此 JS 有效负载的解析成本更低， [hydration(HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 也变得更快。
 
 在应用优化的同时仍然允许用户在 Markdown 中自由混合 Vue 组件——编译器会自动为你进行静态/动态分离，你不需要去关注它。
 

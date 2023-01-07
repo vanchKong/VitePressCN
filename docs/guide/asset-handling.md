@@ -13,7 +13,7 @@
 
 ## 公共文件 {#public-files}
 
-有时你可能需要提供未在任何 Markdown 或 theme 组件中直接引用的静态资源（例如，网站图标和 PWA 图标）。项目根目录下的`public`目录（`docs` 文件夹，如果你正在运行 `vitepress build docs`）可以用作escape hatch来提供静态资源，这些静态资源要么在源代码中从未被引用（例如 `robots.txt`），要么必须保持完全相同文件名(未被 hashing)。
+有时你可能需要提供未在任何 Markdown 或 theme 组件中直接引用的静态资源（例如，网站图标和 PWA 图标）。项目根目录下（`docs` 文件夹，如果你正在运行 `vitepress build docs`）的`public`目录可以用作escape hatch来提供静态资源，这些静态资源要么在源代码中从未被引用（例如 `robots.txt`），要么必须保持完全相同文件名(未被 hashing)。
 
 放在 `public` 中的静态资源将按原样复制到 `dist` 目录的根目录中。
 

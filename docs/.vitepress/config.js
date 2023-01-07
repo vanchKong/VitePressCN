@@ -18,7 +18,7 @@ export default {
 	markdown: {
 		lineNumbers: true,
 	},
-	//  theme 配置
+	//  主题配置
 	themeConfig: {
 		outlineTitle: '当前页',
 		returnToTop: '返回顶部',
@@ -87,13 +87,13 @@ export default {
 					],
 				},
 				{
-					text: 'Theme',
+					text: '主题',
 					collapsible: true,
 					items: [
 						{ text: '介绍', link: '/guide/theme-introduction' },
 						{ text: '顶部导航', link: '/guide/theme-nav' },
 						{ text: '侧边栏', link: '/guide/theme-sidebar' },
-						{ text: '上下页文本', link: '/guide/theme-prev-next-link' },
+						{ text: '上（下）一篇', link: '/guide/theme-prev-next-link' },
 						{ text: '编辑链接', link: '/guide/theme-edit-link' },
 						{ text: '最近更新时间', link: '/guide/theme-last-updated' },
 						{ text: '布局', link: '/guide/theme-layout' },
@@ -126,8 +126,8 @@ export default {
 					items: [
 						{ text: '介绍', link: '/config/introduction' },
 						{ text: '程序配置', link: '/config/app-configs' },
-						{ text: ' theme 配置', link: '/config/theme-configs' },
-						{ text: '前端配置', link: '/config/frontmatter-configs' },
+						{ text: ' 主题配置', link: '/config/theme-configs' },
+						{ text: 'Frontmatter 配置', link: '/config/frontmatter-configs' },
 					],
 				},
 			],
@@ -150,10 +150,10 @@ export default {
 			pattern: 'https://github.com/vanchKong/VitePressCN/edit/main/docs/:path',
 		},
 
-		// footer: {
-		// 	message: 'Released under the MIT License.',
-		// 	copyright: 'Copyright © 2019-present Evan You',
-		// },
+		footer: {
+			message: 'Released under the MIT License.',
+			copyright: 'Copyright © 2019-present Evan You',
+		},
 		// carbonAds: {
 		// 	code: 'CEBDT27Y',
 		// 	placement: 'vuejsorg',

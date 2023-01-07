@@ -1,6 +1,6 @@
-# Footer
+# 页脚 {#footer}
 
-VitePress will display global footer at the bottom of the page when `themeConfig.footer` is present.
+配置好 `themeConfig.footer`， VitePress 将在全局页面底部显示页脚。
 
 ```ts
 export default {
@@ -23,7 +23,7 @@ export interface Footer {
 }
 ```
 
-The above configuration also supports HTML strings. So, for example, if you want to configure footer text to have some links, you can adjust the configuration as follows:
+上面的配置也支持 HTML 字符串。所以，例如，如果你想配置页脚文本有一些链接，你可以调整配置如下：
 
 ```ts
 export default {
@@ -36,4 +36,4 @@ export default {
 }
 ```
 
-Note that footer will not be displayed when the [SideBar](./theme-sidebar) is visible.
+请注意，当[侧边栏](./theme-sidebar)可见时，不会显示页脚。
