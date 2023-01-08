@@ -13,7 +13,7 @@ hero:
     alt: VitePress
   actions:
     - theme: brand
-      text: 起步
+      text: 快速上手
       link: /guide/getting-started
     - theme: alt
       text: 在 GitHub 上浏览

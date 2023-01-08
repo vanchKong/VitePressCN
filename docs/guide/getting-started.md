@@ -1,4 +1,4 @@
-# 起步 {#getting-started}
+# 快速上手 {#getting-started}
 
 本节将帮助你从头开始构建一个基本的 VitePress 文档站点。如果你已有一个现有项目并希望在项目中保留文档，请从第 2 步开始。
 

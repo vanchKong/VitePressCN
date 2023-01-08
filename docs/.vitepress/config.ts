@@ -1,5 +1,7 @@
-const pkg = require('vitepress/package.json')
-export default {
+import type { UserConfig } from 'vitepress'
+// import { defineConfig } from 'vitepress'
+import pkg from 'vitepress/package.json'
+const config: UserConfig = {
 	base: '/VitePressCN/',
 	lang: 'zh-CN',
 	// 网站标题，左上角以及meta标题
@@ -21,15 +23,14 @@ export default {
 	//  主题配置
 	themeConfig: {
 		outlineTitle: '当前页',
-		returnToTop: '返回顶部',
 		logo: '/logo.svg',
 		lastUpdatedText: '最近更新时间',
 		siteTitle: 'VitePressCN',
 		// siteTitle: false, // 不显示标题
 		// 上一页下一页文本
 		docFooter: {
-			prev: '上一页',
-			next: '下一页',
+			prev: '上一篇',
+			next: '下一篇',
 		},
 		// 顶部导航nav
 		nav: [
@@ -64,12 +65,13 @@ export default {
 					text: '介绍',
 					// 是否可收起
 					collapsible: true,
+					// link: '/guide/configuration',
 					// 初始折叠状态 true 为折叠
 					// collapsed: true,
 					items: [
 						// 副标题以及链接
 						{ text: '什么是VitePress？', link: '/guide/what-is-vitepress' },
-						{ text: '起步', link: '/guide/getting-started' },
+						{ text: '快速上手', link: '/guide/getting-started' },
 						{ text: '配置', link: '/guide/configuration' },
 						{ text: '部署', link: '/guide/deploying' },
 						{ text: '总结', link: '/guide/summary' },
@@ -91,7 +93,7 @@ export default {
 					collapsible: true,
 					items: [
 						{ text: '介绍', link: '/guide/theme-introduction' },
-						{ text: '顶部导航', link: '/guide/theme-nav' },
+						{ text: '导航栏', link: '/guide/theme-nav' },
 						{ text: '侧边栏', link: '/guide/theme-sidebar' },
 						{ text: '上（下）一篇', link: '/guide/theme-prev-next-link' },
 						{ text: '编辑链接', link: '/guide/theme-edit-link' },
@@ -110,11 +112,11 @@ export default {
 					collapsible: true,
 					items: [
 						{
-							text: 'Migration from VuePress',
+							text: '从 VuePress 迁移',
 							link: '/guide/migration-from-vuepress',
 						},
 						{
-							text: 'Migration from VitePress 0.x',
+							text: '从 VitePress 0.x 迁移',
 							link: '/guide/migration-from-vitepress-0',
 						},
 					],
@@ -125,7 +127,7 @@ export default {
 					text: '配置项',
 					items: [
 						{ text: '介绍', link: '/config/introduction' },
-						{ text: '程序配置', link: '/config/app-configs' },
+						{ text: '应用配置', link: '/config/app-configs' },
 						{ text: ' 主题配置', link: '/config/theme-configs' },
 						{ text: 'Frontmatter 配置', link: '/config/frontmatter-configs' },
 					],
@@ -159,4 +161,9 @@ export default {
 		// 	placement: 'vuejsorg',
 		// },
 	},
+
+	buildEnd(siteConfig) {
+		console.log(siteConfig)
+	},
 }
+export default config

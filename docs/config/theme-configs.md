@@ -1,6 +1,6 @@
-# Theme Configs
+# 主题配置 {#theme-configs}
 
-Theme configs let you customize your theme. You can define theme configs by adding `themeConfig` key to the config file.
+主题配置可让您自定义主题。 您可以通过将 `themeConfig` 添加到配置文件来定义主题配置。
 
 ```ts
 export default {
@@ -17,13 +17,13 @@ export default {
 }
 ```
 
-Here it describes the settings for the VitePress default theme. If you're using a custom theme created by others, these settings may not have any effect, or might behave differently.
+这里描述了 VitePress 默认主题的设置。 如果您使用的是其他人创建的自定义主题，这些设置可能没有任何效果，或者可能表现不同。
 
-## logo
+## 图标 {#logo}
 
 - Type: `ThemeableImage`
 
-Logo file to display in nav bar, right before the site title. Accepts a path string, or an object to set a different logo for light/dark mode.
+显示在导航栏中的 logo 文件，位于站点标题之前。接受路径字符串或包含亮/暗模式不同logo的对象。
 
 ```ts
 export default {
@@ -40,11 +40,11 @@ type ThemeableImage =
   | { light: string; dark: string; alt?: string }
 ```
 
-## siteTitle
+## 站点标题 {#sitetitle}
 
 - Type: `string | false`
 
-You can customize this item to replace the default site title (`title` in app config) in nav. When set to `false`, title in nav will be disabled. Useful when you have `logo` that already contains the site title text.
+您可以自定义此项以替换导航中的默认站点标题（应用配置中的 `title`）。 当设置为 `false` 时，导航中的标题将被禁用。 这在当你的 `logo` 已经包含网站标题文本时很有用。
 
 ```ts
 export default {
@@ -54,11 +54,11 @@ export default {
 }
 ```
 
-## nav
+## 导航栏 {#nav}
 
 - Type: `NavItem`
 
-The configuration for the nav menu item. You may learn more details at [Theme: Nav](../guide/theme-nav#navigation-links).
+导航菜单项的配置。 您可以在[主题: 导航栏](../guide/theme-nav#navigation-links) 了解更多详情。
 
 ```js
 export default {
@@ -94,11 +94,11 @@ interface NavItemWithChildren {
 }
 ```
 
-## sidebar
+## 侧边栏 {#sidebar}
 
 - Type: `Sidebar`
 
-The configuration for the sidebar menu item. You may learn more details at [Theme: Sidebar](../guide/theme-sidebar).
+侧边栏菜单项的配置。 您可以在[主题: 侧边栏](../guide/theme-sidebar) 了解更多详情。
 
 ```js
 export default {
@@ -137,19 +137,19 @@ interface SidebarItem {
 }
 ```
 
-## outline
+## 大纲 {#outline}
 
 - Type: `number | [number, number] | 'deep' | false`
 - Default: `2`
 
-The levels of header to display in the outline. You can specify a particular level by passing a number, or you can provide a level range by passing a tuple containing the bottom and upper limits. When passing `'deep'` which equals `[2, 6]`, all header levels are shown in the outline except `h1`. Set `false` to hide outline.
+配置在大纲中显示的标题级别。您可以通过传递一个数字来指定一个特定的级别，或者您可以通过传递一个包含下限和上限的元组来提供一个级别范围。当传递等于 `[2, 6]` 的 `deep` 时，除 `h1` 外，所有标题级别都显示在轮廓中。设置 `false` 以隐藏轮廓。
 
-## outlineTitle
+## 大纲标题 {#outlinetitle}
 
 - Type: `string`
 - Default: `On this page`
 
-Can be used to customize the title of the right sidebar (on the top of outline links). This is useful when writing documentation in another language.
+可用于自定义右侧边栏的标题（在大纲链接的顶部）。 这在用另一种语言编写文档时很有用。
 
 ```js
 export default {
@@ -159,11 +159,11 @@ export default {
 }
 ```
 
-## socialLinks
+## 社交链接 {#sociallinks}
 
 - Type: `SocialLink[]`
 
-You may define this option to show your social account links with icons in nav.
+您可以定义此选项以在导航栏中展示带有图标的社交帐户链接。
 
 ```js
 export default {
@@ -202,11 +202,11 @@ type SocialLinkIcon =
   | { svg: string }
 ```
 
-## footer
+## 页脚 {#footer}
 
 - Type: `Footer`
 
-Footer configuration. You can add a message or copyright text on the footer, however, it will only be displayed when the page doesn't contain a sidebar. This is due to design concerns.
+页脚配置。 您可以添加 message 和 copyright。 由于设计原因，仅当页面不包含侧边栏时才会显示页脚。
 
 ```ts
 export default {
@@ -226,11 +226,11 @@ export interface Footer {
 }
 ```
 
-## editLink
+## 编辑链接 {#editlink}
 
 - Type: `EditLink`
 
-Edit Link lets you display a link to edit the page on Git management services such as GitHub, or GitLab. See [Theme: Edit Link](../guide/theme-edit-link) for more details.
+编辑链接可让您显示链接以编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面。 有关详细信息，请参阅 [主题：编辑链接](../guide/theme-edit-link)。
 
 ```js
 export default {
@@ -250,12 +250,12 @@ export interface EditLink {
 }
 ```
 
-## lastUpdatedText
+## 最近更新时间文本 {#lastupdatedtext}
 
 - Type: `string`
 - Default: `Last updated`
 
-The prefix text showing right before the last updated time.
+显示最近更新时间之前的前缀文本。
 
 ```ts
 export default {
@@ -269,7 +269,7 @@ export default {
 
 - Type: `CarbonAds`
 
-A option to display [Carbon Ads](https://www.carbonads.net/).
+一个配置即可展示 [Carbon Ads](https://www.carbonads.net/)。
 
 ```ts
 export default {
@@ -289,13 +289,13 @@ export interface CarbonAds {
 }
 ```
 
-Learn more in [Theme: Carbon Ads](../guide/theme-carbon-ads)
+了解更多 [主题: Carbon Ads](../guide/theme-carbon-ads)
 
 ## docFooter
 
 - Type: `DocFooter`
 
-Can be used to customize text appearing above previous and next links. Helpful if not writing docs in English.
+可用于自定义出现在上一篇和下一篇链接上方的文本。 如果不是用英语编写文档，这很有帮助。
 
 ```js
 export default {

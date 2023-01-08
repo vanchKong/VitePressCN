@@ -1,10 +1,10 @@
 # 徽标 {#badge}
 
-徽标可让您为标题添加状态。例如，指定部分的类型或支持的版本可能很有用。
+徽标可让你为标题添加状态。例如，指定部分的类型或支持的版本可能很有用。
 
 ## 用法 {#usage}
 
-您可以使用全局组件 `Badge` 。
+你可以使用全局组件 `Badge` 。
 
 ```html
 ### Title <Badge type="info" text="default" />
@@ -32,7 +32,7 @@
 
 ## 自定义不同类型徽标的背景色 {#customize-type-color}
 
-您可以通过覆盖 css 变量 `background-color` 来自定义不同类型 `<Badge />` 的背景色。以下是默认值。
+你可以通过覆盖 css 变量 `background-color` 来自定义不同类型 `<Badge />` 的背景色。以下是默认值。
 
 ```css
 :root {

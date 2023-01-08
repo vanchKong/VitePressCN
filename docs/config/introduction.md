@@ -1,6 +1,6 @@
-# Introduction
+# 介绍 {#introduction}
 
-Place your configuration file at `.vitepress/config.js`. This is where all VitePress-specific files will be placed.
+将配置文件放在 `.vitepress/config.js` 中。 这是放置所有 VitePress 特定文件的地方。
 
 ```
 .
@@ -11,19 +11,19 @@ Place your configuration file at `.vitepress/config.js`. This is where all ViteP
 └─ package.json
 ```
 
-::: tip
-You can also use any of `.ts`, `.cjs`, `.mjs`, `.cts`, `.mts` as the config file extension.
+::: tip 提示
+你也可以使用任意的 `.ts`, `.cjs`, `.mjs`, `.cts`, `.mts`作为配置文件的扩展名
 :::
 
-VitePress comes with 2 types of configs. One is the [App Configs](./app-configs) which configures the site's fundamental features such as setting title of the site, or customize how markdown parser works. Second is the [Theme Config](./theme-configs) which configures the theme of the site, for example, adding a sidebar, or add features such as "Edit this page on GitHub" link.
+VitePress 带有 2 种类型的配置。 一种是 [应用配置](./app-configs)，它配置站点的基本功能，例如设置站点的标题，或自定义 Markdown 解析器的工作方式。 其次是 [主题配置](./theme-configs)，用于配置站点的主题，例如添加侧边栏，或者添加“在 GitHub 上编辑此页”链接等功能。
 
-There's also another configuration you may do in [Frontmatter](./frontmatter-configs). Frontmatter configs can override global configs defined on App Configs or Theme Configs for that specific page. However, there're several options that are only available at frontmatter as well.
+您还可以在 [Frontmatter](./frontmatter-configs) 中进行另一种配置。 Frontmatter 配置可以覆盖在该特定页面的应用配置或主题配置上定义的全局配置。 而且，有几个选项也仅在 frontmatter 中可用。
 
-Please refer to the corresponding configs page to learn more.
+请参阅相应的配置页面以了解更多信息。
 
-## Config Intellisense
+## 配置智能提示 {#config-intellisense}
 
-Since VitePress ships with TypeScript typings, you can leverage your IDE's intellisense with jsdoc type hints:
+由于 VitePress 附带 TypeScript 配置文件，您可以利用 IDE 的智能提示和 jsdoc 类型提示：
 
 ```js
 /**
@@ -36,7 +36,7 @@ const config = {
 export default config
 ```
 
-Alternatively, you can use the `defineConfig` helper at which should provide intellisense without the need for jsdoc annotations:
+或者，您可以使用 `defineConfig` 辅助函数，它不需要 jsdoc 注释的情况下提供智能提示：
 
 ```js
 import { defineConfig } from 'vitepress'
@@ -46,11 +46,13 @@ export default defineConfig({
 })
 ```
 
-VitePress also directly supports TS config files. You can use `.vitepress/config.ts` with the `defineConfig` helper as well.
+VitePress 也支持 TS 配置文件。 您也可以将 `.vitepress/config.ts` 与 `defineConfig` 辅助函数一起使用。
 
-## Typed Theme Config
+## 主题配置种类 {#typed-theme-config}
 
+::: details 默认情况下，`defineConfig` 辅助函数采用默认主题的主题配置类型：
 By default, `defineConfig` helper leverages the theme config type from default theme:
+:::
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -62,7 +64,7 @@ export default defineConfig({
 })
 ```
 
-If you use a custom theme and want type checks for the theme config, you'll need to use `defineConfigWithTheme` instead, and pass the config type for your custom theme via a generic argument:
+如果您使用自定义主题并希望对主题配置进行类型检查，则需要改用 `defineConfigWithTheme`，并通过通用参数传递自定义主题的配置类型：
 
 ```ts
 import { defineConfigWithTheme } from 'vitepress'

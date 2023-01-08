@@ -33,11 +33,11 @@ const members = [
 
 # 团队页面 {#team-page}
 
-如果您想介绍您的团队，您可以使用 Team components 来构建团队页面。有两种使用这些组件的方法。一种是将其嵌入文档页面，另一种是创建完整的团队页面。
+如果你想介绍你的团队，你可以使用 Team components 来构建团队页面。有两种使用这些组件的方法。一种是将其嵌入文档页面，另一种是创建完整的团队页面。
 
 ## 在页面中显示团队成员 {#show-team-members-in-a-page}
 
-您可以在任何页面上使用从 `vitepress/theme` 暴露出的公共组件 `<VPTeamMembers>` 显示团队成员。
+你可以在任何页面上使用从 `vitepress/theme` 暴露出的公共组件 `<VPTeamMembers>` 显示团队成员。
 
 ```html
 <script setup>
@@ -68,15 +68,15 @@ const members = [
 
 <VPTeamMembers size="small" :members="members" />
 
-`<VPTeamMembers>` 组件有 2 种不同的尺寸， `small` 和 `medium`。虽然它取决于为您的偏好，但通常尺寸在文档页面中使用时 `small` 应该更适合。此外，您可以为每个成员添加更多属性，例如添加“描述”或“赞助”按钮。在  [`<VPTeamMembers>`](#vpteammembers)中了解更多信息。
+`<VPTeamMembers>` 组件有 2 种不同的尺寸， `small` 和 `medium`。虽然它取决于为你的偏好，但通常尺寸在文档页面中使用时 `small` 应该更适合。此外，你可以为每个成员添加更多属性，例如添加“描述”或“赞助”按钮。在  [`<VPTeamMembers>`](#vpteammembers)中了解更多信息。
 
 在文档页面中嵌入团队成员对于小型团队来说非常有用，某种情况下，完整的贡献团队可能太大了，可以引入部分成员作为文档上下文的参考。
 
-如果您有大量成员，或者只是想有更多空间来展示团队成员，请考虑[创建一个完整的团队页面](#create-a-full-team-page)。
+如果你有大量成员，或者只是想有更多空间来展示团队成员，请考虑[创建一个完整的团队页面](#create-a-full-team-page)。
 
 ## 创建一个完整的团队页面 {#create-a-full-team-page}
 
-除了将团队成员添加到 doc 页面，您还可以创建一个完整的团队页面，类似于创建自定义[主页](./theme-home-page)的方式。
+除了将团队成员添加到 doc 页面，你还可以创建一个完整的团队页面，类似于创建自定义[主页](./theme-home-page)的方式。
 
 要创建团队页面，首先，创建一个新的 md 文件。文件名无所谓，这里我们就叫它 `team.md` 吧。在这个文件中，在frontmatter 设置 `layout: page`，然后你可以使用 `TeamPage` 组件来组成你的页面结构。
 
@@ -123,13 +123,13 @@ const members = [
 
 创建完整的团队页面时，请记住用 `<VPTeamPage>` 组件包装所有团队相关组件，以获得正确的布局结构，如间距。
 
-`<VPPageTitle>` 组件添加页面标题部分。标题是 `<h1>` 标题。使用 `#title` 和 `#lead` 插槽来介绍您的团队。
+`<VPPageTitle>` 组件添加页面标题部分。标题是 `<h1>` 标题。使用 `#title` 和 `#lead` 插槽来介绍你的团队。
 
 `<VPMembers>` 和在 doc 页面中使用时一样。它将显示成员列表。
 
 ### 添加分段以划分团队成员 {#add-sections-to-divide-team-members}
 
-您可以将“分段”添加到团队页面。例如，您可能有不同类型的团队成员，例如核心团队成员和社区合作伙伴。您可以将这些成员分成几个部分，以更好地解释每组的角色。
+你可以将“分段”添加到团队页面。例如，你可能有不同类型的团队成员，例如核心团队成员和社区合作伙伴。你可以将这些成员分成几个部分，以更好地解释每组的角色。
 
 为此，将 `<VPTeamPageSection>` 组件添加到我们之前创建的 `team.md` 文件中。
 
@@ -250,7 +250,7 @@ The root component when creating a full team page. It only accepts a single slot
 
 ## `<VPTeamPageSection>`
 
-在团队页面中创建一个“分段”。它接受 `#title`、`#lead` 和 `#members` 插槽。您可以在 `<VPTeamPage>` 中添加任意数量的分段。
+在团队页面中创建一个“分段”。它接受 `#title`、`#lead` 和 `#members` 插槽。你可以在 `<VPTeamPage>` 中添加任意数量的分段。
 
 ```html
 <VPTeamPage>

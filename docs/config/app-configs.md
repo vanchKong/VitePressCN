@@ -1,6 +1,6 @@
-# App Configs
+# 应用配置 {#app-configs}
 
-App configs are where you can define the global settings of the site. App configs define fundamental settings that are not only limited to the theme configs such as configuration for "base directory", or the "title" of the site.
+应用配置是定义站点的全局配置的地方。应用配置定义了不仅限于主题配置的基本设置，例如“基本目录”的配置或站点的“标题”。
 
 ```ts
 export default {
@@ -12,18 +12,18 @@ export default {
 }
 ```
 
-## appearance {#appearance}
+## 亮暗模式 {#appearance}
 
 - Type: `boolean | 'dark'`
 - Default: `true`
 
-Whether to enable dark mode or not.
+是否启用深色模式。
 
-- If the option is set to `true`, the default theme will be determined by the user's preferred color scheme.
-- If the option is set to `dark`, the theme will be dark by default, unless the user manually toggles it.
-- If the option is set to `false`, users will not be able to toggle the theme.
+- 如果该选项设置为 `true`，则默认主题将由用户的首选配色方案决定。
+- 如果该选项设置为 `dark`，则默认情况下主题将是深色的，除非用户手动切换它。
+- 如果该选项设置为 `false`，用户将无法切换主题
 
-It also injects inline script that tries to read users settings from local storage by `vitepress-theme-appearance` key and restores users preferred color mode.
+同时还注入内联样式脚本，并尝试通过 `vitepress-theme-appearance` key 从本地存储读取用户设置，并恢复用户首选的颜色模式。
 
 ```ts
 export default {
@@ -36,9 +36,9 @@ export default {
 - Type: `string`
 - Default: `/`
 
-The base URL the site will be deployed at. You will need to set this if you plan to deploy your site under a sub path, for example, GitHub pages. If you plan to deploy your site to `https://foo.github.io/bar/`, then you should set base to `'/bar/'`. It should always start and end with a slash.
+部署站点的 base URL。如果你计划在子路径（例如 GitHub 页面）下部署站点，则需要设置此项。 如果你打算将你的站点部署到https://foo.github.io/bar/，那么你应该将base设置为'/bar/'。 它应该始终以斜线开头和结尾。
 
-The base is automatically prepended to all the URLs that start with / in other options, so you only need to specify it once.
+base 会自动添加到其他所有中以 / 开头的所有 URL，因此你只需指定一次。
 
 ```ts
 export default {
@@ -46,12 +46,12 @@ export default {
 }
 ```
 
-## description {#description}
+## 网站描述 {#description}
 
 - Type: `string`
 - Default: `A VitePress site`
 
-Description for the site. This will render as a `<meta>` tag in the page HTML.
+网站的描述。 这将在页面 HTML 中呈现为 `<meta>` 标签。
 
 ```ts
 export default {
@@ -64,7 +64,7 @@ export default {
 - Type: `HeadConfig[]`
 - Default: `[]`
 
-Additional elements to render in the `<head>` tag in the page HTML. The user-added tags are rendered before the closing `head` tag, after VitePress tags.
+附加元素将会在 `<head>` 标签中渲染。用户添加的标签在 `head` 标签结束之前 VitePress 标签之后呈现。
 
 ```ts
 export default {
@@ -73,7 +73,7 @@ export default {
       'link',
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
     ]
-    // would render: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    // 将会渲染为: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   ]
 }
 ```
@@ -84,12 +84,12 @@ type HeadConfig =
   | [string, Record<string, string>, string]
 ```
 
-## ignoreDeadLinks
+## 忽略无效链接 {#ignoredeadlinks}
 
 - Type: `boolean`
 - Default: `false`
 
-When set to `true`, VitePress will not fail builds due to dead links.
+当设置为 `true` 时，VitePress 不会因为无效链接而导致构建失败。
 
 ```ts
 export default {
@@ -97,25 +97,26 @@ export default {
 }
 ```
 
-## lang
+## 语言 {#lang}
 
 - Type: `string`
 - Default: `en-US`
 
-The lang attribute for the site. This will render as a `<html lang="en-US">` tag in the page HTML.
+站点的 lang 属性。 这将在页面 HTML 中呈现为 `<html lang="en-US">` 标签。
 
 ```ts
 export default {
   lang: 'en-US'
+  // lang: 'zh-CN',
 }
 ```
 
-## lastUpdated
+## 最近更新时间 {#lastupdated}
 
 - Type: `boolean`
 - Default: `false`
 
-Use git commit to get the timestamp. This option enables the default theme to display the page's last updated time. You can customize the text via [`themeConfig.lastUpdatedText`](theme-configs#lastupdatedtext) option.
+使用 git commit 获取时间戳。 此选项启用默认主题以显示页面的最近更新时间。 你可以通过 [`themeConfig.lastUpdatedText`](theme-configs#lastupdatedtext) 选项自定义文本。
 
 ```ts
 export default {
@@ -127,7 +128,7 @@ export default {
 
 - Type: `MarkdownOption`
 
-Configure Markdown parser options. VitePress uses [Markdown-it](https://github.com/markdown-it/markdown-it) as the parser, and [Shiki](https://shiki.matsu.io/) to highlight language syntax. Inside this option, you may pass various Markdown related options to fit your needs.
+配置 Markdown 解析器选项。 VitePress 使用 [Markdown-it](https://github.com/markdown-it/markdown-it) 作为解析器，使用 [Shiki](https://shiki.matsu.io/) 高亮语言语法。 在此选项中，你可以传递各种 Markdown 相关选项以满足你的需求。
 
 ```js
 export default {
@@ -138,20 +139,20 @@ export default {
 }
 ```
 
-Below are all the options that you can have in this object:
+以下是你可以在此对象中可选的所有选项：
 
 ```ts
 interface MarkdownOptions extends MarkdownIt.Options {
-  // Custom theme for syntax highlighting.
-  // You can use an existing theme.
-  // See: https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
-  // Or add your own theme.
-  // See: https://github.com/shikijs/shiki/blob/main/docs/themes.md#loading-theme
+  // 自定义主题来高亮语法
+  // 可以使用现有的主题
+  // 参考: https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
+  // 或者添加自己的主题
+  // 参考: https://github.com/shikijs/shiki/blob/main/docs/themes.md#loading-theme
   theme?:
     | Shiki.IThemeRegistration
     | { light: Shiki.IThemeRegistration; dark: Shiki.IThemeRegistration }
 
-  // Enable line numbers in code block.
+  // 在代码块中启用行号。
   lineNumbers?: boolean
 
   // markdown-it-anchor plugin options.
@@ -196,7 +197,7 @@ interface MarkdownOptions extends MarkdownIt.Options {
 - Type: `string`
 - Default: `./.vitepress/dist`
 
-The build output location for the site, relative to project root (`docs` folder if you're running `vitepress build docs`).
+站点的构建输出位置，相对于项目根目录（如果你正在运行 `vitepress build docs`，则为 `docs` 文件夹）。
 
 ```ts
 export default {
@@ -209,7 +210,7 @@ export default {
 - Type: `string`
 - Default: `./.vitepress/cache`
 
-The directory for cache files, relative to project root (`docs` folder if you're running `vitepress build docs`). See also: [cacheDir](https://vitejs.dev/config/shared-options.html#cachedir).
+缓存文件的目录，相对于项目根目录（如果您正在运行 `vitepress build docs`，则为 `docs` 文件夹）。另见：[cacheDir](https://vitejs.dev/config/shared-options.html#cachedir)。
 
 ```ts
 export default {
@@ -222,7 +223,7 @@ export default {
 - Type: `string`
 - Default: `.`
 
-The directory where your markdown pages are stored, relative to project root.
+存储 markdown 页面的目录，相对于项目根目录 `docs`。
 
 ```ts
 export default {
@@ -235,7 +236,7 @@ export default {
 - Type: `string`
 - Default: `VitePress`
 
-Title for the site. This will be displayed in the nav bar. Also used as the suffix for all page titles unless `titleTemplate` is defined.
+网站的标题。这将显示在导航栏中。也用作所有页面标题的后缀，除非定义了 [`titleTemplate`](#titletemplate)。
 
 ```ts
 export default {
@@ -247,9 +248,9 @@ export default {
 
 - Type: `string | boolean`
 
-The suffix for the title. For example, if you set `title` as `VitePress` and set `titleTemplate` as `My Site`, the html title becomes `VitePress | My Site`.
+标题的后缀。例如，如果将 `title` 设置为 `VitePress`，将 `titleTemplate` 设置为 `My Site`，则 html 标题将变为 `VitePress | My Site`。
 
-Set `false` to disable the feature. If the option is `undefined`, then the value of `title` option will be used.
+设置 `false` 以禁用该功能。如果选项是 `undefined`，那么将使用 `title` 选项的值。
 
 ```ts
 export default {
@@ -266,12 +267,12 @@ export default {
 }
 ```
 
-## cleanUrls (Experimental)
+## cleanUrls (试验性的) {#cleanurls-experimental}
 
 - Type: `'disabled' | 'without-subfolders' | 'with-subfolders'`
 - Default: `'disabled'`
 
-Allows removing trailing `.html` from URLs and, optionally, generating clean directory structure. Available modes:
+允许从 URL 中删除后面的 `.html`，并且可以选择生成干净的目录结构。可用模式有：
 
 |          Mode          |   Page    |  Generated Page   |     URL     |
 | :--------------------: | :-------: | :---------------: | :---------: |
@@ -281,7 +282,7 @@ Allows removing trailing `.html` from URLs and, optionally, generating clean dir
 
 ::: warning
 
-Enabling this may require additional configuration on your hosting platform. For it to work, your server must serve the generated page on requesting the URL (see above table) **without a redirect**.
+启用此功能可能需要在您的托管平台上进行额外配置。为了使其正常工作，您的服务器必须在请求 URL（见上表）时提供生成的页面，而**无需重定向**。
 
 :::
 
@@ -293,9 +294,9 @@ export default {
 
 ## Build Hooks
 
-VitePress build hooks allow you to add new functionality and behaviors to your website:
+VitePress build hooks 允许您向您的网站添加新功能和表现：
 
-- Sitemap
+- 网站地图
 - Search Indexing
 - PWA
 
@@ -303,10 +304,13 @@ VitePress build hooks allow you to add new functionality and behaviors to your w
 
 - Type: `(ctx: TransformContext) => Awaitable<HeadConfig[]>`
 
+::: details transformHead 是一个 build hook，用于在生成每个页面之前转换头部。它将允许您添加无法静态添加到您的 VitePress 配置中的头部条目。您只需要返回额外的条目，它们将自动与现有条目合并。
 `transformHead` is a build hook to transform the head before generating each page. It will allow you to add head entries that cannot be statically added to your VitePress config. You only need to return extra entries, they will be merged automatically with the existing ones.
+:::
 
-::: warning
-Don't mutate anything inside the `ctx`.
+
+::: warning 警告
+不要改变 `ctx` 中的任何东西。
 :::
 
 ```ts
@@ -333,10 +337,10 @@ interface TransformContext {
 
 - Type: `(code: string, id: string, ctx: TransformContext) => Awaitable<string | void>`
 
-`transformHtml` is a build hook to transform the content of each page before saving to disk.
+`transformHtml` 是一个 build hook,在保存到磁盘之前转换每个页面的内容。
 
-::: warning
-Don't mutate anything inside the `ctx`. Also, modifying the html content may cause [hydration( HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) problems in runtime.
+::: warning 警告
+不要改变 `ctx` 中的任何东西。此外，修改 html 内容可能会导致运行时出现 [hydration( HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 问题。
 :::
 
 ```ts
@@ -351,7 +355,7 @@ export default {
 
 - Type: `(pageData: PageData) => Awaitable<Partial<PageData> | { [key: string]: any } | void>`
 
-`transformPageData` is a hook to transform the `pageData` of each page. You can directly mutate `pageData` or return changed values which will be merged into PageData.
+`transformPageData` 是一个 hook,转换每个页面的 `pageData`。您可以直接改变 `pageData` 或返回更改值,合并到 PageData 中。
 
 ```ts
 export default {
@@ -372,7 +376,7 @@ export default {
 
 - Type: `(siteConfig: SiteConfig) => Awaitable<void>`
 
-`buildEnd` is a build CLI hook, it will run after build (SSG) finish but before VitePress CLI process exits.
+`buildEnd` 是一个 build CLI hook, 它将在构建（SSG）完成后但在 VitePress CLI 进程退出之前运行。
 
 ```ts
 export default {

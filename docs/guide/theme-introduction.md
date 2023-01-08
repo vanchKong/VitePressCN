@@ -2,7 +2,7 @@
 
 VitePress 带有它的默认主题，提供了许多开箱即用的功能。在下面列出的专用页面上了解有关每个功能的更多信息。
 
-- [顶部导航](./theme-nav)
+- [导航栏](./theme-nav)
 - [侧边栏](./theme-sidebar)
 - [上下页文本](./theme-prev-next-link)
 - [编辑链接](./theme-edit-link)
