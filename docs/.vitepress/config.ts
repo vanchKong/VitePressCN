@@ -70,11 +70,11 @@ const config: UserConfig = {
 					// collapsed: true,
 					items: [
 						// 副标题以及链接
-						{ text: '什么是VitePress？', link: '/guide/what-is-vitepress' },
+						{ text: '什么是 VitePress？', link: '/guide/what-is-vitepress' },
 						{ text: '快速上手', link: '/guide/getting-started' },
 						{ text: '配置', link: '/guide/configuration' },
 						{ text: '部署', link: '/guide/deploying' },
-						{ text: '总结', link: '/guide/summary' },
+						{ text: 'markdown 基础语法', link: '/guide/markdown-base' },
 					],
 				},
 				{
