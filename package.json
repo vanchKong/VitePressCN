@@ -13,5 +13,8 @@
 		"@types/node": "^18.11.18",
 		"vitepress": "^1.0.0-alpha.35",
 		"vue": "^3.2.45"
+	},
+	"dependencies": {
+		"lxgw-wenkai-lite-webfont": "^1.6.0"
 	}
 }

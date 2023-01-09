@@ -1,4 +1,17 @@
+@import 'lxgw-wenkai-lite-webfont/style.css';
+/* @import url(https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css); */
 /* .vitepress/theme/custom.css */
+
+/* :root {
+	--vp-font-family-base: 'LXGW WenKai Screen', 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+		'Droid Sans', 'Helvetica Neue', sans-serif;
+	--vp-font-family-mono: 'LXGW WenKai Screen', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+} */
+:root {
+	--vp-font-family-base: 'LXGW WenKai Lite', 'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+		'Droid Sans', 'Helvetica Neue', sans-serif;
+	--vp-font-family-mono: 'LXGW WenKai Lite', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
 
 /**
 * 标题颜色

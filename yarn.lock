@@ -487,6 +487,11 @@ jsonc-parser@^3.2.0:
   resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.2.0.tgz#31ff3f4c2b9793f89c67212627c51c6394f88e76"
   integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
 
+lxgw-wenkai-lite-webfont@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/lxgw-wenkai-lite-webfont/-/lxgw-wenkai-lite-webfont-1.6.0.tgz#c2156d2156322ee0b8fd7637c1cb0af33ddbbf73"
+  integrity sha512-jSjCZSlRVDEcj9CQoWqtX5xyjZhwfxisvZjZfef/NFBfMTlKQm5bvKDq6l/G230fiQVgCGu/KxtDPu3OlNU+mw==
+
 magic-string@^0.25.7:
   version "0.25.9"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.9.tgz#de7f9faf91ef8a1c91d02c2e5314c8277dbcdd1c"
