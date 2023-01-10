@@ -17,7 +17,7 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: 在 GitHub 上浏览
-      link: https://github.com/vuejs/vitepressCN
+      link: https://github.com/vanchKong/VitePressCN
     - theme: alt
       text: 浏览原文档
       link: https://vitepress.vuejs.org
