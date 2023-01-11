@@ -1,6 +1,8 @@
 import type { UserConfig } from 'vitepress'
 // import { defineConfig } from 'vitepress'
 import pkg from 'vitepress/package.json'
+import mdFootnote from 'markdown-it-footnote'
+import mdTaskList from 'markdown-it-task-lists'
 const config: UserConfig = {
 	base: '/VitePressCN/',
 	lang: 'zh-CN',
@@ -19,6 +21,10 @@ const config: UserConfig = {
 	// markdown配置
 	markdown: {
 		lineNumbers: true,
+		config: md => {
+			md.use(mdFootnote)
+			md.use(mdTaskList)
+		},
 	},
 	//  主题配置
 	themeConfig: {
