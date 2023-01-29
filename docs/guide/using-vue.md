@@ -2,7 +2,7 @@
 
 在 VitePress 中，每个 markdown 文件都被编译成 HTML，然后作为 Vue 单文件组件处理。这意味着你可以在 markdown 中使用任何 Vue 功能，包括动态模板、使用 Vue 组件或通过添加 `<script>` 标签使用任意页面内 Vue 组件逻辑。
 
-同样重要的是 `VitePress` 利用 `Vue 3` 的编译器来自动检测和优化 markdown 的纯静态部分。静态内容被优化为单个占位节点，并排除页面中的 JavaScript 负载。在客户端 [hydration(HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 期间也会跳过它们。简而言之，你只需为页面上的动态部分付出性能。
+同样重要的是 `VitePress` 利用 `Vue 3` 的编译器来自动检测和优化 markdown 的纯静态部分。静态内容被优化为单个占位节点，并排除页面中的 JavaScript 负载。在客户端 [hydration(HTML 添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 期间也会跳过它们。简而言之，你只需为页面上的动态部分付出性能。
 
 ## 模板化 {#templating}
 
@@ -42,9 +42,9 @@
 
 ```html
 <script setup>
-import { useData } from 'vitepress'
+	import { useData } from 'vitepress'
 
-const { page } = useData()
+	const { page } = useData()
 </script>
 
 <pre>{{ page }}</pre>
@@ -54,15 +54,15 @@ const { page } = useData()
 
 ```json
 {
-  "path": "/using-vue.html",
-  "title": "Using Vue in Markdown",
-  "frontmatter": {}
+	"path": "/using-vue.html",
+	"title": "Using Vue in Markdown",
+	"frontmatter": {}
 }
 ```
 
 ## 转义 {#escaping}
 
-默认情况下，插值代码块 会自动用 `v-pre` 包装，除非你设置了一些带有 `-vue` 后缀的语言，比如 `js-vue`（在这种情况下你可以在 `插值表达式` 内使用 Vue 风格的插值）。要在内联代码片段或纯文本中显示原始插值表达式或特定于 Vue 的语法，你需要使用 v-pre 自定义容器包装一个段落：
+默认情况下，插值代码块会自动用 `v-pre` 包装，除非你设置了一些带有 `-vue` 后缀的语言，比如 `js-vue`（在这种情况下你可以在 `插值表达式` 内使用 Vue 风格的插值）。要在内联代码片段或纯文本中显示原始插值表达式或特定于 Vue 的语法，你需要使用 v-pre 自定义容器包装一个段落：
 
 **Input**
 
@@ -104,7 +104,7 @@ This is a .md using a custom component
 
 ### 在 theme 中注册全局组件 {#registering-global-components-in-the-theme}
 
-如果组件将在文档的多个页面中使用，则可以在theme中全局注册它们（或作为一部分扩展 VitePress 默认的 theme）。查看[ theme 指南](./theme-introduction)了解更多信息。
+如果组件将在文档的多个页面中使用，则可以在 theme 中全局注册它们（或作为一部分扩展 VitePress 默认的 theme）。查看[ theme 指南](./theme-introduction)了解更多信息。
 
 在 `.vitepress/theme/index.js` 中，`enhanceApp` 函数接收 Vue `app` 实例，因此你可以像在常规 Vue 应用程序中一样[注册组件](https://vuejs.org/guide/components/registration.html)。
 
@@ -112,11 +112,11 @@ This is a .md using a custom component
 import DefaultTheme from 'vitepress/theme'
 
 export default {
-  ...DefaultTheme,
-  enhanceApp(ctx) {
-    DefaultTheme.enhanceApp(ctx)
-    ctx.app.component('VueClickAwayExample', VueClickAwayExample)
-  }
+	...DefaultTheme,
+	enhanceApp(ctx) {
+		DefaultTheme.enhanceApp(ctx)
+		ctx.app.component('VueClickAwayExample', VueClickAwayExample)
+	},
 }
 ```
 
@@ -129,15 +129,14 @@ export default {
 ```
 
 ::: warning 重要
-确保自定义组件的名称包含连字符或采用 帕斯卡 命名规则。否则，它将被视为内联元素并包裹在 `<p>` 标签内，这将导致 [hydration(HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 不匹配，因为 `<p>` 不允许将块元素放置在其中。
+确保自定义组件的名称包含连字符或采用 帕斯卡 命名规则。否则，它将被视为内联元素并包裹在 `<p>` 标签内，这将导致 [hydration(HTML 添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 不匹配，因为 `<p>` 不允许将块元素放置在其中。
 :::
 
 ### 在标题中使用组件 <ComponentInHeader /> {#using-components-in-headers}
 
-
 你可以在标题中使用 Vue 组件，但请注意以下语法之间的区别：
 
-| Markdown                                                | 输出的 HTML                               | 解析出的标题 |
+| Markdown                                                | 输出的 HTML                               | 解析出的标题  |
 | ------------------------------------------------------- | ----------------------------------------- | ------------- |
 | <pre v-pre><code> # text &lt;Tag/&gt; </code></pre>     | `<h1>text <Tag/></h1>`                    | `text`        |
 | <pre v-pre><code> # text \`&lt;Tag/&gt;\` </code></pre> | `<h1>text <code>&lt;Tag/&gt;</code></h1>` | `text <Tag/>` |
@@ -222,11 +221,11 @@ VitePress 提供了内置的 Vue 组件，比如 `ClientOnly`，查看[全局组
 ```vue
 <script>
 export default {
-  mounted() {
-    import('./lib-that-access-window-on-import').then((module) => {
-      // use code
-    })
-  }
+	mounted() {
+		import('./lib-that-access-window-on-import').then((module) => {
+			// use code
+		})
+	},
 }
 </script>
 ```
@@ -235,25 +234,22 @@ export default {
 
 ```vue
 <template>
-  <component
-    v-if="dynamicComponent"
-    :is="dynamicComponent">
-  </component>
+	<component v-if="dynamicComponent" :is="dynamicComponent"> </component>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      dynamicComponent: null
-    }
-  },
+	data() {
+		return {
+			dynamicComponent: null,
+		}
+	},
 
-  mounted() {
-    import('./lib-that-access-window-on-import').then((module) => {
-      this.dynamicComponent = module.default
-    })
-  }
+	mounted() {
+		import('./lib-that-access-window-on-import').then((module) => {
+			this.dynamicComponent = module.default
+		})
+	},
 }
 </script>
 ```
@@ -261,3 +257,30 @@ export default {
 **另见：**
 
 - [Vue.js > Dynamic Components](https://vuejs.org/guide/essentials/component-basics.html#dynamic-components)
+
+## Using Teleports
+
+::: details Vitepress 目前仅支持传送到 `body` 标签的 SSG。对于其他目标，您可以将它们包装在内置的 `<ClientOnly>` 组件中，或者通过 [`postRender` hook](../config/app-configs#postrender) 将 teleport 标签注入最终页面 HTML 中的正确位置。
+Vitepress currently has SSG support for teleports to body only. For other targets, you can wrap them inside the built-in `<ClientOnly>` component or inject the teleport markup into the correct location in your final page HTML through [`postRender` hook](../config/app-configs#postrender).
+
+:::
+
+<ModalDemo />
+
+::: details
+<<< @/components/ModalDemo.vue
+:::
+
+```md
+<ClientOnly>
+  <Teleport to="#modal">
+    <div>
+      // ...
+    </div>
+  </Teleport>
+</ClientOnly>
+```
+
+<script setup>
+import ModalDemo from '../components/ModalDemo.vue'
+</script>

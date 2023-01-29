@@ -1,6 +1,6 @@
 # 侧边栏 {#sidebar}
 
-侧边栏是文档的主要导航块。 你可以在 `themeConfig.sidebar` 中配置侧边栏菜单。
+侧边栏是文档的主要导航块。 你可以在 [`themeConfig.sidebar`](/config/theme-configs#sidebar). 中配置侧边栏菜单。
 
 ```js
 export default {
@@ -52,13 +52,40 @@ export default {
 
 ```js
 export default {
+	themeConfig: {
+		sidebar: [
+			{
+				text: 'Guide',
+				items: [
+					// This shows `/guide/index.md` page.
+					{ text: 'Introduction', link: '/guide/' },
+				],
+			},
+		],
+	},
+}
+```
+
+您可以进一步将侧边栏项目嵌入到 6 级深度，从根级别上计数。请注意，深度超过 6 级嵌套物品被忽略，并且不会在侧边栏上显示。
+
+```js
+export default {
   themeConfig: {
     sidebar: [
       {
-        text: 'Guide',
+        text: 'Level 1',
         items: [
-          // This shows `/guide/index.md` page.
-          { text: 'Introduction', link: '/guide/' }
+          {
+            text: 'Level 2',
+            items: [
+              {
+                text: 'Level 3',
+                items: [
+                  ...
+                ]
+              }
+            ]
+          }
         ]
       }
     ]
@@ -88,37 +115,37 @@ export default {
 
 ```js
 export default {
-  themeConfig: {
-    sidebar: {
-      // This sidebar gets displayed when user is
-      // under `guide` directory.
-      '/guide/': [
-        {
-          text: 'Guide',
-          items: [
-            // This shows `/guide/index.md` page.
-            { text: 'Index', link: '/guide/' }, // /guide/index.md
-            { text: 'One', link: '/guide/one' }, // /guide/one.md
-            { text: 'Two', link: '/guide/two' } // /guide/two.md
-          ]
-        }
-      ],
+	themeConfig: {
+		sidebar: {
+      // This sidebar gets displayed when a user
+      // is on `guide` directory.
+			'/guide/': [
+				{
+					text: 'Guide',
+					items: [
+						// This shows `/guide/index.md` page.
+						{ text: 'Index', link: '/guide/' }, // /guide/index.md
+						{ text: 'One', link: '/guide/one' }, // /guide/one.md
+						{ text: 'Two', link: '/guide/two' }, // /guide/two.md
+					],
+				},
+			],
 
-      // This sidebar gets displayed when user is
-      // under `config` directory.
-      '/config/': [
-        {
-          text: 'Config',
-          items: [
-            // This shows `/config/index.md` page.
-            { text: 'Index', link: '/config/' }, // /config/index.md
-            { text: 'Three', link: '/config/three' }, // /config/three.md
-            { text: 'Four', link: '/config/four' } // /config/four.md
-          ]
-        }
-      ]
-    }
-  }
+			// This sidebar gets displayed when a user
+			// is on `config` directory.
+			'/config/': [
+				{
+					text: 'Config',
+					items: [
+						// This shows `/config/index.md` page.
+						{ text: 'Index', link: '/config/' }, // /config/index.md
+						{ text: 'Three', link: '/config/three' }, // /config/three.md
+						{ text: 'Four', link: '/config/four' }, // /config/four.md
+					],
+				},
+			],
+		},
+	},
 }
 ```
 

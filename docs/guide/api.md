@@ -12,15 +12,16 @@ VitePress 提供了几个内置 API 来获取应用程序数据。 VitePress 还
 
 ```ts
 interface VitePressData {
-  site: Ref<SiteData>
+  site: Ref<SiteData<T>>
   page: Ref<PageData>
-  theme: Ref<any> // themeConfig from .vitepress/config.js
+  theme: Ref<T> // themeConfig from .vitepress/config.js
   frontmatter: Ref<PageData['frontmatter']>
-  lang: Ref<string>
   title: Ref<string>
   description: Ref<string>
-  localePath: Ref<string>
+  lang: Ref<string>
   isDark: Ref<boolean>
+  dir: Ref<string>
+  localeIndex: Ref<string>
 }
 ```
 

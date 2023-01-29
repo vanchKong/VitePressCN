@@ -11,8 +11,8 @@
 	},
 	"devDependencies": {
 		"@types/node": "^18.11.18",
-		"vitepress": "^1.0.0-alpha.35",
-		"vitepress-plugin-search": "^1.0.4-alpha.17",
+		"vitepress": "^1.0.0-alpha.43",
+		"vitepress-plugin-search": "^1.0.4-alpha.18",
 		"vue": "^3.2.45"
 	},
 	"dependencies": {

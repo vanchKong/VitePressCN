@@ -19,25 +19,28 @@ export default {
 
 这里描述了 VitePress 默认主题的设置。 如果您使用的是其他人创建的自定义主题，这些设置可能没有任何效果，或者可能表现不同。
 
+## i18nRouting {#i18nrouting}
+
+- Type: `boolean`
+
+将本地语言更改为 `zh` 会将 URL 从 `/foo`（或 `/en/foo/`）更改为 `/zh/foo`。您可以通过将 `themeConfig.i18nRouting` 设置为 `false` 来禁用此行为。
+
 ## 图标 {#logo}
 
 - Type: `ThemeableImage`
 
-显示在导航栏中的 logo 文件，位于站点标题之前。接受路径字符串或包含亮/暗模式不同logo的对象。
+显示在导航栏中的 logo 文件，位于站点标题之前。接受路径字符串或包含亮/暗模式不同 logo 的对象。
 
 ```ts
 export default {
-  themeConfig: {
-    logo: '/logo.svg'
-  }
+	themeConfig: {
+		logo: '/logo.svg',
+	},
 }
 ```
 
 ```ts
-type ThemeableImage =
-  | string
-  | { src: string; alt?: string }
-  | { light: string; dark: string; alt?: string }
+type ThemeableImage = string | { src: string; alt?: string } | { light: string; dark: string; alt?: string }
 ```
 
 ## 站点标题 {#sitetitle}
@@ -48,9 +51,9 @@ type ThemeableImage =
 
 ```ts
 export default {
-  themeConfig: {
-    siteTitle: 'Hello World'
-  }
+	themeConfig: {
+		siteTitle: 'Hello World',
+	},
 }
 ```
 
@@ -62,19 +65,19 @@ export default {
 
 ```js
 export default {
-  themeConfig: {
-    nav: [
-      { text: 'Guide', link: '/guide' },
-      {
-        text: 'Dropdown Menu',
-        items: [
-          { text: 'Item A', link: '/item-1' },
-          { text: 'Item B', link: '/item-2' },
-          { text: 'Item C', link: '/item-3' }
-        ]
-      }
-    ]
-  }
+	themeConfig: {
+		nav: [
+			{ text: 'Guide', link: '/guide' },
+			{
+				text: 'Dropdown Menu',
+				items: [
+					{ text: 'Item A', link: '/item-1' },
+					{ text: 'Item B', link: '/item-2' },
+					{ text: 'Item C', link: '/item-3' },
+				],
+			},
+		],
+	},
 }
 ```
 
@@ -82,15 +85,15 @@ export default {
 type NavItem = NavItemWithLink | NavItemWithChildren
 
 type NavItemWithLink = {
-  text: string
-  link: string
-  activeMatch?: string
+	text: string
+	link: string
+	activeMatch?: string
 }
 
 interface NavItemWithChildren {
-  text?: string
-  items: NavItemWithLink[]
-  activeMatch?: string
+	text?: string
+	items: NavItemWithLink[]
+	activeMatch?: string
 }
 ```
 
@@ -118,22 +121,41 @@ export default {
 ```
 
 ```ts
-type Sidebar = SidebarGroup[] | SidebarMulti
+export type Sidebar = SidebarItem[] | SidebarMulti
 
-interface SidebarMulti {
-  [path: string]: SidebarGroup[]
+export interface SidebarMulti {
+	[path: string]: SidebarItem[]
 }
 
-interface SidebarGroup {
-  text: string
-  items: SidebarItem[]
-  collapsible?: boolean
-  collapsed?: boolean
-}
+export type SidebarItem = {
+	/**
+	 * The text label of the item.
+	 */
+	text?: string
 
-interface SidebarItem {
-  text: string
-  link: string
+	/**
+	 * The link of the item.
+	 */
+	link?: string
+
+	/**
+	 * The children of the item.
+	 */
+	items?: SidebarItem[]
+
+	/**
+	 * 如果是 `true`, 折叠按钮就会显示。
+	 *
+	 * @default false
+	 */
+	collapsible?: boolean
+
+	/**
+	 * 如果是 `true`, 可折叠组默认折叠。
+	 *
+	 * @default false
+	 */
+	collapsed?: boolean
 }
 ```
 
@@ -153,9 +175,9 @@ interface SidebarItem {
 
 ```js
 export default {
-  themeConfig: {
-    outlineTitle: 'In hac pagina'
-  }
+	themeConfig: {
+		outlineTitle: 'In hac pagina',
+	},
 }
 ```
 
@@ -167,39 +189,29 @@ export default {
 
 ```js
 export default {
-  themeConfig: {
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
-      { icon: 'twitter', link: '...' },
-      // You can also add custom icons by passing SVG as string:
-      {
-        icon: {
-          svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg>'
-        },
-        link: '...'
-      }
-    ]
-  }
+	themeConfig: {
+		socialLinks: [
+			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+			{ icon: 'twitter', link: '...' },
+			// You can also add custom icons by passing SVG as string:
+			{
+				icon: {
+					svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg>',
+				},
+				link: '...',
+			},
+		],
+	},
 }
 ```
 
 ```ts
 interface SocialLink {
-  icon: SocialLinkIcon
-  link: string
+	icon: SocialLinkIcon
+	link: string
 }
 
-type SocialLinkIcon =
-  | 'discord'
-  | 'facebook'
-  | 'github'
-  | 'instagram'
-  | 'linkedin'
-  | 'mastodon'
-  | 'slack'
-  | 'twitter'
-  | 'youtube'
-  | { svg: string }
+type SocialLinkIcon = 'discord' | 'facebook' | 'github' | 'instagram' | 'linkedin' | 'mastodon' | 'slack' | 'twitter' | 'youtube' | { svg: string }
 ```
 
 ## 页脚 {#footer}
@@ -210,19 +222,19 @@ type SocialLinkIcon =
 
 ```ts
 export default {
-  themeConfig: {
-    footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present Evan You'
-    }
-  }
+	themeConfig: {
+		footer: {
+			message: 'Released under the MIT License.',
+			copyright: 'Copyright © 2019-present Evan You',
+		},
+	},
 }
 ```
 
 ```ts
 export interface Footer {
-  message?: string
-  copyright?: string
+	message?: string
+	copyright?: string
 }
 ```
 
@@ -234,19 +246,19 @@ export interface Footer {
 
 ```js
 export default {
-  themeConfig: {
-    editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
-      text: 'Edit this page on GitHub'
-    }
-  }
+	themeConfig: {
+		editLink: {
+			pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+			text: 'Edit this page on GitHub',
+		},
+	},
 }
 ```
 
 ```ts
 export interface EditLink {
-  pattern: string
-  text?: string
+	pattern: string
+	text?: string
 }
 ```
 
@@ -259,9 +271,9 @@ export interface EditLink {
 
 ```ts
 export default {
-  themeConfig: {
-    lastUpdatedText: 'Updated Date'
-  }
+	themeConfig: {
+		lastUpdatedText: 'Updated Date',
+	},
 }
 ```
 
@@ -273,19 +285,19 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    carbonAds: {
-      code: 'your-carbon-code',
-      placement: 'your-carbon-placement'
-    }
-  }
+	themeConfig: {
+		carbonAds: {
+			code: 'your-carbon-code',
+			placement: 'your-carbon-placement',
+		},
+	},
 }
 ```
 
 ```ts
 export interface CarbonAds {
-  code: string
-  placement: string
+	code: string
+	placement: string
 }
 ```
 
@@ -299,18 +311,18 @@ export interface CarbonAds {
 
 ```js
 export default {
-  themeConfig: {
-    docFooter: {
-      prev: 'Pagina prior',
-      next: 'Proxima pagina'
-    }
-  }
+	themeConfig: {
+		docFooter: {
+			prev: 'Pagina prior',
+			next: 'Proxima pagina',
+		},
+	},
 }
 ```
 
 ```ts
 export interface DocFooter {
-  prev?: string
-  next?: string
+	prev?: string
+	next?: string
 }
 ```

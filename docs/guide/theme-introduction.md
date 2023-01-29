@@ -36,16 +36,16 @@ VitePress 自定义 theme 是一个包含四个属性的对象，定义如下：
 
 ```ts
 interface Theme {
-  Layout: Component // Vue 3 component
-  NotFound?: Component
-  enhanceApp?: (ctx: EnhanceAppContext) => Awaitable<void>
-  setup?: () => void
+	Layout: Component // Vue 3 component
+	NotFound?: Component
+	enhanceApp?: (ctx: EnhanceAppContext) => Awaitable<void>
+	setup?: () => void
 }
 
 interface EnhanceAppContext {
-  app: App // Vue 3 app instance
-  router: Router // VitePress router instance
-  siteData: Ref<SiteData>
+	app: App // Vue 3 app instance
+	router: Router // VitePress router instance
+	siteData: Ref<SiteData>
 }
 ```
 
@@ -56,22 +56,22 @@ theme 入口文件应将 theme 默认导出：
 import Layout from './Layout.vue'
 
 export default {
-  // root component to wrap each page
-  Layout,
+	// root component to wrap each page
+	Layout,
 
-  // this is a Vue 3 functional component
-  NotFound: () => 'custom 404',
+	// this is a Vue 3 functional component
+	NotFound: () => 'custom 404',
 
-  enhanceApp({ app, router, siteData }) {
-    // app is the Vue 3 app instance from `createApp()`.
-    // router is VitePress' custom router. `siteData` is
-    // a `ref` of current site-level metadata.
-  },
+	enhanceApp({ app, router, siteData }) {
+		// app is the Vue 3 app instance from `createApp()`.
+		// router is VitePress' custom router. `siteData` is
+		// a `ref` of current site-level metadata.
+	},
 
-  setup() {
-    // this function will be executed inside VitePressApp's
-    // setup hook. all composition APIs are available here.
-  }
+	setup() {
+		// this function will be executed inside VitePressApp's
+		// setup hook. all composition APIs are available here.
+	},
 }
 ```
 
@@ -80,10 +80,10 @@ export default {
 ```vue
 <!-- .vitepress/theme/Layout.vue -->
 <template>
-  <h1>Custom Layout!</h1>
+	<h1>Custom Layout!</h1>
 
-  <!-- this is where markdown content will be rendered -->
-  <Content />
+	<!-- this is where markdown content will be rendered -->
+	<Content />
 </template>
 ```
 
@@ -111,14 +111,14 @@ export default Theme
 import DefaultTheme from 'vitepress/theme'
 
 export default {
-  ...DefaultTheme,
-  enhanceApp(ctx) {
-    // extend default theme custom behaviour.
-    DefaultTheme.enhanceApp(ctx)
+	...DefaultTheme,
+	enhanceApp(ctx) {
+		// extend default theme custom behaviour.
+		DefaultTheme.enhanceApp(ctx)
 
-    // register your custom global components
-    ctx.app.component('MyGlobalComponent' /* ... */)
-  }
+		// register your custom global components
+		ctx.app.component('MyGlobalComponent' /* ... */)
+	},
 }
 ```
 
@@ -139,8 +139,8 @@ export default DefaultTheme
 ```css
 /* .vitepress/theme/custom.css */
 :root {
-  --vp-c-brand: #646cff;
-  --vp-c-brand-light: #747bff;
+	--vp-c-brand: #646cff;
+	--vp-c-brand-light: #747bff;
 }
 ```
 
@@ -156,10 +156,10 @@ import DefaultTheme from 'vitepress/theme'
 import MyLayout from './MyLayout.vue'
 
 export default {
-  ...DefaultTheme,
-  // override the Layout with a wrapper component that
-  // injects the slots
-  Layout: MyLayout
+	...DefaultTheme,
+	// override the Layout with a wrapper component that
+	// injects the slots
+	Layout: MyLayout,
 }
 ```
 
@@ -172,11 +172,9 @@ const { Layout } = DefaultTheme
 </script>
 
 <template>
-  <Layout>
-    <template #aside-outline-before>
-      My custom sidebar top content
-    </template>
-  </Layout>
+	<Layout>
+		<template #aside-outline-before> My custom sidebar top content </template>
+	</Layout>
 </template>
 ```
 
@@ -189,12 +187,12 @@ import DefaultTheme from 'vitepress/theme'
 import MyComponent from './MyComponent.vue'
 
 export default {
-  ...DefaultTheme,
-  Layout() {
-    return h(DefaultTheme.Layout, null, {
-      'aside-outline-before': () => h(MyComponent)
-    })
-  }
+	...DefaultTheme,
+	Layout() {
+		return h(DefaultTheme.Layout, null, {
+			'aside-outline-before': () => h(MyComponent),
+		})
+	},
 }
 ```
 

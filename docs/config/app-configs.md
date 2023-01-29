@@ -27,7 +27,7 @@ export default {
 
 ```ts
 export default {
-  appearance: true
+	appearance: true,
 }
 ```
 
@@ -42,7 +42,7 @@ base 会自动添加到其他所有中以 / 开头的所有 URL，因此你只�
 
 ```ts
 export default {
-  base: '/base/'
+	base: '/base/',
 }
 ```
 
@@ -55,7 +55,7 @@ export default {
 
 ```ts
 export default {
-  description: 'A VitePress site'
+	description: 'A VitePress site',
 }
 ```
 
@@ -68,32 +68,27 @@ export default {
 
 ```ts
 export default {
-  head: [
-    [
-      'link',
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
-    ]
-    // 将会渲染为: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  ]
+	head: [
+		['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+		// 将会渲染为: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	],
 }
 ```
 
 ```ts
-type HeadConfig =
-  | [string, Record<string, string>]
-  | [string, Record<string, string>, string]
+type HeadConfig = [string, Record<string, string>] | [string, Record<string, string>, string]
 ```
 
 ## 忽略无效链接 {#ignoredeadlinks}
 
-- Type: `boolean`
+- Type: `boolean | 'localhostLinks'`
 - Default: `false`
 
-当设置为 `true` 时，VitePress 不会因为无效链接而导致构建失败。
+当设置为 `true` 时，VitePress 不会因为无效链接而导致构建失败。当设置为 `localhostLinks` 时，构建将在死链接上失败，但不会检查 `localhost` 链接。
 
 ```ts
 export default {
-  ignoreDeadLinks: true
+	ignoreDeadLinks: true,
 }
 ```
 
@@ -106,8 +101,8 @@ export default {
 
 ```ts
 export default {
-  lang: 'en-US'
-  // lang: 'zh-CN',
+	lang: 'en-US',
+	// lang: 'zh-CN',
 }
 ```
 
@@ -120,7 +115,7 @@ export default {
 
 ```ts
 export default {
-  lastUpdated: true
+	lastUpdated: true,
 }
 ```
 
@@ -132,10 +127,10 @@ export default {
 
 ```js
 export default {
-  markdown: {
-    theme: 'material-palenight',
-    lineNumbers: true
-  }
+	markdown: {
+		theme: 'material-palenight',
+		lineNumbers: true,
+	},
 }
 ```
 
@@ -143,52 +138,50 @@ export default {
 
 ```ts
 interface MarkdownOptions extends MarkdownIt.Options {
-  // 自定义主题来高亮语法
-  // 可以使用现有的主题
-  // 参考: https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
-  // 或者添加自己的主题
-  // 参考: https://github.com/shikijs/shiki/blob/main/docs/themes.md#loading-theme
-  theme?:
-    | Shiki.IThemeRegistration
-    | { light: Shiki.IThemeRegistration; dark: Shiki.IThemeRegistration }
+	// 自定义主题来高亮语法
+	// 可以使用现有的主题
+	// 参考: https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
+	// 或者添加自己的主题
+	// 参考: https://github.com/shikijs/shiki/blob/main/docs/themes.md#loading-theme
+	theme?: Shiki.IThemeRegistration | { light: Shiki.IThemeRegistration; dark: Shiki.IThemeRegistration }
 
-  // 在代码块中启用行号。
-  lineNumbers?: boolean
+	// 在代码块中启用行号。
+	lineNumbers?: boolean
 
-  // markdown-it-anchor plugin options.
-  // See: https://github.com/valeriangalliat/markdown-it-anchor#usage
-  anchor?: anchorPlugin.AnchorOptions
+	// markdown-it-anchor plugin options.
+	// See: https://github.com/valeriangalliat/markdown-it-anchor#usage
+	anchor?: anchorPlugin.AnchorOptions
 
-  // markdown-it-attrs plugin options.
-  // See: https://github.com/arve0/markdown-it-attrs
-  attrs?: {
-    leftDelimiter?: string
-    rightDelimiter?: string
-    allowedAttributes?: string[]
-    disable?: boolean
-  }
+	// markdown-it-attrs plugin options.
+	// See: https://github.com/arve0/markdown-it-attrs
+	attrs?: {
+		leftDelimiter?: string
+		rightDelimiter?: string
+		allowedAttributes?: string[]
+		disable?: boolean
+	}
 
-  // specify default language for syntax highlighter
-  defaultHighlightLang?: string
+	// specify default language for syntax highlighter
+	defaultHighlightLang?: string
 
-  // @mdit-vue/plugin-frontmatter plugin options.
-  // See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-frontmatter#options
-  frontmatter?: FrontmatterPluginOptions
+	// @mdit-vue/plugin-frontmatter plugin options.
+	// See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-frontmatter#options
+	frontmatter?: FrontmatterPluginOptions
 
-  // @mdit-vue/plugin-headers plugin options.
-  // See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-headers#options
-  headers?: HeadersPluginOptions
+	// @mdit-vue/plugin-headers plugin options.
+	// See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-headers#options
+	headers?: HeadersPluginOptions
 
-  // @mdit-vue/plugin-sfc plugin options.
-  // See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-sfc#options
-  sfc?: SfcPluginOptions
+	// @mdit-vue/plugin-sfc plugin options.
+	// See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-sfc#options
+	sfc?: SfcPluginOptions
 
-  // @mdit-vue/plugin-toc plugin options.
-  // See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#options
-  toc?: TocPluginOptions
+	// @mdit-vue/plugin-toc plugin options.
+	// See: https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#options
+	toc?: TocPluginOptions
 
-  // Configure the Markdown-it instance.
-  config?: (md: MarkdownIt) => void
+	// Configure the Markdown-it instance.
+	config?: (md: MarkdownIt) => void
 }
 ```
 
@@ -201,7 +194,7 @@ interface MarkdownOptions extends MarkdownIt.Options {
 
 ```ts
 export default {
-  outDir: '../public'
+	outDir: '../public',
 }
 ```
 
@@ -214,7 +207,7 @@ export default {
 
 ```ts
 export default {
-  cacheDir: './.vitepress/.vite'
+	cacheDir: './.vitepress/.vite',
 }
 ```
 
@@ -227,7 +220,7 @@ export default {
 
 ```ts
 export default {
-  srcDir: './src'
+	srcDir: './src',
 }
 ```
 
@@ -240,7 +233,7 @@ export default {
 
 ```ts
 export default {
-  title: 'VitePress'
+	title: 'VitePress',
 }
 ```
 
@@ -254,8 +247,8 @@ export default {
 
 ```ts
 export default {
-  title: 'VitePress',
-  titleTemplate: 'Vite & Vue powered static site generator'
+	title: 'VitePress',
+	titleTemplate: 'Vite & Vue powered static site generator',
 }
 ```
 
@@ -263,32 +256,48 @@ To configure a title separator other than `|`, you can omit `title` and use the 
 
 ```ts
 export default {
-  titleTemplate: ':title - Vitepress'
+	titleTemplate: ':title - Vitepress',
 }
 ```
 
-## cleanUrls (试验性的) {#cleanurls-experimental}
+## cleanUrls {#cleanurls}
 
-- Type: `'disabled' | 'without-subfolders' | 'with-subfolders'`
-- Default: `'disabled'`
+- Type: `boolean`
+- Default: `false`
 
-允许从 URL 中删除后面的 `.html`，并且可以选择生成干净的目录结构。可用模式有：
+允许从 URL 中删除后面的 `.html`
 
-|          Mode          |   Page    |  Generated Page   |     URL     |
+<!-- ，并且可以选择生成干净的目录结构。可用模式有： -->
+
+<!-- |          Mode          |   Page    |  Generated Page   |     URL     |
 | :--------------------: | :-------: | :---------------: | :---------: |
 |      `'disabled'`      | `/foo.md` |    `/foo.html`    | `/foo.html` |
 | `'without-subfolders'` | `/foo.md` |    `/foo.html`    |   `/foo`    |
-|  `'with-subfolders'`   | `/foo.md` | `/foo/index.html` |   `/foo`    |
+|  `'with-subfolders'`   | `/foo.md` | `/foo/index.html` |   `/foo`    | -->
 
 ::: warning
 
-启用此功能可能需要在您的托管平台上进行额外配置。为了使其正常工作，您的服务器必须在请求 URL（见上表）时提供生成的页面，而**无需重定向**。
+启用此功能可能需要在您的托管平台上进行额外配置。为了使其正常工作，您的服务器必须在请求 `/foo` 时提供生成的 `/foo.html` 页面，而**无需重定向**。
 
 :::
 
 ```ts
 export default {
-  cleanUrls: 'with-subfolders'
+	cleanUrls: true,
+}
+```
+
+## rewrites
+
+- Type: `Record<string, string>`
+
+定义自定义目录 <-> URL 映射。有关详细信息，请参阅[路由：自定义映射](/guide/routing#customize-the-mappings)。
+
+```ts
+export default {
+	rewrites: {
+		'source/:page': 'destination/:page',
+	},
 }
 ```
 
@@ -296,18 +305,54 @@ export default {
 
 VitePress build hooks 允许您向您的网站添加新功能和表现：
 
-- 网站地图
+- Sitemap
 - Search Indexing
 - PWA
+- Teleports
+
+### buildEnd
+
+- Type: `(siteConfig: SiteConfig) => Awaitable<void>`
+
+`buildEnd` 是一个 CLI 构建钩子，它将在构建（SSG）完成后、在 VitePress CLI 进程退出之前运行。
+
+```ts
+export default {
+	async buildEnd(siteConfig) {
+		// ...
+	},
+}
+```
+
+### postRender
+
+- Type: `(context: SSGContext) => Awaitable<SSGContext | void>`
+
+`postRender` 是一个 build hook, 当 SSG 渲染完成时调用。它允许您在 SSG 期间处理 teleports 内容。
+
+```ts
+export default {
+	async postRender(context) {
+		// ...
+	},
+}
+```
+
+```ts
+interface SSGContext {
+	content: string
+	teleports?: Record<string, string>
+	[key: string]: any
+}
+```
 
 ### transformHead
 
-- Type: `(ctx: TransformContext) => Awaitable<HeadConfig[]>`
+- Type: `(context: TransformContext) => Awaitable<HeadConfig[]>`
 
 ::: details transformHead 是一个 build hook，用于在生成每个页面之前转换头部。它将允许您添加无法静态添加到您的 VitePress 配置中的头部条目。您只需要返回额外的条目，它们将自动与现有条目合并。
 `transformHead` is a build hook to transform the head before generating each page. It will allow you to add head entries that cannot be statically added to your VitePress config. You only need to return extra entries, they will be merged automatically with the existing ones.
 :::
-
 
 ::: warning 警告
 不要改变 `ctx` 中的任何东西。
@@ -315,21 +360,21 @@ VitePress build hooks 允许您向您的网站添加新功能和表现：
 
 ```ts
 export default {
-  async transformHead(ctx) {
-    // ...
-  }
+	async transformHead(context) {
+		// ...
+	},
 }
 ```
 
 ```ts
 interface TransformContext {
-  siteConfig: SiteConfig
-  siteData: SiteData
-  pageData: PageData
-  title: string
-  description: string
-  head: HeadConfig[]
-  content: string
+	siteConfig: SiteConfig
+	siteData: SiteData
+	pageData: PageData
+	title: string
+	description: string
+	head: HeadConfig[]
+	content: string
 }
 ```
 
@@ -340,14 +385,14 @@ interface TransformContext {
 `transformHtml` 是一个 build hook,在保存到磁盘之前转换每个页面的内容。
 
 ::: warning 警告
-不要改变 `ctx` 中的任何东西。此外，修改 html 内容可能会导致运行时出现 [hydration( HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 问题。
+不要改变 `ctx` 中的任何东西。此外，修改 html 内容可能会导致运行时出现 [hydration( HTML 添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 问题。
 :::
 
 ```ts
 export default {
-  async transformHtml(code, id, context) {
-    // ...
-  }
+	async transformHtml(code, id, context) {
+		// ...
+	},
 }
 ```
 
@@ -372,7 +417,7 @@ export default {
 }
 ```
 
-### buildEnd
+<!-- ### buildEnd
 
 - Type: `(siteConfig: SiteConfig) => Awaitable<void>`
 
@@ -380,8 +425,8 @@ export default {
 
 ```ts
 export default {
-  async buildEnd(siteConfig) {
-    // ...
-  }
+	async buildEnd(siteConfig) {
+		// ...
+	},
 }
-```
+``` -->

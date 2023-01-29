@@ -9,7 +9,7 @@ const config: UserConfig = {
 	// 网站标题，左上角以及meta标题
 	title: 'VitePressCN',
 	description: 'Vite & Vue 驱动的静态站点生成器',
-	cleanUrls: 'without-subfolders',
+	cleanUrls: true,
 	// 是否忽略死链
 	ignoreDeadLinks: false,
 	// 最后更新于 开关
@@ -79,7 +79,9 @@ const config: UserConfig = {
 						{ text: '什么是 VitePress？', link: '/guide/what-is-vitepress' },
 						{ text: '快速上手', link: '/guide/getting-started' },
 						{ text: '配置', link: '/guide/configuration' },
+						{ text: '路由', link: '/guide/routing' },
 						{ text: '部署', link: '/guide/deploying' },
+						{ text: '国际化', link: '/guide/i18n' },
 						{ text: 'markdown 基础语法', link: '/guide/markdown-base' },
 					],
 				},
