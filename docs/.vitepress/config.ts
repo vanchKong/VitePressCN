@@ -3,6 +3,16 @@ import type { UserConfig } from 'vitepress'
 import pkg from 'vitepress/package.json'
 import mdFootnote from 'markdown-it-footnote'
 import mdTaskList from 'markdown-it-task-lists'
+
+// export default defineConfig({
+// 	themeConfig: {
+// 		algolia: {
+// 			appId: '...',
+// 			apiKey: '...',
+// 			indexName: '...',
+// 		},
+// 	},
+// })
 const config: UserConfig = {
 	base: '/VitePressCN/',
 	lang: 'zh-CN',
