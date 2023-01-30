@@ -1,10 +1,10 @@
-# Routing
+# 路由 {#routing}
 
-VitePress is built with file system based routing, which means the directory structure of the source file corresponds to the final URL. You may customize the mapping of the directory structure and URL too. Read through this page to learn everything about the VitePress routing system.
+VitePress 构建了基于文件系统的路由，这意味着源文件的目录结构对应于最终的 URL。你也可以自定义目录结构和 URL 的映射。通读此页面以了解有关 VitePress 路由系统的所有信息。
 
-## Basic Routing
+## 基础路由 {#basic-routing}
 
-By default, VitePress assumes your page files are stored in project root. Here you may add markdown files with the name being the URL path. For example, when you have following directory structure:
+默认情况下，VitePress 假定你的页面文件存储在项目根目录中。你可以在此处添加 markdown 文件，名称为 URL 路径。例如，当你具有以下目录结构时：
 
 ```
 .
@@ -15,7 +15,7 @@ By default, VitePress assumes your page files are stored in project root. Here y
 └─ prologue.md
 ```
 
-Then you can access the pages by the below URL.
+然后你可以通过以下 URL 访问这些页面。
 
 ```
 index.md           -> /
@@ -24,11 +24,11 @@ guide/index.md     -> /guide/
 getting-started.md -> /guide/getting-started.html
 ```
 
-As you can see, the directory structure corresponds to the final URL, as same as hosting plain HTML from a typical web server.
+如你所见，目录结构与最终 URL 相对应，与典型 Web 服务器的纯 HTML 相同。
 
-## Changing the Root Directory
+## 更改根目录 {#changing-the-root-directory}
 
-To change the root directory for your page files, you may pass the directory name to the `vitepress` command. For example, if you want to store your page files under `docs` directory, then you should run `vitepress dev docs` command.
+要更改页面文件的根目录，你可以将目录名称传递给 vitepress 命令。例如，如果你想将页面文件存储在 `docs` 目录下，那么你应该运行 `vitepress dev docs` 命令。
 
 ```
 .
@@ -42,14 +42,14 @@ To change the root directory for your page files, you may pass the directory nam
 vitepress dev docs
 ```
 
-This is going to map the URL as follows.
+这将按如下方式映射 URL。
 
 ```
 docs/index.md           -> /
 docs/getting-started.md -> /getting-started.html
 ```
 
-You may also customize the root directory in config file via [`srcDir`](/config/app-configs#srcdir) option too. Running `vitepress dev` with the following setting acts same as running `vitepress dev docs` command.
+你也可以通过 [`srcDir`](/config/app-configs#srcdir) 选项在配置文件中自定义根目录。使用以下设置时运行 `vitepress dev`与运行 `vitepress dev docs` 命令结果相同。
 
 ```ts
 export default {
@@ -57,9 +57,9 @@ export default {
 }
 ```
 
-## Linking Between Pages
+## 页面之间链接 {#linking-between-pages}
 
-When adding links in pages, omit extension from the path and use either absolute path from the root, or relative path from the page. VitePress will handle the extension according to your configuration setup.
+在页面中添加链接时，省略路径的扩展名并使用来自根的绝对路径或页面的相对路径。 VitePress 将根据你的配置设置 handle the extension。
 
 ```md
 <!-- Do -->
@@ -73,13 +73,13 @@ When adding links in pages, omit extension from the path and use either absolute
 [Getting Started](/guide/getting-started.html)
 ```
 
-Learn more about page links and links to assets, such as link to images, at [Asset Handling](asset-handling).
+在 [Asset Handling](asset-handling) 中，了解有关页面链接和静态资源链接（例如图像链接）的更多信息。
 
-## Generate Clean URL
+## 生成干净的 URL {#generate-clean-url}
 
-A "Clean URL" is commonly known as URL without `.html` extension, for example, `example.com/path` instead of `example.com/path.html`.
+“Clean URL”通常称为不带 `.html` 扩展名的 URL，例如，`example.com/path` 而不是 `example.com/path.html`。
 
-By default, VitePress generates the final static page files by adding `.html` extension to each file. If you would like to have clean URL, you may structure your directory by only using `index.html` file.
+默认情况下，VitePress 通过为每个文件添加 `.html` 扩展名来生成最终的静态页面文件。如果你想要干净的 URL，你可以只使用 `index.html` 文件来构建你的目录。
 
 ```
 .
@@ -90,7 +90,7 @@ By default, VitePress generates the final static page files by adding `.html` ex
 └─ index.md
 ```
 
-However, you may also generate a clean URL by setting up [`cleanUrls`](/config/app-configs#cleanurls) option.
+但是，你也可以通过设置 [`cleanUrls`](/config/app-configs#cleanurls) 选项来生成干净的 URL。
 
 ```ts
 export default {
@@ -98,9 +98,9 @@ export default {
 }
 ```
 
-## Customize the Mappings
+## 自定义映射 {#customize-the-mappings}
 
-You may customize the mapping between directory structure and URL. It's useful when you have complex document structure. For example, let's say you have several packages and would like to place documentations along with the source files like this.
+你可以自定义目录结构和 URL 之间的映射。当你有复杂的文档结构时，它很有用。例如，假设你有多个包，并希望像这样将文档与源文件一起放置。
 
 ```
 .
@@ -115,14 +115,14 @@ You may customize the mapping between directory structure and URL. It's useful w
 │         └─ pkg-b-code.md
 ```
 
-And you want the VitePress pages to be generated as follows.
+并且你希望按如下方式生成 VitePress 页面。
 
 ```
 packages/pkg-a/src/pkg-a-code.md -> /pkg-a/pkg-a-code.md
 packages/pkg-b/src/pkg-b-code.md -> /pkg-b/pkg-b-code.md
 ```
 
-You may configure the mapping via [`rewrites`](/config/app-configs#rewrites) option like this.
+你可以像这样通过 [`rewrites`](/config/app-configs#rewrites) 选项配置映射。
 
 ```ts
 export default {
@@ -133,7 +133,7 @@ export default {
 }
 ```
 
-The `rewrites` option can also have dynamic route parameters. In this example, we have fixed path `packages` and `src` which stays the same on all pages, and it might be verbose to have to list all pages in your config as you add pages. You may configure the above mapping as below and get the same result.
+`rewrites` 选项也可以有动态路由参数。在这个例子中，我们有固定的路径包和 src 在所有页面上保持相同，并且在添加页面时必须列出配置中的所有页面可能会很冗长。你可以如下配置上述映射并获得相同的结果。
 
 ```ts
 export default {
@@ -143,9 +143,9 @@ export default {
 }
 ```
 
-Route parameters are prefixed by `:` (e.g. `:pkg`). The name of the parameter is just a placeholder and can be anything.
+路由参数以 `:` 为前缀（例如 `:pkg`）。参数的名称只是一个占位符，可以是任何内容。
 
-In addition, you may add `*` at the end of the parameter to map all sub directories from there on.
+此外，你可以在参数末尾添加 `*` 以映射从那里开始的所有子目录。
 
 ```ts
 export default {
@@ -155,20 +155,20 @@ export default {
 }
 ```
 
-The above will create mapping as below.
+以上将创建如下映射。
 
 ```
 packages/pkg-a/src/pkg-a-code.md  -> /pkg-a/pkg-a-code
 packages/pkg-b/src/folder/file.md -> /pkg-b/folder/file
 ```
 
-::: warning You need server restart on page addition
-At the moment, VitePress doesn't detect page additions to the mapped directory. You need to restart your server when adding or removing files from the directory during the dev mode. Updating the already existing files gets updated as usual.
+::: warning 你需要在添加页面时重启服务
+目前，VitePress 不会检测到映射目录中的页面添加。在开发模式下从目录中添加或删除文件时需要重新启动服务器。更新已经存在的文件会照常更新。
 :::
 
-### Relative Link Handling in Page
+### 页面中的相对链接处理 {#relative-link-handling-in-page}
 
-Note that when enabling rewrites, **relative links in the markdown are resolved relative to the final path**. For example, in order to create relative link from `packages/pkg-a/src/pkg-a-code.md` to `packages/pkg-b/src/pkg-b-code.md`, you should define link as below.
+请注意，启用重写时，**markdown 中的相对链接是相对于最终路径解析的**。例如，为了创建从 `packages/pkg-a/src/pkg-a-code.md` 到 `packages/pkg-b/src/pkg-b-code.md` 的相对链接，你应该如下定义链接。
 
 ```md
 [Link to PKG B](../pkg-b/pkg-b-code)

@@ -10,7 +10,7 @@ editLink: true
 ---
 ```
 
-您可以通过 Markdown 文件中的 `$frontmatter` 辅助函数访问 frontmatter 的内容。
+你可以通过 Markdown 文件中的 `$frontmatter` 辅助函数访问 frontmatter 的内容。
 
 ```md
 {{ $frontmatter.title }}
@@ -98,8 +98,8 @@ lastUpdated: false
 指定页面的布局。
 
 - `doc` - 它将默认文档样式应用于 markdown 内容。
-- `home` - “主页”的特殊布局。 您可以添加额外的选项，例如 `hero` 和 `feature`，以快速创建漂亮的首页。
-- `page` - 类似于 `doc`，但它不将样式应用于内容。 当您想要创建一个完全自定义的页面时很有用。
+- `home` - “主页”的特殊布局。 你可以添加额外的选项，例如 `hero` 和 `feature`，以快速创建漂亮的首页。
+- `page` - 类似于 `doc`，但它不将样式应用于内容。 当你想要创建一个完全自定义的页面时很有用。
 
 ```yaml
 ---
@@ -170,7 +170,7 @@ interface HeroAction {
 
 它定义了要在特性部分显示的内容。
 
-您可以在[主题：主页](../guide/theme-home-page)中了解更多信息。
+你可以在[主题：主页](../guide/theme-home-page)中了解更多信息。
 
 ## aside {#aside}
 

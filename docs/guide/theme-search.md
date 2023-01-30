@@ -1,6 +1,6 @@
 # 搜索 {#search}
 
-VitePress 支持使用 [Algolia DocSearch](https://docsearch.algolia.com/docs/what-is-docsearch) 搜索您的文档站点。请参阅他们的入门指南。在您的 `.vitepress/config.ts` 中，您至少需要提供以下内容才能使其正常工作：
+VitePress 支持使用 [Algolia DocSearch](https://docsearch.algolia.com/docs/what-is-docsearch) 搜索你的文档站点。请参阅他们的入门指南。在你的 `.vitepress/config.ts` 中，你至少需要提供以下内容才能使其正常工作：
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -16,11 +16,11 @@ export default defineConfig({
 })
 ```
 
-如果您不符合 DocSearch 的条件，您可能想使用一些社区插件，例如 [vitepress-plugin-search](https://github.com/emersonbottero/vitepress-plugin-search) 或探索 [this GitHub thread](https://github.com/vuejs/vitepress/issues/670) 上的一些自定义解决方案。
+如果你不符合 DocSearch 的条件，你可能想使用一些社区插件，例如 [vitepress-plugin-search](https://github.com/emersonbottero/vitepress-plugin-search) 或探索 [this GitHub thread](https://github.com/vuejs/vitepress/issues/670) 上的一些自定义解决方案。
 
 ## i18n
 
-您可以使用这样的配置来使用多语言搜索：
+你可以使用这样的配置来使用多语言搜索：
 
 ```ts
 import { defineConfig } from 'vitepress'

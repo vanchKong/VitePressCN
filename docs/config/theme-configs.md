@@ -1,6 +1,6 @@
 # 主题配置 {#theme-configs}
 
-主题配置可让您自定义主题。 您可以通过将 `themeConfig` 添加到配置文件来定义主题配置。
+主题配置可让你自定义主题。 你可以通过将 `themeConfig` 添加到配置文件来定义主题配置。
 
 ```ts
 export default {
@@ -17,13 +17,13 @@ export default {
 }
 ```
 
-这里描述了 VitePress 默认主题的设置。 如果您使用的是其他人创建的自定义主题，这些设置可能没有任何效果，或者可能表现不同。
+这里描述了 VitePress 默认主题的设置。 如果你使用的是其他人创建的自定义主题，这些设置可能没有任何效果，或者可能表现不同。
 
 ## i18nRouting {#i18nrouting}
 
 - Type: `boolean`
 
-将本地语言更改为 `zh` 会将 URL 从 `/foo`（或 `/en/foo/`）更改为 `/zh/foo`。您可以通过将 `themeConfig.i18nRouting` 设置为 `false` 来禁用此行为。
+将本地语言更改为 `zh` 会将 URL 从 `/foo`（或 `/en/foo/`）更改为 `/zh/foo`。你可以通过将 `themeConfig.i18nRouting` 设置为 `false` 来禁用此行为。
 
 ## 图标 {#logo}
 
@@ -47,7 +47,7 @@ type ThemeableImage = string | { src: string; alt?: string } | { light: string; 
 
 - Type: `string | false`
 
-您可以自定义此项以替换导航中的默认站点标题（应用配置中的 `title`）。 当设置为 `false` 时，导航中的标题将被禁用。 这在当你的 `logo` 已经包含网站标题文本时很有用。
+你可以自定义此项以替换导航中的默认站点标题（应用配置中的 `title`）。 当设置为 `false` 时，导航中的标题将被禁用。 这在当你的 `logo` 已经包含网站标题文本时很有用。
 
 ```ts
 export default {
@@ -61,7 +61,7 @@ export default {
 
 - Type: `NavItem`
 
-导航菜单项的配置。 您可以在[主题: 导航栏](../guide/theme-nav#navigation-links) 了解更多详情。
+导航菜单项的配置。 你可以在[主题: 导航栏](../guide/theme-nav#navigation-links) 了解更多详情。
 
 ```js
 export default {
@@ -101,7 +101,7 @@ interface NavItemWithChildren {
 
 - Type: `Sidebar`
 
-侧边栏菜单项的配置。 您可以在[主题: 侧边栏](../guide/theme-sidebar) 了解更多详情。
+侧边栏菜单项的配置。 你可以在[主题: 侧边栏](../guide/theme-sidebar) 了解更多详情。
 
 ```js
 export default {
@@ -164,7 +164,7 @@ export type SidebarItem = {
 - Type: `number | [number, number] | 'deep' | false`
 - Default: `2`
 
-配置在大纲中显示的标题级别。您可以通过传递一个数字来指定一个特定的级别，或者您可以通过传递一个包含下限和上限的元组来提供一个级别范围。当传递等于 `[2, 6]` 的 `deep` 时，除 `h1` 外，所有标题级别都显示在轮廓中。设置 `false` 以隐藏轮廓。
+配置在大纲中显示的标题级别。你可以通过传递一个数字来指定一个特定的级别，或者你可以通过传递一个包含下限和上限的元组来提供一个级别范围。当传递等于 `[2, 6]` 的 `deep` 时，除 `h1` 外，所有标题级别都显示在轮廓中。设置 `false` 以隐藏轮廓。
 
 ## 大纲标题 {#outlinetitle}
 
@@ -185,7 +185,7 @@ export default {
 
 - Type: `SocialLink[]`
 
-您可以定义此选项以在导航栏中展示带有图标的社交帐户链接。
+你可以定义此选项以在导航栏中展示带有图标的社交帐户链接。
 
 ```js
 export default {
@@ -218,7 +218,7 @@ type SocialLinkIcon = 'discord' | 'facebook' | 'github' | 'instagram' | 'linkedi
 
 - Type: `Footer`
 
-页脚配置。 您可以添加 message 和 copyright。 由于设计原因，仅当页面不包含侧边栏时才会显示页脚。
+页脚配置。 你可以添加 message 和 copyright。 由于设计原因，仅当页面不包含侧边栏时才会显示页脚。
 
 ```ts
 export default {
@@ -242,7 +242,7 @@ export interface Footer {
 
 - Type: `EditLink`
 
-编辑链接可让您显示链接以编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面。 有关详细信息，请参阅 [主题：编辑链接](../guide/theme-edit-link)。
+编辑链接可让你显示链接以编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面。 有关详细信息，请参阅 [主题：编辑链接](../guide/theme-edit-link)。
 
 ```js
 export default {

@@ -203,7 +203,7 @@ export default {
 - Type: `string`
 - Default: `./.vitepress/cache`
 
-缓存文件的目录，相对于项目根目录（如果您正在运行 `vitepress build docs`，则为 `docs` 文件夹）。另见：[cacheDir](https://vitejs.dev/config/shared-options.html#cachedir)。
+缓存文件的目录，相对于项目根目录（如果你正在运行 `vitepress build docs`，则为 `docs` 文件夹）。另见：[cacheDir](https://vitejs.dev/config/shared-options.html#cachedir)。
 
 ```ts
 export default {
@@ -277,7 +277,7 @@ export default {
 
 ::: warning
 
-启用此功能可能需要在您的托管平台上进行额外配置。为了使其正常工作，您的服务器必须在请求 `/foo` 时提供生成的 `/foo.html` 页面，而**无需重定向**。
+启用此功能可能需要在你的托管平台上进行额外配置。为了使其正常工作，你的服务器必须在请求 `/foo` 时提供生成的 `/foo.html` 页面，而**无需重定向**。
 
 :::
 
@@ -303,7 +303,7 @@ export default {
 
 ## Build Hooks
 
-VitePress build hooks 允许您向您的网站添加新功能和表现：
+VitePress build hooks 允许你向你的网站添加新功能和表现：
 
 - Sitemap
 - Search Indexing
@@ -328,7 +328,7 @@ export default {
 
 - Type: `(context: SSGContext) => Awaitable<SSGContext | void>`
 
-`postRender` 是一个 build hook, 当 SSG 渲染完成时调用。它允许您在 SSG 期间处理 teleports 内容。
+`postRender` 是一个 build hook, 当 SSG 渲染完成时调用。它允许你在 SSG 期间处理 teleports 内容。
 
 ```ts
 export default {
@@ -350,7 +350,7 @@ interface SSGContext {
 
 - Type: `(context: TransformContext) => Awaitable<HeadConfig[]>`
 
-::: details transformHead 是一个 build hook，用于在生成每个页面之前转换头部。它将允许您添加无法静态添加到您的 VitePress 配置中的头部条目。您只需要返回额外的条目，它们将自动与现有条目合并。
+::: details transformHead 是一个 build hook，用于在生成每个页面之前转换头部。它将允许你添加无法静态添加到你的 VitePress 配置中的头部条目。你只需要返回额外的条目，它们将自动与现有条目合并。
 `transformHead` is a build hook to transform the head before generating each page. It will allow you to add head entries that cannot be statically added to your VitePress config. You only need to return extra entries, they will be merged automatically with the existing ones.
 :::
 
@@ -400,7 +400,7 @@ export default {
 
 - Type: `(pageData: PageData) => Awaitable<Partial<PageData> | { [key: string]: any } | void>`
 
-`transformPageData` 是一个 hook,转换每个页面的 `pageData`。您可以直接改变 `pageData` 或返回更改值,合并到 PageData 中。
+`transformPageData` 是一个 hook,转换每个页面的 `pageData`。你可以直接改变 `pageData` 或返回更改值,合并到 PageData 中。
 
 ```ts
 export default {

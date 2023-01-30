@@ -260,7 +260,7 @@ export default {
 
 ## Using Teleports
 
-::: details Vitepress 目前仅支持传送到 `body` 标签的 SSG。对于其他目标，您可以将它们包装在内置的 `<ClientOnly>` 组件中，或者通过 [`postRender` hook](../config/app-configs#postrender) 将 teleport 标签注入最终页面 HTML 中的正确位置。
+::: details Vitepress 目前仅支持传送到 `body` 标签的 SSG。对于其他目标，你可以将它们包装在内置的 `<ClientOnly>` 组件中，或者通过 [`postRender` hook](../config/app-configs#postrender) 将 teleport 标签注入最终页面 HTML 中的正确位置。
 Vitepress currently has SSG support for teleports to body only. For other targets, you can wrap them inside the built-in `<ClientOnly>` component or inject the teleport markup into the correct location in your final page HTML through [`postRender` hook](../config/app-configs#postrender).
 
 :::

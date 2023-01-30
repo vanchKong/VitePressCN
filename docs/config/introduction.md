@@ -17,13 +17,13 @@
 
 VitePress 带有 2 种类型的配置。 一种是 [应用配置](./app-configs)，它配置站点的基本功能，例如设置站点的标题，或自定义 Markdown 解析器的工作方式。 其次是 [主题配置](./theme-configs)，用于配置站点的主题，例如添加侧边栏，或者添加“在 GitHub 上编辑此页”链接等功能。
 
-您还可以在 [Frontmatter](./frontmatter-configs) 中进行另一种配置。 Frontmatter 配置可以覆盖在该特定页面的应用配置或主题配置上定义的全局配置。 而且，有几个选项也仅在 frontmatter 中可用。
+你还可以在 [Frontmatter](./frontmatter-configs) 中进行另一种配置。 Frontmatter 配置可以覆盖在该特定页面的应用配置或主题配置上定义的全局配置。 而且，有几个选项也仅在 frontmatter 中可用。
 
 请参阅相应的配置页面以了解更多信息。
 
 ## 配置智能提示 {#config-intellisense}
 
-由于 VitePress 附带 TypeScript 配置文件，您可以利用 IDE 的智能提示和 jsdoc 类型提示：
+由于 VitePress 附带 TypeScript 配置文件，你可以利用 IDE 的智能提示和 jsdoc 类型提示：
 
 ```js
 /**
@@ -36,7 +36,7 @@ const config = {
 export default config
 ```
 
-或者，您可以使用 `defineConfig` 辅助函数，它不需要 jsdoc 注释的情况下提供智能提示：
+或者，你可以使用 `defineConfig` 辅助函数，它不需要 jsdoc 注释的情况下提供智能提示：
 
 ```js
 import { defineConfig } from 'vitepress'
@@ -46,7 +46,7 @@ export default defineConfig({
 })
 ```
 
-VitePress 也支持 TS 配置文件。 您也可以将 `.vitepress/config.ts` 与 `defineConfig` 辅助函数一起使用。
+VitePress 也支持 TS 配置文件。 你也可以将 `.vitepress/config.ts` 与 `defineConfig` 辅助函数一起使用。
 
 ## 主题配置种类 {#typed-theme-config}
 
@@ -64,7 +64,7 @@ export default defineConfig({
 })
 ```
 
-如果您使用自定义主题并希望对主题配置进行类型检查，则需要改用 `defineConfigWithTheme`，并通过通用参数传递自定义主题的配置类型：
+如果你使用自定义主题并希望对主题配置进行类型检查，则需要改用 `defineConfigWithTheme`，并通过通用参数传递自定义主题的配置类型：
 
 ```ts
 import { defineConfigWithTheme } from 'vitepress'

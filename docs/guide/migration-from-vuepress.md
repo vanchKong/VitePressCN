@@ -20,7 +20,7 @@
 ```
 
 ::: warning 警告
-对于动态图像，您仍然需要 `withBase`，如 [Base URL](./asset-handling#base-url) 中所示。
+对于动态图像，你仍然需要 `withBase`，如 [Base URL](./asset-handling#base-url) 中所示。
 :::
 
 使用 `<img.*withBase\('(.*)'\).*alt="([^"]*)".*>` 正则表达式查找并替换为 `![$2]($1)` 用 `![](...)` 语法替换所有图像。
