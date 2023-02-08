@@ -16,7 +16,6 @@
 		"vue": "^3.2.45"
 	},
 	"dependencies": {
-		"lxgw-wenkai-lite-webfont": "^1.6.0",
 		"markdown-it-footnote": "^3.0.3",
 		"markdown-it-task-lists": "^2.1.1"
 	}
