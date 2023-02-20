@@ -151,7 +151,7 @@ export default {
 
 ## 可折叠的侧边栏组 {#collapsible-sidebar-groups}
 
-通过向侧边栏组添加 `collapsible` 选项，它会显示一个切换按钮来隐藏/显示每个部分。
+通过向侧边栏组添加 `collapsed` 选项，它会显示一个切换按钮来隐藏/显示每个部分。
 
 ```js
 export default {
@@ -159,12 +159,12 @@ export default {
     sidebar: [
       {
         text: 'Section Title A',
-        collapsible: true,
+        collapsed: true,
         items: [...]
       },
       {
         text: 'Section Title B',
-        collapsible: true,
+        collapsed: true,
         items: [...]
       }
     ]
@@ -180,7 +180,7 @@ export default {
     sidebar: [
       {
         text: 'Section Title A',
-        collapsible: true,
+        collapsed: true,
         collapsed: true,
         items: [...]
       }

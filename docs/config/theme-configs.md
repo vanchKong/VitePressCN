@@ -27,6 +27,7 @@ export default {
 
 ## 图标 {#logo}
 
+- key: `logo`
 - Type: `ThemeableImage`
 
 显示在导航栏中的 logo 文件，位于站点标题之前。接受路径字符串或包含亮/暗模式不同 logo 的对象。
@@ -45,6 +46,7 @@ type ThemeableImage = string | { src: string; alt?: string } | { light: string; 
 
 ## 站点标题 {#sitetitle}
 
+- key: `siteTitle`
 - Type: `string | false`
 
 你可以自定义此项以替换导航中的默认站点标题（应用配置中的 `title`）。 当设置为 `false` 时，导航中的标题将被禁用。 这在当你的 `logo` 已经包含网站标题文本时很有用。
@@ -59,6 +61,7 @@ export default {
 
 ## 导航栏 {#nav}
 
+- key: `nav`
 - Type: `NavItem`
 
 导航菜单项的配置。 你可以在[主题: 导航栏](../guide/theme-nav#navigation-links) 了解更多详情。
@@ -99,6 +102,7 @@ interface NavItemWithChildren {
 
 ## 侧边栏 {#sidebar}
 
+- key: `sidebar`
 - Type: `Sidebar`
 
 侧边栏菜单项的配置。 你可以在[主题: 侧边栏](../guide/theme-sidebar) 了解更多详情。
@@ -144,23 +148,24 @@ export type SidebarItem = {
 	items?: SidebarItem[]
 
 	/**
-	 * 如果是 `true`, 折叠按钮就会显示。
-	 *
-	 * @default false
-	 */
-	collapsible?: boolean
-
-	/**
-	 * 如果是 `true`, 可折叠组默认折叠。
-	 *
-	 * @default false
+	 * 如果未指定，则组不可折叠。
+	 * 如果为 `true`，组是可折叠的，默认情况下是折叠的
+	 * 如果为 `false`，则组可折叠但默认是展开的
 	 */
 	collapsed?: boolean
 }
 ```
 
+## 大纲开关 {#aside}
+
+- key: `aside`
+- Type: `boolean`
+- Default: `true`
+  将此值设置为 `false` 可禁用 aside(大纲) 容器。
+
 ## 大纲 {#outline}
 
+- key: `outline`
 - Type: `number | [number, number] | 'deep' | false`
 - Default: `2`
 
@@ -168,6 +173,7 @@ export type SidebarItem = {
 
 ## 大纲标题 {#outlinetitle}
 
+- key: `outlineTitle`
 - Type: `string`
 - Default: `On this page`
 
@@ -183,6 +189,7 @@ export default {
 
 ## 社交链接 {#sociallinks}
 
+- key: `socialLinks`
 - Type: `SocialLink[]`
 
 你可以定义此选项以在导航栏中展示带有图标的社交帐户链接。
@@ -216,6 +223,7 @@ type SocialLinkIcon = 'discord' | 'facebook' | 'github' | 'instagram' | 'linkedi
 
 ## 页脚 {#footer}
 
+- key: `footer`
 - Type: `Footer`
 
 页脚配置。 你可以添加 message 和 copyright。 由于设计原因，仅当页面不包含侧边栏时才会显示页脚。
@@ -240,6 +248,7 @@ export interface Footer {
 
 ## 编辑链接 {#editlink}
 
+- key: `editLink`
 - Type: `EditLink`
 
 编辑链接可让你显示链接以编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面。 有关详细信息，请参阅 [主题：编辑链接](../guide/theme-edit-link)。
@@ -264,6 +273,7 @@ export interface EditLink {
 
 ## 最近更新时间文本 {#lastupdatedtext}
 
+- key: `lastUpdatedText`
 - Type: `string`
 - Default: `Last updated`
 
@@ -277,8 +287,22 @@ export default {
 }
 ```
 
+## algolia
+
+- Type: `AlgoliaSearch`
+	支持使用 [Algolia DocSearch](https://docsearch.algolia.com/docs/what-is-docsearch) 搜索站点文档。在 [主题：搜索](../guide/theme-search) 中了解更多信息。
+
+```ts
+export interface AlgoliaSearchOptions extends DocSearchProps {
+	locales?: Record<string, Partial<DocSearchProps>>
+}
+```
+
+在[这里](https://github.com/vuejs/vitepress/blob/main/types/docsearch.d.ts)查看完整配置。
+
 ## carbonAds {#carbon-ads}
 
+- key: `carbonAds`
 - Type: `CarbonAds`
 
 一个配置即可展示 [Carbon Ads](https://www.carbonads.net/)。
@@ -303,8 +327,9 @@ export interface CarbonAds {
 
 了解更多 [主题: Carbon Ads](../guide/theme-carbon-ads)
 
-## docFooter
+## 翻页文案 {#docFooter}
 
+- key: `docFooter`
 - Type: `DocFooter`
 
 可用于自定义出现在上一篇和下一篇链接上方的文本。 如果不是用英语编写文档，这很有帮助。

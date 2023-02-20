@@ -31,13 +31,15 @@ const config: UserConfig = {
 	// markdown配置
 	markdown: {
 		lineNumbers: true,
-		config: md => {
+		// linkify: false,
+		config: (md) => {
 			md.use(mdFootnote)
 			md.use(mdTaskList)
 		},
 	},
 	//  主题配置
 	themeConfig: {
+		// aside: false,
 		outlineTitle: '当前页',
 		logo: '/logo.svg',
 		lastUpdatedText: '最近更新时间',
@@ -80,7 +82,7 @@ const config: UserConfig = {
 					// 主标题
 					text: '介绍',
 					// 是否可收起
-					collapsible: true,
+					collapsed: true,
 					// link: '/guide/configuration',
 					// 初始折叠状态 true 为折叠
 					// collapsed: true,
@@ -97,7 +99,7 @@ const config: UserConfig = {
 				},
 				{
 					text: '编写',
-					collapsible: true,
+					collapsed: true,
 					items: [
 						{ text: 'Markdown', link: '/guide/markdown' },
 						{ text: '静态资源处理', link: '/guide/asset-handling' },
@@ -108,7 +110,7 @@ const config: UserConfig = {
 				},
 				{
 					text: '主题',
-					collapsible: true,
+					collapsed: true,
 					items: [
 						{ text: '介绍', link: '/guide/theme-introduction' },
 						{ text: '导航栏', link: '/guide/theme-nav' },
@@ -127,7 +129,7 @@ const config: UserConfig = {
 				},
 				{
 					text: 'Migrations',
-					collapsible: true,
+					collapsed: true,
 					items: [
 						{
 							text: '从 VuePress 迁移',
@@ -178,6 +180,13 @@ const config: UserConfig = {
 		// 	code: 'CEBDT27Y',
 		// 	placement: 'vuejsorg',
 		// },
+		algolia: {
+			appId: '7WHRITCBT0',
+			apiKey: '066b52245563aa4ce21dad2b4c4b96c4',
+			indexName: 'vitepressCN',
+			placeholder: '请输入关键词',
+			buttonText: '搜索',
+		},
 	},
 
 	buildEnd(siteConfig) {
