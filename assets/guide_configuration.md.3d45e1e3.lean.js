@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,a as e}from"./app.54353262.js";const C=JSON.parse('{"title":"配置","description":"","frontmatter":{},"headers":[],"relativePath":"guide/configuration.md","lastUpdated":1673082999000}'),p={name:"guide/configuration.md"},l=e("",8),o=[l];function t(c,r,i,d,u,D){return n(),a("div",null,o)}const b=s(p,[["render",t]]);export{C as __pageData,b as default};
