@@ -1,7 +1,7 @@
 
 {
 	"index_name": "vitepressCN", // 填写自己的索引名称
-	"start_urls": ["https://vanchkong.github.io/VitePressCN"], // 填写自己的网站地址
+	"start_urls": ["https://vanchkong.github.io/VitePressCN/"], // 填写自己的网站地址
   "rateLimit": 8,
   "maxDepth": 10,
   "selectors": {
