@@ -1,7 +1,7 @@
-// import { defineConfig } from 'vite'
+import { defineConfig } from 'vite'
 import { SearchPlugin } from 'vitepress-plugin-search'
 import Segment from 'segment' // 中文分词器
-// import flexSearchIndexOptions from "flexsearch";
+// import flexSearchIndexOptions from 'flexsearch'
 // 创建实例
 const segment = new Segment()
 // 使用默认的识别模块及字典，载入字典文件需要1秒，仅初始化时执行一次即可
@@ -22,8 +22,11 @@ const options = {
 	// tokenize: "full",
 }
 
-export default {
+export default defineConfig({
 	plugins: [
-		SearchPlugin({ options }),
+		// SearchPlugin({
+		// tokenize: 'full',
+		// }),
+		SearchPlugin(options),
 	],
-}
+})

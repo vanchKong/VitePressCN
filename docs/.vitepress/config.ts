@@ -41,6 +41,8 @@ const config: UserConfig = {
 	themeConfig: {
 		// aside: false,
 		outlineTitle: '当前页',
+		// 显示层级
+		// outline: 'deep',
 		logo: '/logo.svg',
 		lastUpdatedText: '最近更新时间',
 		siteTitle: 'VitePressCN',
