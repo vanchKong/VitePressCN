@@ -1,5 +1,6 @@
 import type { UserConfig } from 'vitepress'
-// import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress'
+// import { pagefindPlugin, chineseSearchOptimize } from 'vitepress-plugin-pagefind'
 import pkg from 'vitepress/package.json'
 import mdFootnote from 'markdown-it-footnote'
 import mdTaskList from 'markdown-it-task-lists'
@@ -13,7 +14,25 @@ import mdTaskList from 'markdown-it-task-lists'
 // 		},
 // 	},
 // })
-const config: UserConfig = {
+const config = defineConfig({
+	vite: {
+		plugins: [
+			// pagefindPlugin({
+			// 	btnPlaceholder: '搜索',
+			// 	placeholder: '搜索文档',
+			// 	emptyText: '空空如也',
+			// 	heading: '共: {{searchResult}} 条结果',
+			// 	// customSearchQuery: chineseSearchOptimize,
+			// 	customSearchQuery(input) {
+			// 		// 将搜索的每个中文单字两侧加上空格
+			// 		return input
+			// 			.replace(/[\u4e00-\u9fa5]/g, ' $& ')
+			// 			.replace(/\s+/g, ' ')
+			// 			.trim()
+			// 	},
+			// }),
+		],
+	},
 	base: '/VitePressCN/',
 	lang: 'zh-CN',
 	// 网站标题，左上角以及meta标题
@@ -39,6 +58,10 @@ const config: UserConfig = {
 	},
 	//  主题配置
 	themeConfig: {
+		darkModeSwitchLabel: '主题',
+		sidebarMenuLabel: '菜单',
+		returnToTopLabel: '回到顶部',
+		langMenuLabel: '多语言',
 		// aside: false,
 		outlineTitle: '当前页',
 		// 显示层级
@@ -55,7 +78,7 @@ const config: UserConfig = {
 		// 顶部导航nav
 		nav: [
 			{ text: '指引', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
-			{ text: '配置', link: '/config/introduction', activeMatch: '/config/' },
+			{ text: '配置参考', link: '/reference/site-config', activeMatch: '/reference/' },
 			{
 				text: pkg.version,
 				items: [
@@ -66,95 +89,10 @@ const config: UserConfig = {
 			},
 		],
 		// 侧边导航
+
 		sidebar: {
-			// 匹配不同路由，侧边导航有所变化，如果没有多页面需求，可以只写一个数组
-			// link 字段以 / 开头，该根目录为 /docs/ 目录
-			// sidebar: [
-			// 	{
-			// 		text: '介绍',
-			// 		items: [
-			// 			{ text: '什么是VitePress', link: '/guide/what-is-vitepress' },
-			// 			{ text: 'Hello2', link: '/hello2' },
-			// 			{ text: 'Hello3', link: '/hello3' },
-			// 		],
-			// 	},
-			// ]
-			'/guide/': [
-				{
-					// 主标题
-					text: '介绍',
-					// 是否可收起
-					collapsed: true,
-					// link: '/guide/configuration',
-					// 初始折叠状态 true 为折叠
-					// collapsed: true,
-					items: [
-						// 副标题以及链接
-						{ text: '什么是 VitePress？', link: '/guide/what-is-vitepress' },
-						{ text: '快速上手', link: '/guide/getting-started' },
-						{ text: '配置', link: '/guide/configuration' },
-						{ text: '路由', link: '/guide/routing' },
-						{ text: '部署', link: '/guide/deploying' },
-						{ text: '国际化', link: '/guide/i18n' },
-						{ text: 'markdown 基础语法', link: '/guide/markdown-base' },
-					],
-				},
-				{
-					text: '编写',
-					collapsed: true,
-					items: [
-						{ text: 'Markdown', link: '/guide/markdown' },
-						{ text: '静态资源处理', link: '/guide/asset-handling' },
-						{ text: 'Frontmatter', link: '/guide/frontmatter' },
-						{ text: '在 Markdown 中使用 Vue', link: '/guide/using-vue' },
-						{ text: 'API 参考', link: '/guide/api' },
-					],
-				},
-				{
-					text: '主题',
-					collapsed: true,
-					items: [
-						{ text: '介绍', link: '/guide/theme-introduction' },
-						{ text: '导航栏', link: '/guide/theme-nav' },
-						{ text: '侧边栏', link: '/guide/theme-sidebar' },
-						{ text: '上（下）一篇', link: '/guide/theme-prev-next-link' },
-						{ text: '编辑链接', link: '/guide/theme-edit-link' },
-						{ text: '最近更新时间', link: '/guide/theme-last-updated' },
-						{ text: '布局', link: '/guide/theme-layout' },
-						{ text: '主页', link: '/guide/theme-home-page' },
-						{ text: '团队', link: '/guide/theme-team-page' },
-						{ text: '徽标', link: '/guide/theme-badge' },
-						{ text: '页脚', link: '/guide/theme-footer' },
-						{ text: '搜索', link: '/guide/theme-search' },
-						{ text: 'Carbon Ads', link: '/guide/theme-carbon-ads' },
-					],
-				},
-				{
-					text: 'Migrations',
-					collapsed: true,
-					items: [
-						{
-							text: '从 VuePress 迁移',
-							link: '/guide/migration-from-vuepress',
-						},
-						{
-							text: '从 VitePress 0.x 迁移',
-							link: '/guide/migration-from-vitepress-0',
-						},
-					],
-				},
-			],
-			'/config/': [
-				{
-					text: '配置项',
-					items: [
-						{ text: '介绍', link: '/config/introduction' },
-						{ text: '应用配置', link: '/config/app-configs' },
-						{ text: ' 主题配置', link: '/config/theme-configs' },
-						{ text: 'Frontmatter 配置', link: '/config/frontmatter-configs' },
-					],
-				},
-			],
+			'/guide/': sidebarGuide(),
+			'/reference/': sidebarReference(),
 		},
 		// 社交媒体跳转
 		socialLinks: [
@@ -182,17 +120,127 @@ const config: UserConfig = {
 		// 	code: 'CEBDT27Y',
 		// 	placement: 'vuejsorg',
 		// },
-		algolia: {
-			appId: '7WHRITCBT0',
-			apiKey: '066b52245563aa4ce21dad2b4c4b96c4',
-			indexName: 'vitepressCN',
-			placeholder: '请输入关键词',
-			buttonText: '搜索',
+		search: {
+			provider: 'local',
 		},
+
+		// algolia: {
+		// 	appId: '7WHRITCBT0',
+		// 	apiKey: '066b52245563aa4ce21dad2b4c4b96c4',
+		// 	indexName: 'vitepressCN',
+		// 	placeholder: '请输入关键词',
+		// 	buttonText: '搜索',
+		// },
 	},
 
 	buildEnd(siteConfig) {
-		console.log(siteConfig)
+		// console.log(siteConfig)
 	},
+	transformHead(ctx) {
+		// console.log(1111, ctx)
+	},
+})
+function sidebarGuide() {
+	return [
+		// 匹配不同路由，侧边导航有所变化，如果没有多页面需求，可以只写一个数组
+		// link 字段以 / 开头，该根目录为 /docs/ 目录
+		{
+			text: '介绍',
+			// 是否可收起
+			// 初始折叠状态 true 为折叠
+			collapsed: true,
+			items: [
+				{ text: '什么是 VitePress?', link: '/guide/what-is-vitepress' },
+				{ text: '快速开始', link: '/guide/getting-started' },
+				{ text: '路由', link: '/guide/routing' },
+				{ text: '部署', link: '/guide/deploy' },
+			],
+		},
+		{
+			text: '编写',
+			collapsed: true,
+			items: [
+				{ text: 'Markdown 基础语法', link: '/guide/markdown-base' },
+				{ text: 'Markdown 扩展', link: '/guide/markdown' },
+				{ text: '静态资源处理', link: '/guide/asset-handling' },
+				{ text: 'Frontmatter', link: '/guide/frontmatter' },
+				{ text: '在 Markdown 中 使用 Vue', link: '/guide/using-vue' },
+				{ text: '国际化', link: '/guide/i18n' },
+			],
+		},
+		{
+			text: '自定义',
+			collapsed: true,
+			items: [
+				{ text: '使用自定义主题', link: '/guide/custom-theme' },
+				{ text: '扩展默认主题', link: '/guide/extending-default-theme' },
+				{ text: '构建时数据加载', link: '/guide/data-loading' },
+				{ text: 'SSR 兼容性', link: '/guide/ssr-compat' },
+				{ text: '连接到 CMS', link: '/guide/cms' },
+			],
+		},
+		{
+			text: '实验性的',
+			collapsed: true,
+			items: [
+				{
+					text: 'MPA Mode',
+					link: '/guide/mpa-mode',
+				},
+			],
+		},
+		// {
+		// 	text: '迁移',
+		// 	collapsed: false,
+		// 	items: [
+		// 		{
+		// 			text: '从 VuePress 迁移',
+		// 			link: '/guide/migration-from-vuepress',
+		// 		},
+		// 		{
+		// 			text: '从 VitePress 0.x 迁移',
+		// 			link: '/guide/migration-from-vitepress-0',
+		// 		},
+		// 	],
+		// },
+		{
+			text: '配置 & API 参考',
+			link: '/reference/site-config',
+		},
+	]
 }
+
+function sidebarReference() {
+	return [
+		{
+			text: '参考',
+			items: [
+				{ text: '站点配置', link: '/reference/site-config' },
+				{ text: 'Frontmatter 配置', link: '/reference/frontmatter-config' },
+				{ text: 'Runtime API', link: '/reference/runtime-api' },
+				{ text: 'CLI', link: '/reference/cli' },
+				{
+					text: '默认主题',
+					// collapsed: true,
+					items: [
+						{ text: '概览', link: '/reference/default-theme-config' },
+						{ text: '导航栏', link: '/reference/default-theme-nav' },
+						{ text: '侧边栏', link: '/reference/default-theme-sidebar' },
+						{ text: '主页', link: '/reference/default-theme-home-page' },
+						{ text: '页脚', link: '/reference/default-theme-footer' },
+						{ text: '布局', link: '/reference/default-theme-layout' },
+						{ text: '徽标', link: '/reference/default-theme-badge' },
+						{ text: '团队', link: '/reference/default-theme-team-page' },
+						{ text: '上（下）一篇', link: '/reference/default-theme-prev-next-links' },
+						{ text: '编辑链接', link: '/reference/default-theme-edit-link' },
+						{ text: '最近更新时间', link: '/reference/default-theme-last-updated' },
+						{ text: '搜索', link: '/reference/default-theme-search' },
+						{ text: 'Carbon Ads', link: '/reference/default-theme-carbon-ads' },
+					],
+				},
+			],
+		},
+	]
+}
+
 export default config

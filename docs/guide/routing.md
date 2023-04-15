@@ -1,10 +1,12 @@
+---
+outline: deep
+---
+
 # 路由 {#routing}
 
-VitePress 构建了基于文件系统的路由，这意味着源文件的目录结构对应于最终的 URL。你也可以自定义目录结构和 URL 的映射。通读此页面以了解有关 VitePress 路由系统的所有信息。
+## 基于文件的路由 {#file-based-routing}
 
-## 基础路由 {#basic-routing}
-
-默认情况下，VitePress 假定你的页面文件存储在项目根目录中。你可以在此处添加 markdown 文件，名称为 URL 路径。例如，当你具有以下目录结构时：
+VitePress 使用基于文件的路由，这意味着生成的 HTML 页面是从源 Markdown 文件的目录结构映射而来的。例如，给定以下目录结构：
 
 ```
 .
@@ -15,71 +17,105 @@ VitePress 构建了基于文件系统的路由，这意味着源文件的目录�
 └─ prologue.md
 ```
 
-然后你可以通过以下 URL 访问这些页面。
+生成的 HTML 页面会是这样：
 
 ```
-index.md           -> /
-prologue.md        -> /prologue.html
-guide/index.md     -> /guide/
-getting-started.md -> /guide/getting-started.html
+index.md                  -->  /index.html (可以通过 / 访问)
+prologue.md               -->  /prologue.html
+guide/index.md            -->  /guide/index.html (可以通过 /guide/ 访问)
+guide/getting-started.md  -->  /guide/getting-started.html
 ```
 
-如你所见，目录结构与最终 URL 相对应，与典型 Web 服务器的纯 HTML 相同。
+生成的 HTML 可以托管在任何可以提供静态文件的 Web 服务器上。
 
-## 更改根目录 {#changing-the-root-directory}
+## 根目录和源目录 {#root-and-source-directory}
 
-要更改页面文件的根目录，你可以将目录名称传递给 vitepress 命令。例如，如果你想将页面文件存储在 `docs` 目录下，那么你应该运行 `vitepress dev docs` 命令。
+VitePress 项目的文件结构中有两个重要的概念：项目根目录 (**project root**) 和源目录 (**source directory**)。
+
+### 项目根目录 {#project-root}
+
+项目根目录是 VitePress 将尝试寻找 `.vitepress` 特殊目录的地方。 `.vitepress` 目录是 VitePress 配置文件、开发服务器缓存、构建输出和可选主题自定义代码的预留位置。
+
+当您从命令行运行 `vitepress dev` 或 `vitepress build` 时，VitePress 将使用当前工作目录作为项目根目录。要将子目录指定为根目录，您需要将相对路径传递给命令。例如，如果你的 VitePress 项目位于 `./docs`，你应该运行 `vitepress dev docs`：
 
 ```
 .
-├─ docs
+├─ docs                    # project root
+│  ├─ .vitepress           # config dir
 │  ├─ getting-started.md
 │  └─ index.md
 └─ ...
 ```
 
-```
+```sh
 vitepress dev docs
 ```
 
-这将按如下方式映射 URL。
+这将导致以下源代码到 HTML 的映射：
 
 ```
-docs/index.md           -> /
-docs/getting-started.md -> /getting-started.html
+docs/index.md            -->  /index.html (可以通过 / 访问)
+docs/getting-started.md  -->  /getting-started.html
 ```
 
-你也可以通过 [`srcDir`](/config/app-configs#srcdir) 选项在配置文件中自定义根目录。使用以下设置时运行 `vitepress dev`与运行 `vitepress dev docs` 命令结果相同。
+### 源目录 {#source-directory}
 
-```ts
-export default {
-	srcDir: './docs',
-}
+源目录是您的 Markdown 源文件所在的位置。默认情况下，它与项目根目录相同。但是，您可以通过 [`srcDir`](../reference/site-config#srcdir) 配置选项对其进行配置。
+
+`srcDir` 选项是相对于项目根目录解析的。例如，对于 `srcDir: 'src'`，您的文件结构将如下所示：
+
+```
+.                                # project root
+├─ .vitepress             # config dir
+└─ src                      # source dir
+   ├─ getting-started.md
+   └─ index.md
 ```
 
-## 页面之间链接 {#linking-between-pages}
+生成的源代码到 HTML 的映射：
 
-在页面中添加链接时，省略路径的扩展名并使用来自根的绝对路径或页面的相对路径。 VitePress 将根据你的配置设置 handle the extension。
+```
+src/index.md            -->  /index.html (可以通过 / 访问)
+src/getting-started.md  -->  /getting-started.html
+```
+
+## 链接页面 {#linking-between-pages}
+
+在页面之间链接时，您可以使用绝对路径和相对路径。请注意，虽然 `.md` 和 `.html` 扩展名都可以使用，但最佳做法是省略文件扩展名，以便 VitePress 可以根据您的配置生成最终 URL。
 
 ```md
-<!-- Do -->
+<!-- 正确做法 -->
 
-[Getting Started](/guide/getting-started)
+[Getting Started](./getting-started)
 [Getting Started](../guide/getting-started)
 
-<!-- Don't -->
+<!-- 不正确做法 -->
 
-[Getting Started](/guide/getting-started.md)
-[Getting Started](/guide/getting-started.html)
+[Getting Started](./getting-started.md)
+[Getting Started](./getting-started.html)
 ```
 
-在 [Asset Handling](asset-handling) 中，了解有关页面链接和静态资源链接（例如图像链接）的更多信息。
+在[资源处理](asset-handling)中了解有关链接到资源（例如图像）的更多信息。
 
-## 生成干净的 URL {#generate-clean-url}
+## 生成简洁的 URL {#generating-clean-url}
 
-“Clean URL”通常称为不带 `.html` 扩展名的 URL，例如，`example.com/path` 而不是 `example.com/path.html`。
+:::warning 需要服务器支持
+要使用 VitePress 提供简洁 URL，需要服务器端支持。
+:::
 
-默认情况下，VitePress 通过为每个文件添加 `.html` 扩展名来生成最终的静态页面文件。如果你想要干净的 URL，你可以只使用 `index.html` 文件来构建你的目录。
+默认情况下，VitePress 将入站链接解析为以 `.html` 结尾的 URL。但是，一些用户可能更喜欢没有 .html 扩展名的“简洁 URL” —— 例如，`example.com/path` 而不是 `example.com/path.html`。
+
+某些服务器或托管平台（例如 Netlify 或 Vercel）提供将 `/foo` 之类的 URL 映射到 `/foo.html`（如果存在）的功能，而无需重定向：
+
+- Netlify 默认支持这个。
+- Vercel 需要在 [vercel.json 中启用 cleanUrls 选项](https://vercel.com/docs/concepts/projects/project-configuration#cleanurls)。
+
+如果您可以使用此功能，您还可以启用 VitePress 自己的 [`cleanUrls`](../reference/site-config#cleanurls) 配置选项，以便：
+
+- 页面之间的入站链接是在没有 `.html` 扩展名的情况下生成的。
+- 如果当前路径以 `.html` 结尾，路由器将执行客户端重定向到无扩展路径。
+
+但是，如果您无法为服务器配置此类支持（例如 GitHub 页面），则必须手动采用以下目录结构：
 
 ```
 .
@@ -90,17 +126,9 @@ export default {
 └─ index.md
 ```
 
-但是，你也可以通过设置 [`cleanUrls`](/config/app-configs#cleanurls) 选项来生成干净的 URL。
+## 路由重写 {#route-rewrites}
 
-```ts
-export default {
-	cleanUrls: true,
-}
-```
-
-## 自定义映射 {#customize-the-mappings}
-
-你可以自定义目录结构和 URL 之间的映射。当你有复杂的文档结构时，它很有用。例如，假设你有多个包，并希望像这样将文档与源文件一起放置。
+您可以自定义源目录结构和生成页面之间的映射。当你有一个复杂的项目结构时，它很有用。例如，假设您有一个包含多个包的 monorepo，并且希望将文档与源文件一起放置，如下所示：
 
 ```
 .
@@ -108,68 +136,212 @@ export default {
 │  ├─ pkg-a
 │  │  └─ src
 │  │      ├─ pkg-a-code.ts
-│  │      └─ pkg-a-code.md
+│  │      └─ pkg-a-docs.md
 │  └─ pkg-b
 │     └─ src
 │         ├─ pkg-b-code.ts
-│         └─ pkg-b-code.md
+│         └─ pkg-b-docs.md
 ```
 
-并且你希望按如下方式生成 VitePress 页面。
+你希望像这样生成 VitePress 页面：
 
 ```
-packages/pkg-a/src/pkg-a-code.md -> /pkg-a/pkg-a-code.md
-packages/pkg-b/src/pkg-b-code.md -> /pkg-b/pkg-b-code.md
+packages/pkg-a/src/pkg-a-docs.md  -->  /pkg-a/index.html
+packages/pkg-b/src/pkg-b-docs.md  -->  /pkg-b/index.html
 ```
 
-你可以像这样通过 [`rewrites`](/config/app-configs#rewrites) 选项配置映射。
+您可以通过像这样配置 [`rewrites`](../reference/site-config#rewrites) 选项来实现此目的：
 
 ```ts
+// .vitepress/config.js
 export default {
 	rewrites: {
-		'packages/pkg-a/src/pkg-a-code.md': 'pkg-a/pkg-a-code',
-		'packages/pkg-b/src/pkg-b-code.md': 'pkg-b/pkg-b-code',
+		'packages/pkg-a/src/pkg-a-docs.md': 'pkg-a/index.md',
+		'packages/pkg-b/src/pkg-b-docs.md': 'pkg-b/index.md',
 	},
 }
 ```
 
-`rewrites` 选项也可以有动态路由参数。在这个例子中，我们有固定的路径包和 src 在所有页面上保持相同，并且在添加页面时必须列出配置中的所有页面可能会很冗长。你可以如下配置上述映射并获得相同的结果。
+`rewrites` 选项还支持动态路由参数。在上面的示例中，如果您有很多包，则列出所有路径会很冗长。鉴于它们都具有相同的文件结构，您可以像这样简化配置：
 
 ```ts
 export default {
 	rewrites: {
-		'packages/:pkg/src/:page': ':pkg/:page',
+		'packages/:pkg/src/(.*)': ':pkg/index.md',
 	},
 }
 ```
 
-路由参数以 `:` 为前缀（例如 `:pkg`）。参数的名称只是一个占位符，可以是任何内容。
+重写路径是使用 `path-to-regexp` 包编译的 - 请参阅[其文档](https://github.com/pillarjs/path-to-regexp#parameters)以获取更高级的语法。
 
-此外，你可以在参数末尾添加 `*` 以映射从那里开始的所有子目录。
+:::warning 开启重写功能时使用相对链接
 
-```ts
-export default {
-	rewrites: {
-		'packages/:pkg/src/:page*': ':pkg/:page*',
-	},
-}
-```
-
-以上将创建如下映射。
-
-```
-packages/pkg-a/src/pkg-a-code.md  -> /pkg-a/pkg-a-code
-packages/pkg-b/src/folder/file.md -> /pkg-b/folder/file
-```
-
-::: warning 你需要在添加页面时重启服务
-目前，VitePress 不会检测到映射目录中的页面添加。在开发模式下从目录中添加或删除文件时需要重新启动服务器。更新已经存在的文件会照常更新。
-:::
-
-### 页面中的相对链接处理 {#relative-link-handling-in-page}
-
-请注意，启用重写时，**markdown 中的相对链接是相对于最终路径解析的**。例如，为了创建从 `packages/pkg-a/src/pkg-a-code.md` 到 `packages/pkg-b/src/pkg-b-code.md` 的相对链接，你应该如下定义链接。
+启用重写后，**相对链接应基于重写的路径**。例如，为了创建从 `packages/pkg-a/src/pkg-a-code.md` 到 `packages/pkg-b/src/pkg-b-code.md` 的相对链接，您应该使用：
 
 ```md
 [Link to PKG B](../pkg-b/pkg-b-code)
+```
+
+:::
+
+## 动态路由 {#dynamic-routes}
+
+您可以使用单个 Markdown 文件和动态数据生成许多页面。例如，您可以创建一个 `packages/[pkg].md` 文件，为项目中的每个包生成相应的页面。这里，`[pkg]` 段是一个路由参数，用于区分每个页面。
+
+### 路径加载文件 {#paths-loader-file}
+
+由于 VitePress 是静态站点生成器，因此**必须**在构建时确定可能的页面路径。因此，动态路由页面必须伴随**路径加载文件**。对于 `packages/[pkg].md`，我们需要 `packages/[pkg].paths.js`（也支持 `.ts`）：
+
+```
+.
+└─ packages
+   ├─ [pkg].md         # route template
+   └─ [pkg].paths.js   # route paths loader
+```
+
+路径加载器应该提供一个带有 `paths` 方法的对象作为其默认导出。 `paths` 方法应返回具有 `params` 属性的对象数组。这些对象中的每一个都将生成一个相应的页面。
+
+给定以下 `paths` 数组：
+
+```js
+// packages/[pkg].paths.js
+export default {
+	paths() {
+		return [{ params: { pkg: 'foo' } }, { params: { pkg: 'bar' } }]
+	},
+}
+```
+
+生成的 HTML 页面将会是：
+
+```
+.
+└─ packages
+   ├─ foo.html
+   └─ bar.html
+```
+
+### 多参数 {#multiple-params}
+
+动态路由可以包含多个参数：
+
+**File Structure**
+
+```
+.
+└─ packages
+   ├─ [pkg]-[version].md
+   └─ [pkg]-[version].paths.js
+```
+
+**路径加载器**
+
+```js
+export default {
+	paths: () => [
+		{ params: { pkg: 'foo', version: '1.0.0' } },
+		{ params: { pkg: 'foo', version: '2.0.0' } },
+		{ params: { pkg: 'bar', version: '1.0.0' } },
+		{ params: { pkg: 'bar', version: '2.0.0' } },
+	],
+}
+```
+
+**输出**
+
+```
+.
+└─ packages
+   ├─ foo-1.0.0.html
+   ├─ foo-2.0.0.html
+   ├─ bar-1.0.0.html
+   └─ bar-2.0.0.html
+```
+
+### 动态生成路径 {#dynamically-generating-paths}
+
+路径加载器模块在 Node.js 中运行，并且仅在构建期间执行。您可以使用本地或远程的任何数据动态生成路径数组。
+
+从本地文件生成路径：
+
+```js
+import fs from 'fs'
+
+export default {
+	paths() {
+		return fs.readdirSync('packages').map((pkg) => {
+			return { params: { pkg } }
+		})
+	},
+}
+```
+
+从远程数据生成路径：
+
+```js
+export default {
+	async paths() {
+		const pkgs = await (await fetch('https://my-api.com/packages')).json()
+
+		return pkgs.map((pkg) => {
+			return {
+				params: {
+					pkg: pkg.name,
+					version: pkg.version,
+				},
+			}
+		})
+	},
+}
+```
+
+### 访问页面中的参数 {#accessing-params-in-page}
+
+您可以使用参数将附加数据传递到每个页面。 Markdown 路由文件可以通过 `$params` 全局属性访问 Vue 表达式中的当前页面参数：
+
+```md
+- package name: {{ $params.pkg }}
+- version: {{ $params.version }}
+```
+
+您还可以通过 [`useData`](../reference/runtime-api#usedata) runtime API 访问当前页面的参数。这在 Markdown 文件和 Vue 组件中都可用：
+
+```vue
+<script setup>
+import { useData } from 'vitepress'
+
+// params is a Vue ref
+const { params } = useData()
+
+console.log(params.value)
+</script>
+```
+
+### 渲染原始内容 {#rendering-raw-content}
+
+传递给页面的参数将在客户端 JavaScript payload 中序列化，因此您应该避免在参数中传递大量数据，例如从远程 CMS 获取的原始 Markdown 或 HTML 内容。
+
+相反，您可以使用每个路径对象上的 `content` 属性将此类内容传递到每个页面：
+
+```js
+export default {
+  paths() {
+    async paths() {
+      const posts = await (await fetch('https://my-cms.com/blog-posts')).json()
+
+      return posts.map((post) => {
+        return {
+          params: { id: post.id },
+          content: post.content // raw Markdown or HTML
+        }
+      })
+    }
+  }
+}
+```
+
+然后，使用以下特殊语法将内容呈现为 Markdown 文件本身的一部分：
+
+```md
+<!-- @content -->
 ```

@@ -1,50 +1,57 @@
-<!-- 可单独配置是否展示最后更新时间 -->
-<!-- ---
-lastUpdated: false
---- -->
-# 什么是VitePress？ {#what-is-vitepress}
-VitePress 是 [VuePress](https://vuepress.vuejs.org/) 的小弟，建立在 [Vite](https://vitejs.dev/) 之上。
-::: warning 警告⚠️
-VitePress 目前处于 `alpha` 状态。它已经适合开箱即用的文档使用，但配置和 theme  API 可能仍会在minor版本之间发生变化。
-:::
+# VitePress 是什么？ {#what-is-vitepress}
 
-## 为什么要做VitePress {#motivation}
-我们喜欢VuePress v1，但由于它是在Webpack之上构建的，为一个只有几个页面的简单文档站点启动开发服务器所需的时间变得难以忍受。即使是HMR更新也需要几秒钟才能在浏览器中反映出来！
+VitePress 是一个[静态站点生成器](https://en.wikipedia.org/wiki/Static_site_generator) (SSG)，专为构建快速、以内容为中心的网站而设计。简而言之，VitePress 获取用 Markdown 编写的源内容，对其应用主题，并生成可以轻松部署到任何地方的静态 HTML 页面。
 
+<div class="tip custom-block" style="padding-top: 8px">
 
-从根本上说，这是因为 VuePress v1 是一个底层为 `Webpack` 的应用程序。即使只有两页，它也是一个完整的正在编译的 `Webpack` 项目（包括所有 theme 源文件）。当项目有很多页面时，情况会变得更糟————每个页面都必须先完全编译，然后服务器才能显示内容！
+只是想尝试一下？跳到[快速开始](./getting-started)。
 
+</div>
 
-顺便说一句，Vite 很好地解决了这些问题：近乎即时的服务器启动、仅编译所服务页面的按需编译以及闪电般快速的 HMR。另外，随着时间的推移，我在 VuePress v1 中注意到了一些额外的设计问题，但从来没有时间修复由于它，因为这需要大量的重构。
+## 使用场景 {#use-cases}
 
+- **文档**
 
-现在，有了 Vite 和 Vue 3，是时候重新思考“Vue 驱动的静态站点生成器”到底是什么了。
+  VitePress 附带一个专为技术文档设计的默认主题，尤其是那些需要嵌入交互式演示的主题。它支持你正在阅读的这个页面，以及 [Vite](https://vitejs.dev/)、[Pinia](https://pinia.vuejs.org/)、[VueUse](https://vueuse.org/)、[Mermaid](https://mermaid.js.org/)、[Wikimedia Codex](https://doc.wikimedia.org/codex/latest/) 等文档。
 
-## 对 VuePress v1 的改进 {#improvements-over-vuepress-v1}
-VuePress v1有一些改进。。。。
-### 它使用vue3 {#it-uses-vue-3}
-利用 Vue 3 改进的模板静态分析来尽可能地对静态内容进行字符串化。静态内容作为字符串文字而不是 JavaScript 渲染函数代码发送——因此 JS 有效负载的解析成本更低， [hydration(HTML添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) 也变得更快。
+  [Vue.js 官方文档](https://vuejs.org/) 也是基于 VitePress 的。但是为了可以在不同的翻译文档之间共享，它自定义了自己的主题
 
-在应用优化的同时仍然允许用户在 Markdown 中自由混合 Vue 组件——编译器会自动为你进行静态/动态分离，你不需要去关注它。
+- **博客、档案和营销网站**
 
-### 底层使用 Vite {#it-uses-vite-under-the-hood}
-- 更快的开发服务器启动
-- 更快的热更新
-- 更快的构建（内部使用Rollup）
+  VitePress 支持[完全的自定义主题](./custom-theme)，具有标准 Vite + Vue 应用程序的开发体验。基于 Vite 构建还意味着可以直接利用其丰富生态系统中的 Vite 插件。此外，VitePress 提供了灵活的 API 来[加载数据](./data-loading) (本地或远程)，也可以[动态生成路由](./routing#dynamic-routes)。只要可以在构建时确定数据，就可以使用它来构建几乎任何东西。
 
-### 更轻量化的页面 {#lighter-page-weight}
-Vue 3 tree-shaking + Rollup代码拆分
-- 不为每个请求的每个页面发送元数据。这将使页面权重与页面总数分离开来。仅发送当前页面的元数据。客户端导航同时获取新页面的组件和元数据。
-- 不使用vue-router，因为VitePress的需求非常简单和具体——使用一个简单的自定义路由器（低于200行源码）。
+  [Vue.js 官方博客](https://blog.vuejs.org/) 是一个简单的博客页面，它根据本地内容生成其索引页面。
 
-### 其他不同 {#other-differences}
-VitePress更简单，更少的配置：VitePress旨在降低当前VuePress的复杂性，并从其极简主义的根源重新开始。
+## 开发体验 {#developer-experience}
 
-VitePress是面向未来的：VitePress只针对支持原生ES模块导入的浏览器。它鼓励使用无需转译的原生 JavaScript，以及用于 theme 的 CSS 变量。
+VitePress 旨在使用 Markdown 生成内容时提供出色的开发体验。
 
-## 这会成为下一代 vuepress 吗？ {#will-this-become-the-next-vuepress-in-the-future}
-我们已经有了[vuepress-next](https://github.com/vuepress/vuepress-next)，这将是vuepress的下一个主要版本。它还比VuePress v1做了很多改进，现在也支持Vite。
+- **[Vite 驱动](https://cn.vitejs.dev/)**：即时服务器启动，始终立即反映（<100ms）编辑变化，无需重新加载页面。
 
-VitePress与当前的VuePress生态系统（主要是 theme 和插件）不兼容。总的想法是，VitePress将有一个非常小的 theme API（更喜欢JavaScript API而不是文件布局约定），并且可能没有插件（所有定制都是在 theme 中完成的）。
+- **[内置 Markdown 扩展](./markdown)**：Frontmatter、表格、语法高亮……应有尽有。具体来说，VitePress 提供了许多用于处理代码块的高级功能，使其真正成为技术文档的理想选择。
 
-关于这个话题[正在进行讨论](https://github.com/vuejs/vitepress/discussions/548)。如果你很好奇，请留下你的想法！
+- **[Vue 增强的 Markdown](./using-vue)**：每个 Markdown 页面都是 Vue [单文件组件](https://cn.vuejs.org/guide/scaling-up/sfc.html)，这要归功于 Vue 模板与 HTML 的 100% 语法兼容性。可以使用 Vue 模板语法或导入的 Vue 组件在静态内容中嵌入交互性。
+
+## 性能 {#performance}
+
+与许多传统的 SSG 不同，VitePress 生成的网站实际上是一个[单页应用程序](https://en.wikipedia.org/wiki/Single-page_application) (SPA)。
+
+- **快速初始加载**
+
+  对任何页面的初次访问都将提供静态的、预呈现的 HTML，以实现极快的加载速度和最佳的 SEO。然后页面加载一个 JavaScript 包，将页面变成 Vue SPA (这被称为“激活”)。激活是非常快的：在 [PageSpeed Insights](https://pagespeed.web.dev/report?url=https%3A%2F%2Fvitepress.dev%2F) 上，典型的 VitePress 站点即使在网络速度较慢的低端移动设备上也能获得近乎完美的性能分数。
+
+- **加载完成后可以快速切换**
+
+  更重要的是，SPA 模型在首次加载后能够提升用户体验。用户在网站内导航时，不会再触发整个页面的刷新。而是通过获取并动态更新新页面的内容来实现切换。VitePress还会自动预加载视口范围内链接对应的页面片段。这样一来，大部分情况下，用户在加载完成后就能立即浏览新页面。
+
+- **高效的交互**
+
+  为了能够嵌入静态 Markdown 中的动态 Vue 部分，每个 Markdown 页面都被处理为 Vue 组件并编译成 JavaScript。这听起来可能效率低下，但 Vue 编译器足够聪明，可以将静态和动态部分分开，从而最大限度地减少激活成本和有效负载大小。对于初始页面加载，静态部分会自动从 JavaScript 有效负载中删除，并在激活期间跳过。
+
+## VuePress 用户怎么办？ {#what-about-vuepress}
+
+VitePress 灵感来源于 VuePress。最初的 VuePress 基于 Vue 2 和 webpack。借助 Vue 3 和 Vite，VitePress 提供了更好的开发体验、更好的生产性能、更精美的默认主题和更灵活的自定义 API。
+
+VitePress 和 VuePress 之间的 API 区别主要在于主题和定制。如果您使用的是带有默认主题的 VuePress 1，迁移到 VitePress 应该相对简单。
+
+VuePress 2 也投入了精力，它也支持 Vue 3 和 Vite，与 VuePress 1 的兼容性更好。但是，并行维护两个 SSG 是难以持续的，因此 Vue 团队决定将重点放在 VitePress，作为长期的主要 SSG 选择推荐。

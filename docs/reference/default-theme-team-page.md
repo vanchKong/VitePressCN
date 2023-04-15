@@ -31,7 +31,7 @@ const members = [
 ]
 </script>
 
-# 团队页面 {#team-page}
+# 团队页 {#team-page}
 
 如果你想介绍你的团队，你可以使用 Team components 来构建团队页面。有两种使用这些组件的方法。一种是将其嵌入文档页面，另一种是创建完整的团队页面。
 
@@ -41,25 +41,23 @@ const members = [
 
 ```html
 <script setup>
-import { VPTeamMembers } from 'vitepress/theme'
+	import { VPTeamMembers } from 'vitepress/theme'
 
-const members = [
-  {
-    avatar: 'https://www.github.com/yyx990803.png',
-    name: 'Evan You',
-    title: 'Creator',
-    links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
-    ]
-  },
-  ...
-]
+	const members = [
+	  {
+	    avatar: 'https://www.github.com/yyx990803.png',
+	    name: 'Evan You',
+	    title: 'Creator',
+	    links: [
+	      { icon: 'github', link: 'https://github.com/yyx990803' },
+	      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+	    ]
+	  },
+	  ...
+	]
 </script>
 
-# 我们的团队
-
-向我们出色的团队问好。
+# 我们的团队，向我们出色的团队问好。
 
 <VPTeamMembers size="small" :members="members" />
 ```
@@ -68,7 +66,7 @@ const members = [
 
 <VPTeamMembers size="small" :members="members" />
 
-`<VPTeamMembers>` 组件有 2 种不同的尺寸， `small` 和 `medium`。虽然它取决于为你的偏好，但通常尺寸在文档页面中使用时 `small` 应该更适合。此外，你可以为每个成员添加更多属性，例如添加“描述”或“赞助”按钮。在  [`<VPTeamMembers>`](#vpteammembers)中了解更多信息。
+`<VPTeamMembers>` 组件有 2 种不同的尺寸， `small` 和 `medium`。虽然它取决于为你的偏好，但通常尺寸在文档页面中使用时 `small` 应该更适合。此外，你可以为每个成员添加更多属性，例如添加“描述”或“赞助”按钮。在 [`<VPTeamMembers>`](#vpteammembers)中了解更多信息。
 
 在文档页面中嵌入团队成员对于小型团队来说非常有用，某种情况下，完整的贡献团队可能太大了，可以引入部分成员作为文档上下文的参考。
 
@@ -76,48 +74,42 @@ const members = [
 
 ## 创建一个完整的团队页面 {#create-a-full-team-page}
 
-除了将团队成员添加到 doc 页面，你还可以创建一个完整的团队页面，类似于创建自定义[主页](./theme-home-page)的方式。
+除了将团队成员添加到 doc 页面，你还可以创建一个完整的团队页面，类似于创建自定义[默认主题：主页](./default-theme-home-page)的方式。
 
-要创建团队页面，首先，创建一个新的 md 文件。文件名无所谓，这里我们就叫它 `team.md` 吧。在这个文件中，在frontmatter 设置 `layout: page`，然后你可以使用 `TeamPage` 组件来组成你的页面结构。
+要创建团队页面，首先，创建一个新的 md 文件。文件名无所谓，这里我们就叫它 `team.md` 吧。在这个文件中，在 frontmatter 设置 `layout: page`，然后你可以使用 `TeamPage` 组件来组成你的页面结构。
 
 ```html
 ---
 layout: page
 ---
-<script setup>
-import {
-  VPTeamPage,
-  VPTeamPageTitle,
-  VPTeamMembers
-} from 'vitepress/theme'
 
-const members = [
-  {
-    avatar: 'https://www.github.com/yyx990803.png',
-    name: 'Evan You',
-    title: 'Creator',
-    links: [
-      { icon: 'github', link: 'https://github.com/yyx990803' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
-    ]
-  },
-  // ...
-]
+<script setup>
+	import {
+	  VPTeamPage,
+	  VPTeamPageTitle,
+	  VPTeamMembers
+	} from 'vitepress/theme'
+
+	const members = [
+	  {
+	    avatar: 'https://www.github.com/yyx990803.png',
+	    name: 'Evan You',
+	    title: 'Creator',
+	    links: [
+	      { icon: 'github', link: 'https://github.com/yyx990803' },
+	      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+	    ]
+	  },
+	  ...
+	]
 </script>
 
 <VPTeamPage>
-  <VPTeamPageTitle>
-    <template #title>
-      Our Team
-    </template>
-    <template #lead>
-      The development of VitePress is guided by an international
-      team, some of whom have chosen to be featured below.
-    </template>
-  </VPTeamPageTitle>
-  <VPTeamMembers
-    :members="members"
-  />
+	<VPTeamPageTitle>
+		<template #title> Our Team </template>
+		<template #lead> The development of VitePress is guided by an international team, some of whom have chosen to be featured below. </template>
+	</VPTeamPageTitle>
+	<VPTeamMembers :members="members" />
 </VPTeamPage>
 ```
 
@@ -137,31 +129,32 @@ const members = [
 ---
 layout: page
 ---
-<script setup>
-import {
-  VPTeamPage,
-  VPTeamPageTitle,
-  VPTeamMembers,
-  VPTeamPageSection
-} from 'vitepress/theme'
 
-const coreMembers = [...]
-const partners = [...]
+<script setup>
+	import {
+	  VPTeamPage,
+	  VPTeamPageTitle,
+	  VPTeamMembers,
+	  VPTeamPageSection
+	} from 'vitepress/theme'
+
+	const coreMembers = [...]
+	const partners = [...]
 </script>
 
 <VPTeamPage>
-  <VPTeamPageTitle>
-    <template #title>Our Team</template>
-    <template #lead>...</template>
-  </VPTeamPageTitle>
-  <VPTeamMembers size="medium" :members="coreMembers" />
-  <VPTeamPageSection>
-    <template #title>Partners</template>
-    <template #lead>...</template>
-    <template #members>
-      <VPTeamMembers size="small" :members="partners" />
-    </template>
-  </VPTeamPageSection>
+	<VPTeamPageTitle>
+		<template #title>Our Team</template>
+		<template #lead>...</template>
+	</VPTeamPageTitle>
+	<VPTeamMembers size="medium" :members="coreMembers" />
+	<VPTeamPageSection>
+		<template #title>Partners</template>
+		<template #lead>...</template>
+		<template #members>
+			<VPTeamMembers size="small" :members="partners" />
+		</template>
+	</VPTeamPageSection>
 </VPTeamPage>
 ```
 
@@ -175,51 +168,50 @@ const partners = [...]
 
 ```html
 <VPTeamMembers
-  size="medium"
-  :members="[
+	size="medium"
+	:members="[
     { avatar: '...', name: '...' },
     { avatar: '...', name: '...' },
     ...
-  ]"
-/>
+  ]" />
 ```
 
 ```ts
 interface Props {
-  // Size of each members. Defaults to `medium`.
-  size?: 'small' | 'medium'
+	// Size of each members. Defaults to `medium`.
+	size?: 'small' | 'medium'
 
-  // List of members to display.
-  members: TeamMember[]
+	// List of members to display.
+	members: TeamMember[]
 }
 
 interface TeamMember {
-  // Avatar image for the member.
-  avatar: string
+	// Avatar image for the member.
+	avatar: string
 
-  // Name of the member.
-  name: string
+	// Name of the member.
+	name: string
 
-  // Title to be shown below member's name.
-  // e.g. Developer, Software Engineer, etc.
-  title?: string
+	// Title to be shown below member's name.
+	// e.g. Developer, Software Engineer, etc.
+	title?: string
 
-  // Organization that the member belongs.
-  org?: string
+	// Organization that the member belongs.
+	org?: string
 
-  // URL for the organization.
-  orgLink?: string
+	// URL for the organization.
+	orgLink?: string
 
-  // Description for the member.
-  desc?: string
+	// Description for the member.
+	desc?: string
 
-  // Social links. e.g. GitHub, Twitter, etc. You may pass in
-  // the Social Links object here.
-  // See: https://vitepress.vuejs.org/config/theme-configs.html#sociallinks
-  links?: SocialLink[]
+	// Social links. e.g. GitHub, Twitter, etc. You may pass in
+	// the Social Links object here.
+	// See: https://vitepress.dev/reference/default-theme-config.html#sociallinks
+	links?: SocialLink[]
 
-  // URL for the sponsor page for the member.
-  sponsor?: string
+	// URL for the sponsor page for the member.
+	sponsor?: string
 }
 ```
 
@@ -229,22 +221,16 @@ interface TeamMember {
 The root component when creating a full team page. It only accepts a single slot. It will style all passed in team related components.
 :::
 
-
 ## `<VPTeamPageTitle>`
 
 添加页面的标题。最好在一开始就在 `<VPTeamPage>` 下使用。它接受 `#title` 和 `#lead` 插槽。
 
 ```html
 <VPTeamPage>
-  <VPTeamPageTitle>
-    <template #title>
-      Our Team
-    </template>
-    <template #lead>
-      The development of VitePress is guided by an international
-      team, some of whom have chosen to be featured below.
-    </template>
-  </VPTeamPageTitle>
+	<VPTeamPageTitle>
+		<template #title> Our Team </template>
+		<template #lead> The development of VitePress is guided by an international team, some of whom have chosen to be featured below. </template>
+	</VPTeamPageTitle>
 </VPTeamPage>
 ```
 
@@ -254,14 +240,15 @@ The root component when creating a full team page. It only accepts a single slot
 
 ```html
 <VPTeamPage>
-  ...
-  <VPTeamPageSection>
-    <template #title>Partners</template>
-    <template #lead>Lorem ipsum...</template>
-    <template #members>
-      <VPTeamMembers :members="data" />
-    </template>
-  </VPTeamPageSection>
+	...
+	<VPTeamPageSection>
+		<template #title>Partners</template>
+		<template #lead>Lorem ipsum...</template>
+		<template #members>
+			<VPTeamMembers :members="data" />
+		</template>
+	</VPTeamPageSection>
 </VPTeamPage>
 ```
+
 [未出现在侧边栏的完整团队页面](./team)

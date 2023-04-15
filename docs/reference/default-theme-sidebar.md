@@ -1,6 +1,6 @@
 # 侧边栏 {#sidebar}
 
-侧边栏是文档的主要导航块。 你可以在 [`themeConfig.sidebar`](/config/theme-configs#sidebar). 中配置侧边栏菜单。
+侧边栏是文档的主要导航块。 你可以在 [`themeConfig.sidebar`](./default-theme-config#sidebar) 中配置侧边栏菜单。
 
 ```js
 export default {
@@ -19,7 +19,7 @@ export default {
 }
 ```
 
-## 基础 {#the-basics}
+## 基本用法 {#the-basics}
 
 侧边栏菜单的最简单形式是传入一个链接数组。第一级项目定义侧边栏的“部分”。它应该包含作为小标题的 `text` 和作为实际导航链接的 `items`。
 
@@ -93,9 +93,9 @@ export default {
 }
 ```
 
-## 多个侧边栏 {#multiple-sidebars}
+## 多侧边栏 {#multiple-sidebars}
 
-你可能会根据页面路径显示不同的侧边栏。例如，如本网站所示，你可能希望在文档中创建单独的侧边栏，例如“指引”页面和“配置”页面。
+你可能会根据页面路径显示不同的侧边栏。例如，如本网站所示，你可能希望在文档中创建单独的侧边栏，例如“指引”页面和“配置参考”页面。
 
 为此，首先将你的页面组织到每个所需部分的目录中：
 
@@ -111,22 +111,21 @@ export default {
    └─ four.md
 ```
 
-然后，更新 你的配置以定义每个部分的侧边栏。这一次，你应该传递一个对象而不是数组。
+然后，更新你的配置以定义每个部分的侧边栏。这一次，你应该传递一个对象而不是数组。
 
 ```js
 export default {
 	themeConfig: {
 		sidebar: {
-      // This sidebar gets displayed when a user
-      // is on `guide` directory.
+			// This sidebar gets displayed when a user
+			// is on `guide` directory.
 			'/guide/': [
 				{
 					text: 'Guide',
 					items: [
-						// This shows `/guide/index.md` page.
-						{ text: 'Index', link: '/guide/' }, // /guide/index.md
-						{ text: 'One', link: '/guide/one' }, // /guide/one.md
-						{ text: 'Two', link: '/guide/two' }, // /guide/two.md
+						{ text: 'Index', link: '/guide/' },
+						{ text: 'One', link: '/guide/one' },
+						{ text: 'Two', link: '/guide/two' },
 					],
 				},
 			],
@@ -137,10 +136,9 @@ export default {
 				{
 					text: 'Config',
 					items: [
-						// This shows `/config/index.md` page.
-						{ text: 'Index', link: '/config/' }, // /config/index.md
-						{ text: 'Three', link: '/config/three' }, // /config/three.md
-						{ text: 'Four', link: '/config/four' }, // /config/four.md
+						{ text: 'Index', link: '/config/' },
+						{ text: 'Three', link: '/config/three' },
+						{ text: 'Four', link: '/config/four' },
 					],
 				},
 			],
@@ -159,12 +157,7 @@ export default {
     sidebar: [
       {
         text: 'Section Title A',
-        collapsed: true,
-        items: [...]
-      },
-      {
-        text: 'Section Title B',
-        collapsed: true,
+        collapsed: false,
         items: [...]
       }
     ]
@@ -180,7 +173,6 @@ export default {
     sidebar: [
       {
         text: 'Section Title A',
-        collapsed: true,
         collapsed: true,
         items: [...]
       }
