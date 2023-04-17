@@ -16,7 +16,7 @@ export default {
 
 `pattern` 选项定义链接的 URL 结构，并且 `:path` 将被替换为页面路径。
 
-您还可以放置一个接受“relativePath(相对路径)”作为参数并返回 URL 字符串的纯函数。
+你还可以放置一个接受“relativePath(相对路径)”作为参数并返回 URL 字符串的纯函数。
 
 ```js
 export default {

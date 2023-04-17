@@ -81,7 +81,7 @@ const ClientComp = defineClientComponent(() => {
 </template>
 ```
 
-您还可以将 props/children/slots 传递给目标组件：
+你还可以将 props/children/slots 传递给目标组件：
 
 ```vue
 <script setup>

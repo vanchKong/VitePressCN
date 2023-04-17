@@ -2,7 +2,8 @@
 
 ## 本地搜索 {#local-search}
 
-得益于 [minisearch](https://github.com/lucaong/minisearch/)，VitePress 支持使用浏览器内索引进行模糊全文搜索。您可以在 `.vitepress/config.ts` 中使用 `localSearch` 主题配置启用它：
+得益于 [minisearch](https://github.com/lucaong/minisearch/)，VitePress 支持使用浏览器内索引进行模糊全文搜索。
+要启用此功能，只需在 `.vitepress/config.ts` 文件中将 `themeConfig.search.provider` 选项设置为 `'local'` 即可：
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -20,11 +21,11 @@ export default defineConfig({
 
 ![搜索弹窗截图](/search.png)
 
-或者，您可以使用 [Algolia DocSearch](#algolia-search) 或一些社区插件，例如：<https://www.npmjs.com/package/vitepress-plugin-search> 或者 <https://www.npmjs.com/package/vitepress-plugin-pagefind>。
+或者，你可以使用 [Algolia DocSearch](#algolia-search) 或一些社区插件，例如：<https://www.npmjs.com/package/vitepress-plugin-search> 或者 <https://www.npmjs.com/package/vitepress-plugin-pagefind>。
 
 ### i18n {#local-search-i18n}
 
-您可以使用这样的配置来使用多语言搜索：
+你可以使用这样的配置来使用多语言搜索：
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -60,7 +61,7 @@ export default defineConfig({
 
 ## Algolia Search {#algolia-search}
 
-VitePress 支持使用 [Algolia DocSearch](https://docsearch.algolia.com/docs/what-is-docsearch) 搜索您的文档站点。请参阅他们的入门指南。在您的 `.vitepress/config.ts` 中，您至少需要提供以下内容才能使其正常工作：
+VitePress 支持使用 [Algolia DocSearch](https://docsearch.algolia.com/docs/what-is-docsearch) 搜索你的文档站点。请参阅他们的入门指南。在你的 `.vitepress/config.ts` 中，你至少需要提供以下内容才能使其正常工作：
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -81,7 +82,7 @@ export default defineConfig({
 
 ### i18n {#algolia-search-i18n}
 
-您可以使用这样的配置来使用多语言搜索：
+你可以使用这样的配置来使用多语言搜索：
 
 ```ts
 import { defineConfig } from 'vitepress'

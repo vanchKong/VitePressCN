@@ -48,7 +48,7 @@ $ yarn add -D vitepress
 
 ### 安装向导 {#setup-wizard}
 
-VitePress 附带一个命令行设置向导，可以帮助您构建一个基本项目。安装后，通过运行以下命令启动向导：
+VitePress 附带一个命令行设置向导，可以帮助你构建一个基本项目。安装后，通过运行以下命令启动向导：
 
 ::: code-group
 

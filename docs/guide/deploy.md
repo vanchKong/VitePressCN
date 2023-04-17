@@ -2,13 +2,13 @@
 outline: deep
 ---
 
-# 部署您的 VitePress 网站 {#deploy-your-vitepress-site}
+# 部署你的 VitePress 网站 {#deploy-your-vitepress-site}
 
 以下指南基于一些共设前提：
 
 - VitePress 站点位于项目的 `docs` 目录中。
-- 您使用的是默认的生成输出目录 （`.vitepress/dist`）。
-- VitePress 作为本地依赖项安装在项目中，并且您已在 `package.json` 中设置以下脚本：
+- 你使用的是默认的生成输出目录 （`.vitepress/dist`）。
+- VitePress 作为本地依赖项安装在项目中，并且你已在 `package.json` 中设置以下脚本：
 
   ```json
   {
@@ -49,17 +49,17 @@ outline: deep
 
 ## 设定 public 根目录 {#setting-a-public-base-path}
 
-默认情况下，我们假设站点将部署在域名 （`/`） 的根路径上。如果您的网站将在子路径中提供服务，例如 `https://mywebsite.com/blog/`，则需要在 VitePress 配置中将 [`base`](../reference/site-config#base)选项设置为 `'/blog/'`。
+默认情况下，我们假设站点将部署在域名 （`/`） 的根路径上。如果你的网站将在子路径中提供服务，例如 `https://mywebsite.com/blog/`，则需要在 VitePress 配置中将 [`base`](../reference/site-config#base)选项设置为 `'/blog/'`。
 
-**例：**如果您使用的是 Github（或 GitLab）页面并部署到 `user.github.io/repo/`，请将您的 `base` 设置为 `/repo/`。
+**例：**如果你使用的是 Github（或 GitLab）页面并部署到 `user.github.io/repo/`，请将你的 `base` 设置为 `/repo/`。
 
 ## HTTP 缓存标头 {#http-cache-headers}
 
 如果可以控制生产服务器上的 HTTP 标头，则可以配置 `cache-control` 标头以在重复访问时获得更好的性能。
 
-生产版本对静态资源（JavaScript、CSS 和其他非 `public` 目录中的导入资源）使用哈希文件名。如果您使用浏览器开发工具的网络选项卡检查生产预览，您将看到类似 `app.4f283b18.js` 的文件。
+生产版本对静态资源（JavaScript、CSS 和其他非 `public` 目录中的导入资源）使用哈希文件名。如果你使用浏览器开发工具的网络选项卡检查生产预览，你将看到类似 `app.4f283b18.js` 的文件。
 
-此哈希 `4f283b18` 是从此文件的内容生成的。相同的哈希 URL 保证提供相同的文件内容 —— 如果内容更改，URL 也会更改。这意味着您可以安全地为这些文件使用最强的缓存标头。所有此类文件都将放置在输出目录的 `assets/` 中，因此您可以为它们配置以下标头：
+此哈希 `4f283b18` 是从此文件的内容生成的。相同的哈希 URL 保证提供相同的文件内容 —— 如果内容更改，URL 也会更改。这意味着你可以安全地为这些文件使用最强的缓存标头。所有此类文件都将放置在输出目录的 `assets/` 中，因此你可以为它们配置以下标头：
 
 ```
 Cache-Control: max-age=31536000,immutable
@@ -111,10 +111,10 @@ Cache-Control: max-age=31536000,immutable
 
 - **构建命令：** `npm run docs:build`
 - **输出目录：** `docs/.vitepress/dist`
-- **node 版本：** `16` (或更高版本，默认情况下通常为 14 或 16，但在 Cloudflare 页面上，默认值仍然是 12，因此您可能需要[更改该版本](https://developers.cloudflare.com/pages/platform/build-configuration/))
+- **node 版本：** `16` (或更高版本，默认情况下通常为 14 或 16，但在 Cloudflare 页面上，默认值仍然是 12，因此你可能需要[更改该版本](https://developers.cloudflare.com/pages/platform/build-configuration/))
 
 ::: warning 警告
-不要为 HTML 代码启用 _Auto Minify_ 等选项。它将从输出中删除对 Vue 有意义的注释。如果被删除，您可能会看到 [hydration(HTML 添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) mismatch 错误。
+不要为 HTML 代码启用 _Auto Minify_ 等选项。它将从输出中删除对 Vue 有意义的注释。如果被删除，你可能会看到 [hydration(HTML 添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) mismatch 错误。
 :::
 
 ### GitHub Pages

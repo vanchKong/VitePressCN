@@ -391,4 +391,4 @@ export interface DocFooter {
 - Type: `string`
 - Default: `Change language`
 
-可用于自定义导航栏中语言切换按钮的 aria-label。这仅在您使用 [i18n](../guide/i18n) 时使用。
+可用于自定义导航栏中语言切换按钮的 aria-label。这仅在你使用 [i18n](../guide/i18n) 时使用。

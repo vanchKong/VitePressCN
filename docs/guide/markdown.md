@@ -14,7 +14,7 @@ VitePress 带有内置的 Markdown 扩展。
 # Using custom anchors {#my-anchor}
 ```
 
-这允许您链接到标题 `#my-anchor` 而不是默认的 `#using-custom-anchors`。
+这允许你链接到标题 `#my-anchor` 而不是默认的 `#using-custom-anchors`。
 
 ## 链接 {#links}
 

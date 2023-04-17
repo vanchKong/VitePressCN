@@ -140,7 +140,7 @@ export default {
 
 ### 自定义链接的“target”和“rel”属性 {#customize-link-s-target-and-rel-attributes}
 
-默认情况下，VitePress 会根据链接是否为外部链接自动判断 `target` 和 `rel` 属性。但如果您愿意，您也可以自定义它们。
+默认情况下，VitePress 会根据链接是否为外部链接自动判断 `target` 和 `rel` 属性。但如果你愿意，你也可以自定义它们。
 
 ```js
 export default {
