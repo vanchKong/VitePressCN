@@ -1,7 +1,11 @@
 import type { UserConfig } from 'vitepress'
 import { defineConfig } from 'vitepress'
+import { createRequire } from 'module'
+
+const require = createRequire(import.meta.url)
 // import { pagefindPlugin, chineseSearchOptimize } from 'vitepress-plugin-pagefind'
-import pkg from 'vitepress/package.json'
+// import pkg from 'vitepress/package.json'
+const pkg = require('vitepress/package.json')
 import mdFootnote from 'markdown-it-footnote'
 import mdTaskList from 'markdown-it-task-lists'
 
@@ -58,16 +62,24 @@ const config = defineConfig({
 	},
 	//  主题配置
 	themeConfig: {
+		lastUpdated: {
+			text: '最近更新时间',
+			formatOptions: {
+				dateStyle: 'short',
+				timeStyle: 'medium',
+			},
+		},
 		darkModeSwitchLabel: '主题',
 		sidebarMenuLabel: '菜单',
 		returnToTopLabel: '回到顶部',
 		langMenuLabel: '多语言',
+		externalLinkIcon: true,
 		// aside: false,
 		outlineTitle: '当前页',
 		// 显示层级
 		// outline: 'deep',
 		logo: '/logo.svg',
-		lastUpdatedText: '最近更新时间',
+		// lastUpdatedText: '最近更新时间',
 		siteTitle: 'VitePressCN',
 		// siteTitle: false, // 不显示标题
 		// 上一页下一页文本
@@ -186,6 +198,10 @@ function sidebarGuide() {
 				{
 					text: 'MPA Mode',
 					link: '/guide/mpa-mode',
+				},
+				{
+					text: 'Sitemap 生成器',
+					link: '/guide/sitemap-generation',
 				},
 			],
 		},
