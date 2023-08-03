@@ -43,6 +43,12 @@ const config = defineConfig({
 	title: 'VitePressCN',
 	description: 'Vite & Vue 驱动的静态站点生成器',
 	cleanUrls: true,
+	sitemap: {
+		hostname: 'https://vanchkong.github.io',
+		transformItems(items) {
+			return items.filter((item) => !item.url.includes('migration'))
+		},
+	},
 	// 是否忽略死链
 	ignoreDeadLinks: false,
 	// 最后更新于 开关
