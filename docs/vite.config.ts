@@ -1,4 +1,4 @@
-// import { defineConfig } from 'vite'
+import { defineConfig } from 'vite'
 // import { SearchPlugin } from 'vitepress-plugin-search'
 // import Segment from 'segment' // 中文分词器
 // // import flexSearchIndexOptions from 'flexsearch'
@@ -22,11 +22,11 @@
 // 	// tokenize: "full",
 // }
 
-// export default defineConfig({
-// 	plugins: [
-// 		// SearchPlugin({
-// 		// tokenize: 'full',
-// 		// }),
-// 		SearchPlugin(options),
-// 	],
-// })
+export default defineConfig({
+	// plugins: [
+	// 	// SearchPlugin({
+	// 	// tokenize: 'full',
+	// 	// }),
+	// 	SearchPlugin(options),
+	// ],
+})
