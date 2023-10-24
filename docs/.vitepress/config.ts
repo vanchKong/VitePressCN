@@ -230,12 +230,13 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
 		// },
 		{
 			text: '配置 & API 参考',
-			link: '/reference/site-config',
+			base: '/reference/',
+			link: 'site-config',
 		},
 	]
 }
 
-function sidebarReference() {
+function sidebarReference(): DefaultTheme.SidebarItem[] {
 	return [
 		{
 			text: '参考',
