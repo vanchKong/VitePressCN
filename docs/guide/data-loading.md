@@ -13,7 +13,7 @@ VitePress 提供了一个叫做**数据加载器**的功能，它允许你加载
 export default {
 	load() {
 		return {
-			data: 'hello',
+			hello: 'world',
 		}
 	},
 }
@@ -35,7 +35,7 @@ import { data } from './example.data.js'
 
 ```json
 {
-	"data": "hello"
+	"hello": "world"
 }
 ```
 

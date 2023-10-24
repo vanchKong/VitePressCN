@@ -98,6 +98,7 @@ export default {
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme'
 
+/** @type {import('vitepress').Theme} */
 export default {
 	extends: DefaultTheme,
 	enhanceApp(ctx) {
@@ -105,6 +106,22 @@ export default {
 		ctx.app.component('MyGlobalComponent' /* ... */)
 	},
 }
+```
+
+如果你使用 TypeScript:
+
+```ts
+// .vitepress/theme/index.ts
+import type { Theme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+
+export default {
+	extends: DefaultTheme,
+	async enhanceApp({ app }) {
+		// register your custom global components
+		ctx.app.component('MyGlobalComponent' /* ... */)
+	},
+} satisfies Theme
 ```
 
 因为我们使用 Vite，你还可以利用 Vite 的 [glob 导入功能](https://cn.vitejs.dev/guide/features.html#glob-import)来自动注册一个组件目录。

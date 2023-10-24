@@ -210,6 +210,25 @@ console.log('Hello, VitePress!')
 
 :::
 
+此外，您可以通过在站点配置中添加以下内容来全局设置自定义标题，如果不是用英语书写，这会很有帮助：
+
+```ts
+// config.ts
+export default defineConfig({
+	// ...
+	markdown: {
+		container: {
+			tipLabel: '提示',
+			warningLabel: '警告',
+			dangerLabel: '危险',
+			infoLabel: '信息',
+			detailsLabel: '详细信息',
+		},
+	},
+	// ...
+})
+```
+
 ### `raw`
 
 这是一个特殊的容器，可以用来防止与 VitePress 的样式和路由冲突。这在记录组件库时特别有用。你可能还想查看 [whyframe](https://whyframe.dev/docs/integrations/vitepress) 以获得更好的隔离。
@@ -224,8 +243,6 @@ Wraps in a <div class="vp-raw">
 
 `vp-raw` class 也可以直接用于元素。样式隔离目前是可选的：
 
-::: details 详细
-
 - 使用你喜欢的包管理器来安装 `postcss`：
 
 ```sh
@@ -238,9 +255,7 @@ $ npm add -D postcss
 import { postcssIsolateStyles } from 'vitepress'
 
 export default {
-  plugins: {
-    postcssIsolateStyles()
-  }
+	plugins: [postcssIsolateStyles()],
 }
 ```
 
@@ -251,8 +266,6 @@ postcssIsolateStyles({
 	includeFiles: [/vp-doc\.css/], // 默认 /base\.css/
 })
 ```
-
-:::
 
 ## 代码块中的语法高亮 {#syntax-highlighting-in-code-blocks}
 
