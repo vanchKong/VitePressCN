@@ -1,4 +1,4 @@
-# MPA 模式 <Badge type="warning" text="实验性的" /> {#mpa-mode}
+# MPA 模式 <Badge type="warning" text="experimental" /> {#mpa-mode}
 
 可以通过命令行输入 `vitepress build --mpa` 或在配置文件中指定 `mpa: true` 配置选项来启用 MPA (Multi-Page Application) 模式。
 
@@ -10,12 +10,12 @@
 
 ```html
 <script client>
-document.querySelector('h1').addEventListener('click', () => {
-  console.log('client side JavaScript!')
-})
+	document.querySelector('h1').addEventListener('click', () => {
+		console.log('client side JavaScript!')
+	})
 </script>
 
-# Hello {#hello}
+# Hello
 ```
 
 `<script client>` 是 VitePress 独有的功能，而不是 Vue 的功能。它可以在 `.md` 和 `.vue` 文件中使用，但只能在 MPA 模式下使用。所有主题组件中的客户端脚本将被打包在一起，而特定页面的客户端脚本将会分开处理。

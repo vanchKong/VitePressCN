@@ -1,4 +1,4 @@
-# 标记 {#badge}
+# 徽标 {#badge}
 
 徽标可让你为标题添加状态。例如，指定部分的类型或支持的版本可能很有用。
 
@@ -21,7 +21,7 @@
 
 ### Title <Badge type="danger" text="caution" />
 
-## 自定义 `children` {#custom-children}
+## 自定义子节点 {#custom-children}
 
 `<Badge>` 接受 `子节点`, 这将显示在徽标中。
 

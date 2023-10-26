@@ -1,6 +1,6 @@
 # 编辑链接 {#edit-link}
 
-## 全局配置 {#site-level-config}
+## 站点级配置 {#site-level-config}
 
 编辑链接让你可以显示一个链接，以在 GitHub 或 GitLab 等 Git 管理服务上编辑页面。要启用它，请将 `themeConfig.editLink` 选项添加到你的配置中。
 

@@ -1,6 +1,6 @@
-# Markdown 扩展 {#markdown-extensions}
+# Markdown 拓展 {#markdown-extensions}
 
-VitePress 带有内置的 Markdown 扩展。
+VitePress 带有内置的 Markdown 拓展。
 
 ## 标题锚点 {#header-anchors}
 
@@ -8,13 +8,13 @@ VitePress 带有内置的 Markdown 扩展。
 
 ### 自定义锚点 {#custom-anchors}
 
-要为标题指定自定义锚标记，而不是使用自动生成的锚标记，请在标题中添加后缀：
+要为标题指定自定义锚点而不是使用自动生成的锚点，请向标题添加后缀：
 
 ```
-# Using custom anchors {#my-anchor}
+# 使用自定义锚点 {#my-anchor}
 ```
 
-这允许你链接到标题 `#my-anchor` 而不是默认的 `#using-custom-anchors`。
+这允许你将标题链接为 `#my-anchor`，而不是默认的 `#使用自定义锚点`。
 
 ## 链接 {#links}
 
@@ -178,16 +178,16 @@ This is a details block.
 
 ### 自定义标题 {#custom-title}
 
-可以通过在容器的“类型”之后附加文本来设置自定义标题。
+可以通过在容器的 "type" 之后附加文本来设置自定义标题。
 
 **输入**
 
 ````md
 ::: danger STOP
-Danger zone, do not proceed
+危险区域，请勿继续
 :::
 
-::: details Click me to view the code
+::: details 点我查看代码
 
 ```js
 console.log('Hello, VitePress!')
@@ -199,10 +199,10 @@ console.log('Hello, VitePress!')
 **输出**
 
 ::: danger STOP
-Danger zone, do not proceed
+危险区域，请勿继续
 :::
 
-::: details Click me to view the code
+::: details 点我查看代码
 
 ```js
 console.log('Hello, VitePress!')
@@ -243,29 +243,29 @@ Wraps in a <div class="vp-raw">
 
 `vp-raw` class 也可以直接用于元素。样式隔离目前是可选的：
 
-- 使用你喜欢的包管理器来安装 `postcss`：
+- 使用你喜欢的包管理器来安装需要的依赖项：
 
-```sh
-$ npm add -D postcss
-```
+  ```sh
+  $ npm add -D postcss
+  ```
 
-- 创建 `docs/postcss.config.mjs` 并将以下内容
+- 创建 `docs/.postcssrc.cjs` 并将以下内容
 
-```js
-import { postcssIsolateStyles } from 'vitepress'
+  ```js
+  import { postcssIsolateStyles } from 'vitepress'
 
-export default {
-	plugins: [postcssIsolateStyles()],
-}
-```
+  export default {
+  	plugins: [postcssIsolateStyles()],
+  }
+  ```
 
-它在底层使用 [`postcss-prefix-selector`](https://github.com/postcss/postcss-load-config)。你可以像这样传递它的选项：
+  It uses [`postcss-prefix-selector`](https://github.com/postcss/postcss-load-config) under the hood. You can pass its options like this:
 
-```js
-postcssIsolateStyles({
-	includeFiles: [/vp-doc\.css/], // 默认 /base\.css/
-})
-```
+  ```js
+  postcssIsolateStyles({
+  	includeFiles: [/vp-doc\.css/], // defaults to /base\.css/
+  })
+  ```
 
 ## 代码块中的语法高亮 {#syntax-highlighting-in-code-blocks}
 
@@ -475,7 +475,7 @@ export default {
 }
 ```
 
-## 高亮 “错误” 和 “警告” {#errors-and-warnings-in-code-blocks}
+## 高亮“错误”和“警告” {#errors-and-warnings-in-code-blocks}
 
 在某一行添加 `// [!code warning]` 或 `// [!code error]` 注释将会为该行相应的着色。
 
@@ -524,8 +524,6 @@ export default {
 查看 [`markdown` 选项](../reference/site-config#markdown) 获取更多信息。
 
 你可以在你的代码块中添加 `:line-numbers` / `:no-line-numbers` 标记来覆盖在配置中的设置。
-
-你还可以通过在 `:line-numbers` 之后添加 `=` 来自定义起始行号。例如， `:line-numbers=2` 表示代码块中的行号将从“2”开始。
 
 **输入**
 
@@ -595,10 +593,10 @@ const line4 = 'This is line 4'
 
 **输出**
 
-<<< @/snippets/snippet.js{2}
+<<< @/snippets/snippet.js
 
 ::: tip
-`@` 的值对应于源代码根目录，默认情况下是 VitePress 项目根目录，除非配置了 `srcDir`。或者，你也可以从相对路径导入：
+`@` 的值对应于源代码根目录，默认情况下是 VitePress 项目根目录，除非配置了 `srcDir`。或者你也可以从相对路径导入：
 
 ```md
 <<< ../snippets/snippet.js
@@ -728,13 +726,13 @@ export default config
 
 ## 包含 markdown 文件 {#markdown-file-inclusion}
 
-你可以在一个 markdown 文件中包含另一个 markdown 文件，甚至嵌套：
+你可以像这样在一个 markdown 文件中包含另一个 markdown 文件，甚至是内嵌的。
 
-::: tip 提示
-你还可以在 markdown 路径前加上 `@` 前缀，它将充当源根目录。默认情况下它是 VitePress 项目根目录，除非配置了 `srcDir`。
+::: tip
+你也可以使用 `@`，它的值对应于源代码根目录，默认情况下是 VitePress 项目根目录，除非配置了 `srcDir`。
 :::
 
-例如，你可以使用以下方式包含一个相对路径的 markdown 文件：
+例如，你可以这样用相对路径包含 Markdown 文件：
 
 **输入**
 
@@ -743,13 +741,13 @@ export default config
 
 ## Basics {#basics}
 
-<!-- @include: ./parts/basics.md -->
+<!--@include: ./parts/basics.md-->
 ```
 
-**另一个文件** (`parts/basics.md`)
+**部分文件** (`parts/basics.md`)
 
 ```md
-Some getting started stuff.
+一些入门的东西。
 
 ### Configuration {#configuration}
 
@@ -763,7 +761,7 @@ Some getting started stuff.
 
 ## Basics {#basics}
 
-Some getting started stuff.
+一些入门的东西。
 
 ### Configuration {#configuration}
 
@@ -775,19 +773,19 @@ Some getting started stuff.
 **输入**
 
 ```md
-# Docs {#docs}
+# Docs
 
-## Basics {#basics}
+## Basics
 
 <!--@include: ./parts/basics.md{3,}-->
 ```
 
-**另一个文件** (`parts/basics.md`)
+**Part file** (`parts/basics.md`)
 
 ```md
-Some getting started stuff.
+一些入门的东西。
 
-### Configuration {#configuration}
+### Configuration
 
 可以使用 `.foorc.json` 创建。
 ```
@@ -795,22 +793,22 @@ Some getting started stuff.
 **等价代码**
 
 ```md
-# Docs {#docs}
+# Docs
 
-## Basics {#basics}
+## Basics
 
-### Configuration {#configuration}
+### Configuration
 
 可以使用 `.foorc.json` 创建。
 ```
 
-所选行范围的格式可以是： `{3,}`, `{,10}`, `{1,10}`
+所选行范围的格式可以是： `{3,}`、 `{,10}`、`{1,10}`
 
-::: warning 警告
-注意！如果你指定的文件不存在，这将不会产生错误。因此，在使用这个功能的时候请保证内容按预期呈现。
+::: warning
+如果你指定的文件不存在，这将不会产生错误。因此，在使用这个功能的时候请保证内容按预期呈现。
 :::
 
-## Math Equations
+## 数学方程 {#math-equations}
 
 This is currently opt-in. 要启用它, 你需要安装 `markdown-it-mathjax3`，在配置文件中设置`markdown.math` 为 `true`：
 
@@ -834,16 +832,17 @@ export default {
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
 **Maxwell's 方程组:**
-| 方程 | 描述 |
+
+| 方程                                                                                                                                                                      | 描述                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| $\nabla \cdot \vec{\mathbf{B}}  = 0$ | divergence of $\vec{\mathbf{B}}$ is zero |
-| $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$ | curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$ |
-| $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_ |
+| $\nabla \cdot \vec{\mathbf{B}}  = 0$                                                                                                                                      | divergence of $\vec{\mathbf{B}}$ is zero                                               |
+| $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$                                                          | curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$ |
+| $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_                                                                                 |
 ```
 
 **输出**
 
-当 $a \ne 0$, $(ax^2 + bx + c = 0)$ 有两个解，它们是
+当 $a \ne 0$，$(ax^2 + bx + c = 0)$ 有两个解，它们是
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
 **Maxwell's 方程组:**
@@ -875,7 +874,7 @@ module.exports = {
 		toc: { level: [1, 2] },
 
 		config: (md) => {
-			// 使用更多 markdown-it 插件
+			// use more markdown-it plugins!
 			md.use(markdownItFoo)
 		},
 	},

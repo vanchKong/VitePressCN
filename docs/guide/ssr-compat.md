@@ -48,7 +48,7 @@ if (!import.meta.env.SSR) {
 }
 ```
 
-因为 [`Theme.enhanceApp`](./custom-theme#theme-interface) 可以是异步的，所以你可以有条件地导入并注册访问浏览器 API 的 Vue 插件：
+因为 [`Theme.enhanceApp`](/guide/custom-theme#theme-interface) 可以是异步的，所以你可以有条件地导入并注册访问浏览器 API 的 Vue 插件：
 
 ```js
 // .vitepress/theme/index.js
@@ -134,4 +134,4 @@ const ClientComp = defineClientComponent(
 </template>
 ```
 
-目标组件只会在包装组件的 mounted 钩子中导入。
+The target component will only be imported in the mounted hook of the wrapper component.

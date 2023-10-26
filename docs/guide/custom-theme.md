@@ -1,6 +1,6 @@
 # 自定义主题 {#using-a-custom-theme}
 
-## 主题解析 {#theme-resolving}
+## 解析主题 {#theme-resolving}
 
 你可以通过创建一个 `.vitepress/theme/index.js` 或 `.vitepress/theme/index.ts` 文件 (即“主题入口文件”) 来启用自定义主题：
 
@@ -15,7 +15,7 @@
 └─ package.json
 ```
 
-当检测到存在主题入口文件时，VitePress 总会使用自定义主题而不是默认主题。但你可以[扩展默认主题](./extending-default-theme)来在其基础上实现更高级的自定义主题。
+当检测到存在主题入口文件时，VitePress 总会使用自定义主题而不是默认主题。但你可以[拓展默认主题](./extending-default-theme)来在其基础上实现更高级的定制。
 
 ## 主题接口 {#theme-interface}
 
@@ -23,27 +23,27 @@ VitePress 自定义主题被定义为一个对象，该对象具有如下接口�
 
 ```ts
 interface Theme {
-  /**
-   * Root layout component for every page
-   * @required
-   */
-  Layout: Component
-  /**
-   * Enhance Vue app instance
-   * @optional
-   */
-  enhanceApp?: (ctx: EnhanceAppContext) => Awaitable<void>
-  /**
-   * Extend another theme, calling its `enhanceApp` before ours
-   * @optional
-   */
-  extends?: Theme
+	/**
+	 * Root layout component for every page
+	 * @required
+	 */
+	Layout: Component
+	/**
+	 * Enhance Vue app instance
+	 * @optional
+	 */
+	enhanceApp?: (ctx: EnhanceAppContext) => Awaitable<void>
+	/**
+	 * Extend another theme, calling its `enhanceApp` before ours
+	 * @optional
+	 */
+	extends?: Theme
 }
 
 interface EnhanceAppContext {
-  app: App // Vue app instance
-  router: Router // VitePress router instance
-  siteData: Ref<SiteData> // Site-level metadata
+	app: App // Vue app instance
+	router: Router // VitePress router instance
+	siteData: Ref<SiteData> // Site-level metadata
 }
 ```
 
@@ -57,10 +57,10 @@ interface EnhanceAppContext {
 import Layout from './Layout.vue'
 
 export default {
-  Layout,
-  enhanceApp({ app, router, siteData }) {
-    // ...
-  }
+	Layout,
+	enhanceApp({ app, router, siteData }) {
+		// ...
+	},
 }
 ```
 
@@ -75,10 +75,10 @@ export default {
 ```vue
 <!-- .vitepress/theme/Layout.vue -->
 <template>
-  <h1>Custom Layout!</h1>
+	<h1>Custom Layout!</h1>
 
-  <!-- this is where markdown content will be rendered -->
-  <Content />
+	<!-- this is where markdown content will be rendered -->
+	<Content />
 </template>
 ```
 
@@ -186,10 +186,10 @@ export default Theme
 import Theme from 'awesome-vitepress-theme'
 
 export default {
-  extends: Theme,
-  enhanceApp(ctx) {
-    // ...
-  }
+	extends: Theme,
+	enhanceApp(ctx) {
+		// ...
+	},
 }
 ```
 
@@ -200,8 +200,8 @@ export default {
 import baseConfig from 'awesome-vitepress-theme/config'
 
 export default {
-  // extend theme base config (if needed)
-  extends: baseConfig
+	// extend theme base config (if needed)
+	extends: baseConfig,
 }
 ```
 
@@ -214,9 +214,9 @@ import { defineConfigWithTheme } from 'vitepress'
 import type { ThemeConfig } from 'awesome-vitepress-theme'
 
 export default defineConfigWithTheme<ThemeConfig>({
-  extends: baseConfig,
-  themeConfig: {
-    // Type is `ThemeConfig`
-  }
+	extends: baseConfig,
+	themeConfig: {
+		// Type is `ThemeConfig`
+	},
 })
 ```

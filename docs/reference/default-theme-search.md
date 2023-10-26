@@ -6,8 +6,7 @@ outline: deep
 
 ## 本地搜索 {#local-search}
 
-得益于 [minisearch](https://github.com/lucaong/minisearch/)，VitePress 支持使用浏览器内索引进行模糊全文搜索。
-要启用此功能，只需在 `.vitepress/config.ts` 文件中将 `themeConfig.search.provider` 选项设置为 `'local'` 即可：
+得益于 [minisearch](https://github.com/lucaong/minisearch/)，VitePress 支持使用浏览器内索引进行模糊全文搜索。要启用此功能，只需在 `.vitepress/config.ts` 文件中将 `themeConfig.search.provider` 选项设置为 `'local'` 即可：
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -63,11 +62,9 @@ export default defineConfig({
 })
 ```
 
-### 迷你搜索选项 {#miniSearch-options}
+### MiniSearch 配置项 {#mini-search-options}
 
-- key `miniSearch`
-
-你可以像这样配置迷你搜索选项
+你可以像这样配置 MiniSearch ：
 
 ```ts
 import { defineConfig } from 'vitepress'
@@ -99,7 +96,7 @@ export default defineConfig({
 })
 ```
 
-查阅更多 [MiniSearch docs](https://lucaong.github.io/minisearch/classes/_minisearch_.minisearch.html).
+在 [MiniSearch docs](https://lucaong.github.io/minisearch/classes/_minisearch_.minisearch.html)了解更多信息。
 
 ### 自定义渲染内容 {#custom-content-renderer}
 
@@ -131,7 +128,6 @@ export default defineConfig({
 
 #### 示例：从搜索中排除页面 {#example-excluding-pages-from-search}
 
-你可以通过将 `search: false` 添加到页面的 frontmatter 来从搜索中排除页面。或者，你还可以将 `exclude` 函数传递给 `themeConfig.search.options`，以根据相对于 `srcDir` 的路径排除页面：
 你可以通过将 `search: false` 添加到页面的 `frontmatter` 来从搜索中排除页面。或者：
 
 ```ts
@@ -208,7 +204,6 @@ export default defineConfig({
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-	// ...
 	themeConfig: {
 		search: {
 			provider: 'algolia',

@@ -1,6 +1,6 @@
 # 侧边栏 {#sidebar}
 
-侧边栏是文档的主要导航块。 你可以在 [`themeConfig.sidebar`](./default-theme-config#sidebar) 中配置侧边栏菜单。
+侧边栏是文档的主要导航块。你可以在 [`themeConfig.sidebar`](./default-theme-config#sidebar) 中配置侧边栏菜单。
 
 ```js
 export default {
@@ -179,7 +179,6 @@ export default {
     ]
   }
 }
-
 ```
 
 ## `useSidebar` <Badge type="info" text="composable" />
@@ -201,7 +200,7 @@ export interface DocSidebar {
 }
 ```
 
-**示例：**
+**Example:**
 
 ```vue
 <script setup>
@@ -211,6 +210,6 @@ const { hasSidebar } = useSidebar()
 </script>
 
 <template>
-	<div v-if="hasSidebar">仅当侧边栏存在时展示</div>
+	<div v-if="hasSidebar">仅当侧边栏存在时显示</div>
 </template>
 ```

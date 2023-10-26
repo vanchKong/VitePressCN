@@ -5,7 +5,7 @@
 值得注意的是，VitePress 利用 Vue 的编译器自动检测和优化 Markdown 内容的纯静态部分。静态内容被优化为单个占位符节点，并从页面的 JavaScript 负载中删除以供初始访问。在客户端激活期间也会跳过它们。简而言之，你只需注意任何给定页面上的动态部分。
 
 ::: tip SSR 兼容性
-所有的 Vue 用法都需要兼容 SSR。参阅 [SSR 兼容性](./ssr-compat)获得更多信息和常见的解决方案。
+所有的 Vue 用法都需要兼容 SSR。参见 [SSR 兼容性](./ssr-compat)获得更多信息和常见的解决方案。
 :::
 
 ## 模板化 {#templating}
@@ -65,7 +65,7 @@ hello: world
 </style>
 ```
 
-::: warning 避免在 Markdown 中使用 `<style scoped>`
+:::warning 避免在 Markdown 中使用 `<style scoped>`
 在 Markdown 中使用时，`<style scoped>` 需要为当前页面的每个元素添加特殊属性，这将显著增加页面的大小。当我们需要局部范围的样式时 `<style module>` 是首选。
 :::
 
@@ -109,7 +109,7 @@ import CustomComponent from '../../components/CustomComponent.vue'
 
 # Docs
 
-This is a .md using a custom component
+这是一个使用自定义组件的 .md
 
 <CustomComponent />
 
@@ -123,7 +123,7 @@ This is a .md using a custom component
 如果一个组件要在大多数页面上使用，可以通过自定义 Vue 实例来全局注册它们。有关示例，请参见[扩展默认主题](./extending-default-theme#registering-global-components)中的相关部分。
 
 ::: warning 重要
-确保自定义组件的名称包含连字符或采用 PascalCase。否则，它将被视为内联元素并包裹在 `<p>` 标签内，这将导致 [hydration(HTML 添加交互的过程)](https://blog.csdn.net/qq_41800366/article/details/117738916) mismatch，因为 `<p>` 不允许将块元素放置在其中。
+确保自定义组件的名称包含连字符或采用 PascalCase。否则，它将被视为内联元素并包裹在 `<p>` 标签内，这将导致激活不匹配，因为 `<p>` 不允许将块元素放置在其中。
 :::
 
 ### 在标题中使用组件 <ComponentInHeader /> {#using-components-in-headers}
@@ -161,7 +161,7 @@ This <span v-pre>{{ will be displayed as-is }}</span>
 
 ```md
 ::: v-pre
-{{ This will be displayed as-is }}
+{{ This will be displayed as-is }}`
 :::
 ```
 
@@ -192,8 +192,6 @@ Hello {{ 1 + 1 }}
 ```js-vue
 Hello {{ 1 + 1 }}
 ```
-
-请注意，这可能会阻止某些标记被语法正确高亮显示。
 
 ## 使用 CSS 预处理器 {#using-css-pre-processors}
 

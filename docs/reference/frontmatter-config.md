@@ -26,7 +26,7 @@ editLink: true
 - key: `title`
 - Type: `string`
 
-Title for the page. It's same as [config.title](./site-config#title), and it overrides the site-level config.
+页面的标题。它与 [config.title](./site-config#title) 相同，并且覆盖站点级配置。
 
 ```yaml
 ---
@@ -34,7 +34,7 @@ title: VitePress
 ---
 ```
 
-## 标题模板 {#titletemplate}
+## 标题模板 {#title-template}
 
 - key: `titleTemplate`
 - Type: `string | boolean`
@@ -114,13 +114,13 @@ layout: doc
 
 定义当`layout` 设置为 `home` 时要在 features 部分中显示的项目。更多详细信息：[默认主题：主页](./default-theme-home-page)。
 
-### 顶部导航条 {#navbar}
+### 导航栏 {#navbar}
 
-- key: `navbar`
+- Key: `navbar`
 - Type: `boolean`
 - Default: `true`
 
-是否显示 [顶部导航条](./default-theme-nav).
+是否显示[导航栏](./default-theme-nav)。
 
 ```yaml
 ---
@@ -128,13 +128,13 @@ navbar: false
 ---
 ```
 
-### 侧边导航 {#sidebar}
+### 侧边栏 {#sidebar}
 
-- key: `sidebar`
+- Key: `sidebar`
 - Type: `boolean`
 - Default: `true`
 
-是否显示 [侧边导航](./default-theme-sidebar).
+是否显示 [侧边栏](./default-theme-sidebar).
 
 ```yaml
 ---
@@ -148,11 +148,11 @@ sidebar: false
 - Type: `boolean | 'left'`
 - Default: `true`
 
-定义 aside 组件在 `doc` 布局中的位置。
+定义侧边栏组件在 `doc` 布局中的位置。
 
-将此值设置为 `false` 可禁用 aside 容器。\
-将此值设置为 `true` 会将 aside 渲染到右侧。\
-将此值设置为 `left` 会将 aside 渲染到左侧。
+将此值设置为 `false` 可禁用侧边栏容器。\
+将此值设置为 `true` 会将侧边栏渲染到右侧。\
+将此值设置为 `left` 会将侧边栏渲染到左侧。
 
 ```yaml
 ---
@@ -168,7 +168,7 @@ aside: false
 
 大纲中显示的标题级别。它与 [config.themeConfig.outline.level](./default-theme-config#outline) 相同，它会覆盖站点级的配置。
 
-### 最近更新时间 {#lastupdated}
+### 最近更新时间 {#last-updated}
 
 - key: `lastUpdated`
 - Type: `boolean | Date`
@@ -182,7 +182,7 @@ lastUpdated: false
 ---
 ```
 
-### 编辑链接 {#editlink}
+### 编辑链接 {#edit-link}
 
 - key: `editLink`
 - Type: `boolean`
@@ -196,13 +196,13 @@ editLink: false
 ---
 ```
 
-### 页脚 <Badge type="info" text="default theme only" />
+### 页脚 {#footer}
 
-- key: `footer`
+- Key: `footer`
 - Type: `boolean`
 - Default: `true`
 
-是否显示[页脚](./default-theme-footer)。
+是否显示 [页脚](./default-theme-footer).
 
 ```yaml
 ---

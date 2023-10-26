@@ -102,7 +102,7 @@ export default {
 
 页面标题就是 `Hello | My Awesome Site`.
 
-### 标题模板 {#titletemplate}
+### 标题模板 {#title-template}
 
 - key: `titleTemplate`
 - Type: `string | boolean`
@@ -158,7 +158,6 @@ export default {
 - 每个页面可以通过 [frontmatter](./frontmatter-config#head) 添加
 
 ::: details 要在页面 HTML 的 `<head>` 标记中呈现的其他元素。用户添加的标签在结束 `head` 标签之前呈现，在 VitePress 标签之后。
-Additional elements to render in the `<head>` tag in the page HTML. The user-added tags are rendered before the closing `head` tag, after VitePress tags.
 :::
 
 ```ts
@@ -283,7 +282,7 @@ export default {
 
 ## 路由 {#routing}
 
-### 简洁 URL {#cleanurls}
+### 简洁 URL {#clean-urls}
 
 - key: `cleanUrls`
 - Type: `boolean`
@@ -358,10 +357,11 @@ export default {
 
 ### assetsDir
 
+- key: `assetsDir`
 - Type: `string`
 - Default: `assets`
 
-静态资源目录。另参阅: [assetsDir](https://vitejs.dev/config/build-options.html#build-assetsdir).
+静态资源的目录。另请参阅：[assetsDir](https://vitejs.dev/config/build-options.html#build-assetsdir)。
 
 ```ts
 export default {
@@ -375,7 +375,7 @@ export default {
 - Type: `string`
 - Default: `./.vitepress/cache`
 
-缓存文件的目录，相对于[项目根目录](../guide/routing#root-and-source-directory)。另请参阅：[vite: cacheDir](https://cn.vitejs.dev/config/shared-options)。
+缓存文件的目录，相对于[项目根目录](../guide/routing#root-and-source-directory)。另请参阅：[cacheDir](https://vitejs.dev/config/shared-options.html#cachedir)。
 
 ```ts
 export default {
@@ -383,7 +383,7 @@ export default {
 }
 ```
 
-### 忽略死链 {#ignoredeadlinks}
+### 忽略死链 {#ignore-dead-links}
 
 - key: `ignoreDeadLinks`
 - Type: `boolean | 'localhostLinks' | (string | RegExp | ((link: string) => boolean))[]`
@@ -446,7 +446,7 @@ When set to `true`, the production app will be built in [MPA Mode](../guide/mpa-
 
 `appearance.initialValue` 只能是 `'dark' | undefined`。 不支持 Refs 或 getters。
 
-### 最近更新时间 {#lastupdated}
+### 最近更新时间 {#last-updated}
 
 - key: `lastUpdated`
 - Type: `boolean`
@@ -463,13 +463,12 @@ When set to `true`, the production app will be built in [MPA Mode](../guide/mpa-
 - key: `markdown`
 - Type: `MarkdownOption`
 
-配置 Markdown 解析器选项。 VitePress 使用 [Markdown-it](https://github.com/markdown-it/markdown-it) 作为解析器，使用 [Shiki](https://shiki.matsu.io/) 来高亮不同语言语法。在此选项中，你可以传递各种 Markdown 相关选项以满足你的需要。
+配置 Markdown 解析器选项。VitePress 使用 [Markdown-it](https://github.com/markdown-it/markdown-it) 作为解析器，使用 [Shiki](https://shiki.matsu.io/) 来高亮不同语言语法。在此选项中，你可以传递各种 Markdown 相关选项以满足你的需要。
 
 ```js
 export default {
   markdown: {...}
 }
-
 ```
 
 以下是你可以在此对象中可配置的所有选项：
@@ -540,6 +539,15 @@ interface MarkdownOptions extends MarkdownIt.Options {
 	// You can also pass options to `markdown-it-mathjax3` here.
 	// See: https://github.com/tani/markdown-it-mathjax3#customization
 	math?: any
+
+	// Global custom container titles
+	container?: {
+		infoLabel?: string
+		tipLabel?: string
+		warningLabel?: string
+		dangerLabel?: string
+		detailsLabel?: string
+	}
 }
 ```
 
@@ -630,7 +638,7 @@ interface SSGContext {
 
 `transformHead` 是一个构建钩子，用于在生成每个页面之前转换 head。它将允许你添加无法静态添加到你的 VitePress 配置中的 head entries。你只需要返回额外的 entries，它们将自动与现有 entries 合并。
 
-::: warning 警告
+::: warning
 不要改变 `context` 中的任何东西。
 :::
 
@@ -656,7 +664,7 @@ interface TransformContext {
 }
 ```
 
-请注意，仅在静态生成站点时才会调用此挂钩。在开发期间不会调用它。如果你需要在开发期间添加动态头条目，你可以使用 [`transformPageData`](#transformpagedata) 钩子来替代：
+请注意，仅在静态生成站点时才会调用此挂钩。在开发期间不会调用它。如果您需要在开发期间添加动态头条目，您可以使用 [`transformPageData`](#transformpagedata) 钩子来替代：
 
 ```ts
 export default {
@@ -699,8 +707,8 @@ export default {
 
 `transformPageData` 是一个钩子，用于转换每个页面的 `pageData`。你可以直接改变 `pageData` 或返回将合并到 `PageData` 中的更改值。
 
-::: warning 警告
-不要改变 `context` 中的任何东西。请注意，这可能会影响开发服务器的性能，特别是当你在钩子中有一些网络请求或大量计算（例如生成图像）时。你可以通过判断 `process.env.NODE_ENV === 'production'` 匹配符合条件的情况。
+::: warning
+不要改变 `context` 中的任何东西。请注意，这可能会影响开发服务器的性能，特别是当您在钩子中有一些网络请求或大量计算（例如生成图像）时。您可以通过判断 `process.env.NODE_ENV === 'production'` 匹配符合条件的情况。
 :::
 
 ```ts

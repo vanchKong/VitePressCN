@@ -52,13 +52,13 @@ $ bun add -D vitepress
 :::
 
 ::: tip 注意
-VitePress 是仅 ESM 的软件包。不要使用 `require()` 导入它，并确保最新的 `package.json` 包含 `"type": "module"`，或者更改相关文件的文件扩展名，例如`.vitepress/config.js` 到 `.mjs`/`.mts`。更多详情请参考[Vite 故障排除指南](http://vitejs.dev/guide/troubleshooting.html#this-package-is-esm-only)。此外，在异步 CJS 上下文中，你可以使用 `await import('vitepress')` 代替。
+VitePress 是仅 ESM 的软件包。不要使用 `require()` 导入它，并确保最新的 `package.json` 包含 `"type": "module"`，或者更改相关文件的文件扩展名，例如`.vitepress/config.js` 到 `.mjs`/`.mts`。更多详情请参考[Vite 故障排除指南](http://vitejs.dev/guide/troubleshooting.html#this-package-is-esm-only)。此外，在异步 CJS 上下文中，您可以使用 `await import('vitepress')` 代替。
 
 :::
 
 ### 安装向导 {#setup-wizard}
 
-VitePress 附带一个命令行设置向导，可以帮助你构建一个基本项目。安装后，通过运行以下命令启动向导：
+VitePress 附带一个命令行设置向导，可以帮助您构建一个基本项目。安装后，通过运行以下命令启动向导：
 
 ::: code-group
 
@@ -70,13 +70,17 @@ $ npx vitepress init
 $ pnpm dlx vitepress init
 ```
 
+```sh [bun]
+$ bunx vitepress init
+```
+
 :::
 
 你将需要回答几个简单的问题：
 
 <<< @/snippets/init.ansi
 
-::: tip Vue as Peer Dependency
+:::tip Vue 作为
 如果打算使用 Vue 组件或 API 进行自定义，还应该明确地将 `vue` 安装为 peer dependency。
 :::
 
@@ -99,7 +103,7 @@ $ pnpm dlx vitepress init
 
 `docs` 目录作为 VitePress 站点的项目**根目录**。`.vitepress` 目录是 VitePress 配置文件、开发服务器缓存、构建输出和可选主题自定义代码的位置。
 
-::: tip 提示
+:::tip
 默认情况下，VitePress 将其开发服务器缓存存储在 `.vitepress/cache` 中，并将生产构建输出存储在 `.vitepress/dist` 中。如果使用 Git，应该将它们添加到 `.gitignore` 文件中。也可以手动[配置](../reference/site-config#outdir)这些位置。
 :::
 
@@ -130,7 +134,7 @@ VitePress 使用 **基于文件的路由**：每个 `.md` 文件将在相同的�
 
 VitePress 还提供了生成简洁 URL、重写路径和动态生成页面的能力。这些将在[路由指南](./routing)中进行介绍。
 
-## 运行 {#up-and-running}
+## 启动并运行 {#up-and-running}
 
 该工具还应该将以下 npm 脚本注入到 `package.json` 中：
 
@@ -162,6 +166,10 @@ $ pnpm run docs:dev
 $ yarn docs:dev
 ```
 
+```sh [bun]
+$ bun run docs:dev
+```
+
 :::
 
 除了 npm 脚本，还可以直接调用 VitePress：
@@ -174,6 +182,10 @@ $ npx vitepress dev docs
 
 ```sh [pnpm]
 $ pnpm exec vitepress dev docs
+```
+
+```sh [bun]
+$ bunx vitepress dev docs
 ```
 
 :::
