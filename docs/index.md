@@ -11,13 +11,13 @@ hero:
   actions:
     - theme: brand
       text: 认识 VitePress
-      link: /guide/getting-started
+      link: /zh/guide/what-is-vitepress
     - theme: alt
       text: GitHub
       link: https://github.com/vuejs/vitepress
   image:
-    src: /vitepress-logo-large.webp
-    alt: VitePress
+      src: /vitepress-logo-large.webp
+      alt: VitePress
 
 features:
   - icon: 📝
@@ -33,7 +33,6 @@ features:
     title: 速度真的很快！
     details: 采用静态 HTML 实现快速的页面初次加载，使用客户端路由实现快速的页面切换导航。
 ---
-
 <style>
 :root {
   --vp-home-hero-name-color: transparent;
