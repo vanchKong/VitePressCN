@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 认识 VitePress
-      link: /zh/guide/what-is-vitepress
+      link: /guide/what-is-vitepress
     - theme: alt
       text: GitHub
       link: https://github.com/vuejs/vitepress
